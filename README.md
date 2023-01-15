@@ -10,7 +10,7 @@
 | Ayman Mansoor               | 40108719   | AymanMansoor | TBD                               |
 | Krishnna Shanmugam          | 40099936   |              | TBD                               |
 | Tomas Clark Dumoulin        | 40096927   |              | TBD                               |
-| Martin Marcos               | 40041398   |              | TBD                               |
+| Martin Marcos               | 40041398   | progMartin   | TBD                               |
 | Ashiqur Rahman              | 40096265   | AshiwhoIam   | TBD                               |
 | Tasnim Niloy                | 40169821   | Promass      | TBD                               |
 | Sonia Rahal                 | 40211893   |              | TBD                               |
