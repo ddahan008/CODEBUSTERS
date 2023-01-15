@@ -9,11 +9,11 @@
 | David-Salomon Dahan         | 40159157   | ddahan008    | TBD                               |
 | Ayman Mansoor               | 40108719   | AymanMansoor | TBD                               |
 | Krishnna Shanmugam          | 40099936   |              | TBD                               |
-| Tomas Clark Dumoulin        | 40096927   |              | TBD                               |
+| Tomas Clark Dumoulin        | 40096927   | T-Clark-D    | TBD                               |
 | Martin Marcos               | 40041398   | progMartin   | TBD                               |
 | Ashiqur Rahman              | 40096265   | AshiwhoIam   | TBD                               |
 | Tasnim Niloy                | 40169821   | Promass      | TBD                               |
-| Sonia Rahal                 | 40211893   |              | TBD                               |
+| Sonia Rahal                 | 40211893   | soni2261     | TBD                               |
 
 ## Objective 
 The objective of this project is to offer users a simplified LinkedIn-like app and its companion Website
