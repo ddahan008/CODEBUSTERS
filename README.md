@@ -11,7 +11,7 @@
 | Krishnna Shanmugam          | 40099936   |              | TBD                               |
 | Tomas Clark Dumoulin        | 40096927   |              | TBD                               |
 | Martin Marcos               | 40041398   |              | TBD                               |
-| Ashiqur Rahman              | 40096265   |              | TBD                               |
+| Ashiqur Rahman              | 40096265   | AshiwhoIam   | TBD                               |
 | Tasnim Niloy                | 40169821   |              | TBD                               |
 | Sonia Rahal                 | 40211893   |              | TBD                               |
 
