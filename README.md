@@ -8,7 +8,7 @@
 | Emilie Rosenthal-Bustamante | 40134421   | emrb9        | TBD                               |
 | David-Salomon Dahan         | 40159157   | ddahan008    | TBD                               |
 | Ayman Mansoor               | 40108719   | AymanMansoor | TBD                               |
-| Krishnna Shanmugam          | 40099936   |              | TBD                               |
+| Krishnna Shanmugam          | 40099936   | krishnnas    | TBD                               |
 | Tomas Clark Dumoulin        | 40096927   | T-Clark-D    | TBD                               |
 | Martin Marcos               | 40041398   | progMartin   | TBD                               |
 | Ashiqur Rahman              | 40096265   | AshiwhoIam   | TBD                               |
