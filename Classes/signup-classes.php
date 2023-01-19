@@ -20,7 +20,7 @@ class Signup extends Dbh {
             exit();
         }
 
-        if ($this->usernameTaken() == true) {
+        if ($this->userExistance($this->username) == true) {
             header("location: ../signup.php?msg=useralreadyexist");
             exit();
         }
@@ -35,18 +35,6 @@ class Signup extends Dbh {
         }
         else {
             $result = true;
-        }
-
-        return $result;
-    }
-
-    private function usernameTaken() {
-        $result = false;
-        if ($this->userExistance($this->username)) {
-            $result = true;
-        }
-        else {
-            $result = false;
         }
 
         return $result;

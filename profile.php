@@ -3,14 +3,14 @@
 session_start();
 
 if (!isset($_SESSION["username"])) {
-    header("location: index.php?msg=unauthorised");
+    header("location: Includes/signout-inc.php?reason=unauthorised");
 } 
 else {
     include_once "Includes/timeout-inc.php";
 
     //This if statement makes sure that the user did not time out
     if (!checkTimeOut()) {
-        header("location: Includes/logout-inc.php?reason=sessiontimedout");
+        header("location: Includes/signout-inc.php?reason=sessiontimedout");
     }
 }
 

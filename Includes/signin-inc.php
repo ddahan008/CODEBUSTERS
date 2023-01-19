@@ -1,3 +1,6 @@
+<!-- Page Name: signin-inc.php -->
+<!-- Description: Once the user click sign in in the index.php page, this script will run -->
+
 <?php
 
 if(isset($_POST["submit"])) {

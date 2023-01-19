@@ -1,5 +1,5 @@
 <!-- Page Name: signup-inc.php -->
-<!-- Description: Once the admin clickes "Create Account" in the adm-accounts.php page, this script will run. -->
+<!-- Description: Once the admin clickes sign up in the signup.php page, this script will run. -->
 
 <?php
 

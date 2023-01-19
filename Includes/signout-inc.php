@@ -1,5 +1,5 @@
 <!-- Page Name: signout-inc.php -->
-<!-- Description: Once the user click sign out on the sidebar, this script will run -->
+<!-- Description: Once the user click sign out in the profile.php page, this script will run -->
 
 <?php 
 
@@ -21,9 +21,6 @@ if (isset($_GET["reason"])) {
     }
     else if ($_GET["reason"] == "sessiontimedout") {
         header("location: ../index.php?msg=sessiontimedout");
-    }
-    else {
-        header("location: ../index.php");
     }
 }
 
