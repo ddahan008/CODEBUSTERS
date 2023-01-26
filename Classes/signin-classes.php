@@ -1,16 +1,16 @@
 <!-- Page Name: signin-classes.php -->
-<!-- Description: This page contains a class does username and password verification and logs in the user. -->
+<!-- Description: This page contains a class does email and password verification and logs in the user. -->
 
 <?php
 
 class Signin extends Dbh {
     //This class is the child of the Dbh class. It uses it's parent to connect to the database. Once connected, this class matches the user given password with the password present in the database. If they match, the user is taken to their specific pages. If it does not match the user stays at the login screen.
 
-    private $username;
+    private $email;
     private $password;
 
-    public function __construct($username, $password) {
-        $this->username = $username;
+    public function __construct($email, $password) {
+        $this->email = $email;
         $this->password = $password;
     }
 
@@ -19,13 +19,17 @@ class Signin extends Dbh {
             header("location: ../index.php?msg=emptyinput");
             exit();
         }
+        else if ($this->validateEmail() == false) {
+            header("location: ../index.php?msg=invalidemail");
+            exit();
+        }
 
-        $this->getUser($this->username, $this->password);
+        $this->getUser($this->email, $this->password);
     }
 
-    private function emptyInput() {
+    private function validateEmail() {
         $result = false;
-        if (empty($this->username) || empty($this->password)) {
+        if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
             $result = false;
         }
         else {
@@ -35,10 +39,22 @@ class Signin extends Dbh {
         return $result;
     }
 
-    private function getUser($username, $password) {
-        $stmt = $this->connect()->prepare('SELECT pwd FROM users WHERE username = ?');
+    private function emptyInput() {
+        $result = false;
+        if (empty($this->email) || empty($this->password)) {
+            $result = false;
+        }
+        else {
+            $result = true;
+        }
 
-        if (!$stmt->execute(array($username))) {
+        return $result;
+    }
+
+    private function getUser($email, $password) {
+        $stmt = $this->connect()->prepare('SELECT pwd FROM users WHERE email = ?');
+
+        if (!$stmt->execute(array($email))) {
             $stmt = null;
             header("location: ../index.php?msg=stmtfailed");
             exit();
@@ -50,12 +66,13 @@ class Signin extends Dbh {
             exit();
         }
 
-        $pwd = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $hashedPassword = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $verifyPassword = password_verify($password, $hashedPassword[0]["pwd"]);
 
-        if ($password == $pwd[0]["pwd"]) {
-            $nextstmt = $this->connect()->prepare('SELECT * FROM users WHERE username = ? AND pwd = ?');
+        if ($verifyPassword == true) {
+            $nextstmt = $this->connect()->prepare('SELECT * FROM users WHERE email = ? AND pwd = ?');
 
-            if (!$nextstmt->execute(array($username, $password))) {
+            if (!$nextstmt->execute(array($email, $hashedPassword[0]["pwd"]))) {
                 $nextstmt = null;
                 header("location: ../index.php?msg=stmtfailed");
                 exit();
@@ -70,8 +87,8 @@ class Signin extends Dbh {
             $curruser = $nextstmt->fetchAll(PDO::FETCH_ASSOC);
 
             session_start();
-            $_SESSION["username"] = $curruser[0]["username"];
-            $_SESSION["password"] = $curruser[0]["pwd"];
+            $_SESSION["email"] = $curruser[0]["email"];
+            $_SESSION["password"] = $password;
             $_SESSION["active-timestamp"] = time();
             $_SESSION["timeout"] = 1800; //This determines the time (seconds) any user can stay logged in without activity
 

@@ -6,22 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="signup.css" rel="stylesheet">
 </head>
 
-<body style="height: 100%; display: flex; justify-content: center; align-items: center;">
+<body>
 
-    <div style="width: 500px; background: blue; padding: 20px;">
+    <div class="Signup-box">
+        <h3 style="margin-bottom: 40px;">Connect With Our Professional <span class="Color-5568FE">Community!</span></h3>
         <form action="Includes/signup-inc.php" method="post">
-            <div class="form-floating">
-                <input type="text" class="form-control" id="username" placeholder="Enter username" name="username" autocomplete="off" maxlength = "19">
-                <label for="username">Username</label>
+            <div class="form-floating Signup-form">
+                <input type="text" class="form-control" id="email" placeholder="Enter email" name="email" autocomplete="off">
+                <label for="email">Email</label>
             </div>
-            <div class="form-floating">
-                <input type="text" class="form-control" id="password" placeholder="Enter password" name="password" autocomplete="off">
+            <div class="form-floating Signup-form">
+                <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" autocomplete="off">
                 <label for="password">Password</label>
             </div>
-            <button type="submit" name="signup">Create Account</button>
-            <a href="index.php" style="color: black;">Already have an account? Sign in</a>
+            <div style="text-align: right;"><a href="">Terms And Conditions</a></div>
+            <button type="submit" name="signup" class="Button">Sign Up</button>
+            <div>Don't have an account? <a href="index.php">Sign In</a></div>
         </form>
     </div>
 

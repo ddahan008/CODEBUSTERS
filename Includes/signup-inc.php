@@ -7,12 +7,12 @@ session_start();
 
 if(isset($_POST["signup"])) {
 
-    $username = $_POST["username"];
+    $email = $_POST["email"];
     $password = $_POST["password"];
 
     include_once "../Classes/dbh-classes.php";
     include_once "../Classes/signup-classes.php";
-    $signup = new Signup($username, $password);
+    $signup = new Signup($email, $password);
 
     //This object will call the signupUser function which will initiate the user creation process.
     $signup->signupUser();

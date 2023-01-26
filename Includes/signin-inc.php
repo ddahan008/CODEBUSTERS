@@ -3,14 +3,14 @@
 
 <?php
 
-if(isset($_POST["submit"])) {
+if(isset($_POST["signin"])) {
 
-    $username = $_POST["username"];
+    $email = $_POST["email"];
     $password = $_POST["password"];
 
     include_once "../Classes/dbh-classes.php";
     include_once "../Classes/signin-classes.php";
-    $signin = new Signin($username, $password);
+    $signin = new Signin($email, $password);
 
     $signin->signinUser();
     

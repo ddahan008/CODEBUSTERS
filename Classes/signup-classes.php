@@ -1,16 +1,16 @@
 <!-- Page Name: signup-classes.php -->
-<!-- Description: This page contains a class which creates a new user and puts it into the database (if the username does not already exist) -->
+<!-- Description: This page contains a class which creates a new user and puts it into the database (if the email does not already exist) -->
 
 <?php
 
 class Signup extends Dbh {
     //This class is the child of the Dbh class. It uses it's parent to connect to the database. Once connected, this class creates a new user in the database.
     
-    private $username;
+    private $email;
     private $password;
 
-    public function __construct($username, $password) {
-        $this->username = $username;
+    public function __construct($email, $password) {
+        $this->email = $email;
         $this->password = $password;
     }
 
@@ -19,18 +19,21 @@ class Signup extends Dbh {
             header("location: ../signup.php?msg=emptyinput");
             exit();
         }
-
-        if ($this->userExistance($this->username) == true) {
+        else if ($this->userExistance($this->email) == true) {
             header("location: ../signup.php?msg=useralreadyexist");
             exit();
         }
+        else if ($this->validateEmail() == false) {
+            header("location: ../index.php?msg=invalidemail");
+            exit();
+        }
 
-        $this->setUser($this->username, $this->password);
+        $this->setUser($this->email, $this->password);
     }
 
-    private function emptyInput() {
+    private function validateEmail() {
         $result = false;
-        if (empty($this->username) || empty($this->password)) {
+        if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
             $result = false;
         }
         else {
@@ -40,10 +43,23 @@ class Signup extends Dbh {
         return $result;
     }
 
-    private function userExistance($username) {
-        $stmt = $this->connect()->prepare('SELECT * FROM users WHERE username = ?;');
 
-        if (!$stmt->execute(array($username))) {
+    private function emptyInput() {
+        $result = false;
+        if (empty($this->email) || empty($this->password)) {
+            $result = false;
+        }
+        else {
+            $result = true;
+        }
+
+        return $result;
+    }
+
+    private function userExistance($email) {
+        $stmt = $this->connect()->prepare('SELECT * FROM users WHERE email = ?;');
+
+        if (!$stmt->execute(array($email))) {
             $stmt = null;
             header("location: ../signup.php?msg=stmtfailed");
             exit();
@@ -57,10 +73,12 @@ class Signup extends Dbh {
         return $userExist;
     }
 
-    private function setUser($username, $password) {
-        $stmt = $this->connect()->prepare('INSERT INTO users (username, pwd) VALUES (?, ?);');
+    private function setUser($email, $password) {
+        $stmt = $this->connect()->prepare('INSERT INTO users (email, pwd) VALUES (?, ?);');
 
-        if (!$stmt->execute(array($username, $password))) {
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+        if (!$stmt->execute(array($email, $hashedPassword))) {
             $stmt = null;
             header("location: ../signup.php?msg=stmtfailed");
             exit();
