@@ -17,14 +17,13 @@ class Signin extends Dbh {
     public function signinUser() {
         if ($this->emptyInput() == false) {
             header("location: ../index.php?msg=emptyinput");
-            exit();
         }
         else if ($this->validateEmail() == false) {
             header("location: ../index.php?msg=invalidemail");
-            exit();
         }
-
-        $this->getUser($this->email, $this->password);
+        else {
+            $this->getUser($this->email, $this->password);
+        }
     }
 
     private function validateEmail() {
@@ -57,13 +56,13 @@ class Signin extends Dbh {
         if (!$stmt->execute(array($email))) {
             $stmt = null;
             header("location: ../index.php?msg=stmtfailed");
-            exit();
+            
         }
 
         if ($stmt->rowCount() == 0) {
             $stmt = null;
             header("location: ../index.php?msg=usernotfound");
-            exit();
+            
         }
 
         $hashedPassword = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -75,13 +74,13 @@ class Signin extends Dbh {
             if (!$nextstmt->execute(array($email, $hashedPassword[0]["pwd"]))) {
                 $nextstmt = null;
                 header("location: ../index.php?msg=stmtfailed");
-                exit();
+                
             }
     
             if ($nextstmt->rowCount() == 0) {
                 $nextstmt = null;
                 header("location: ../index.php?msg=usernotfound");
-                exit();
+                
             }
 
             $curruser = $nextstmt->fetchAll(PDO::FETCH_ASSOC);
@@ -96,7 +95,7 @@ class Signin extends Dbh {
         }
         else {
             header("location: ../index.php?msg=wrongpassword");
-            exit();
+            
         }
     }
 }
