@@ -17,18 +17,19 @@ class Signup extends Dbh {
     public function signupUser() {
         if ($this->emptyInput() == false) {
             header("location: ../signup.php?msg=emptyinput");
-            exit();
+            
         }
         else if ($this->userExistance($this->email) == true) {
             header("location: ../signup.php?msg=useralreadyexist");
-            exit();
+            
         }
         else if ($this->validateEmail() == false) {
             header("location: ../index.php?msg=invalidemail");
-            exit();
+            
         }
-
-        $this->setUser($this->email, $this->password);
+        else {
+            $this->setUser($this->email, $this->password);
+        }
     }
 
     private function validateEmail() {
@@ -62,7 +63,7 @@ class Signup extends Dbh {
         if (!$stmt->execute(array($email))) {
             $stmt = null;
             header("location: ../signup.php?msg=stmtfailed");
-            exit();
+            
         }
 
         $userExist = false;
@@ -81,7 +82,6 @@ class Signup extends Dbh {
         if (!$stmt->execute(array($email, $hashedPassword))) {
             $stmt = null;
             header("location: ../signup.php?msg=stmtfailed");
-            exit();
         }
 
         $stmt = null;

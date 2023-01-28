@@ -1,0 +1,5 @@
+vendor/
+composer*
+phpunit.xml
+README.md
+.phpunit.result.cache
