@@ -4,15 +4,15 @@
 ## Team Members 
 | Student Name                | Student ID | Username     | Role                              |
 | --------------------------- | ---------- | ------------ | --------------------------------- |
-| Emilie Rosenthal-Bustamante | 40134421   | emrb9        | TBD                               |
-| David-Salomon Dahan         | 40159157   | ddahan008    | TBD                               |
-| Ayman Mansoor               | 40108719   | AymanMansoor | TBD                               |
-| Krishnna Shanmugam          | 40099936   | krishnnas    | TBD                               |
-| Tomas Clark Dumoulin        | 40096927   | T-Clark-D    | TBD                               |
-| Martin Marcos               | 40041398   | progMartin   | TBD                               |
-| Ashiqur Rahman              | 40096265   | AshiwhoIam   | TBD                               |
-| Tasnim Niloy                | 40169821   | Promass      | TBD                               |
-| Sonia Rahal                 | 40211893   | soni2261     | TBD                               |
+| Emilie Rosenthal-Bustamante | 40134421   | emrb9        | Technical Writer & Programmer     |
+| David-Salomon Dahan         | 40159157   | ddahan008    | Backend Programmer & Software Tester  |
+| Ayman Mansoor               | 40108719   | AymanMansoor | Technical Writer & Researcher     |
+| Krishnna Shanmugam          | 40099936   | krishnnas    | Backend Programmer                |
+| Tomas Clark Dumoulin        | 40096927   | T-Clark-D    | Frontend Programmer               |
+| Martin Marcos               | 40041398   | progMartin   | Technical Writer & Web Designer   |
+| Ashiqur Rahman              | 40096265   | AshiwhoIam   | Frontend Programmer & Reviewer    |
+| Tasnim Niloy                | 40169821   | Promass      | Backend Programmer & Software Tester  |
+| Sonia Rahal                 | 40211893   | soni2261     | Technical Writer & Researcher     |
 ## Objective 
 The objective of this project is to offer users a simplified LinkedIn-like app and its companion Website
 ## Core Features
