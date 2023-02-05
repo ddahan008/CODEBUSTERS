@@ -9,6 +9,8 @@ import Greet1 from './components/greet'
 function App () {
   return (
   <>
+  hi
+  <img src={require('./images/logo.png')} alt="sd" height={ 200} width={200}/>
     <Router>
       <Navbar/>
       <Routes>

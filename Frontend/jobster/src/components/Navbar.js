@@ -5,8 +5,9 @@ function Navbar() {
     <>
       <nav className = "navbar">
        <div className="navbar-container">  
-        <Link to="/" className="navbar-logo">
-       BRO THIS took 3H
+        <Link to="/" className="navbar-logo"> 
+       BRO THIS took 3Hh h
+     
        </Link>
        </div>
 
