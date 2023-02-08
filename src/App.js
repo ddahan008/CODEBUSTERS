@@ -12,13 +12,15 @@ import PostJobs from './pages/PostJobs';
 import Networking from './pages/Networking';
 import Suggested from './pages/Suggested';
 import MainNavigation from './components/layout/MainNavigation';
+import Home from './pages/Home';
 
 function App() {
   return (
     <div>
       
       <MainNavigation/>
-      <MYPROFILE/>
+    <Home/>
+    
      {/* 
      <Routes>
         <Route path="/" element={<HomePage/>} />
