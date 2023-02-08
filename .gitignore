@@ -3,3 +3,4 @@ composer*
 phpunit.xml
 README.md
 .phpunit.result.cache
+node_modules
