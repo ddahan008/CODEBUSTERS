@@ -1,0 +1,40 @@
+.header {
+    position: absolute;
+    width: 1680px;
+    height: 60px;
+    left: 0px;
+    top: 21px;
+
+background: #FFFFFF;
+  }
+  
+  .header ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: baseline;
+  }
+  
+  .header li {
+    margin-left: 3rem;
+  }
+  
+  .header a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: #fcb8d2;
+  }
+  
+  .header a:hover,
+  .header a:active,
+  .header a.active {
+    color: white;
+  }
+
+  .logo{
+    position: absolute;
+    width: 60px;
+    height: 20px;
+    background-image: url(./jster.png);
+  }
