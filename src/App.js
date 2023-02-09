@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import HomePage from './pages/Home';
 import LoginPage from './pages/Login';
 import SignupPage from './pages/Signup';
-import ProfilePage from './pages/Profile';
+import MYPROFILE from './pages/MYPROFILE';
 import JobSearchPage from './pages/JobSearch';
 import ContactsPage from './pages/Contacts';
 import NotificationsPage from './pages/Notifications';
@@ -12,12 +12,16 @@ import PostJobs from './pages/PostJobs';
 import Networking from './pages/Networking';
 import Suggested from './pages/Suggested';
 import MainNavigation from './components/layout/MainNavigation';
+import Home from './pages/Home';
 
 function App() {
   return (
     <div>
       
       <MainNavigation/>
+    {/*  <Home/>*/}
+    <MYPROFILE/>
+     {/* 
      <Routes>
         <Route path="/" element={<HomePage/>} />
         <Route path="/LoginPage" element={<LoginPage />} />
@@ -30,7 +34,7 @@ function App() {
         <Route path="/Networking" element={<Networking />} />
         <Route path="/Suggested" element={<Suggested />} />
       </Routes>
-      
+      */}
       
     </div>
   );
