@@ -15,27 +15,27 @@ function MainNavigation() {
         
           <li>
           <img src={ require('./Jobster.png') } />
-       
-          </li>
-
-          <li>
-            <Link to='/'>FIND JOBS</Link>
-          </li>
-         
-          <li>
-            <Link to='/ProfilePage'>POST JOBS</Link>
           </li>
           <li>
-            <Link to='/JobSearchPage'>NOTIFICATIONS</Link>
+            <Link to='/'>HOME</Link>
           </li>
           <li>
-            <Link to='/ContactsPage'>YOUR NETWORK</Link>
+            <Link to='/MYPROFILE'>MY PROFILE</Link>
           </li>
           <li>
-            <Link to='/NotificationsPage'>SUGGESTED</Link>
+            <Link to='/JobSearchPage'>JOBSEARCH</Link>
+          </li>
+          <li>
+            <Link to='/Networking'>NETWORKING</Link>
+          </li>
+          <li>
+            <Link to='/ContactsPage'>CONTACTS</Link>
           </li>
            <li>
-            <Link to='/LoginPage'>MY PROFILE</Link>
+            <Link to='/LoginPage'>LOGIN</Link>
+          </li>
+          <li>
+            <Link to='/SignupPage'>SIGNUP</Link>
           </li>
 
         </ul>
