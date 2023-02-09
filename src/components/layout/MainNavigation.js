@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import logos from './jster.png';
+
 import classes from './MainNavigation.module.css';
 
 

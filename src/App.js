@@ -19,8 +19,8 @@ function App() {
     <div>
       
       <MainNavigation/>
-    <Home/>
-    
+    {/*  <Home/>*/}
+    <MYPROFILE/>
      {/* 
      <Routes>
         <Route path="/" element={<HomePage/>} />
