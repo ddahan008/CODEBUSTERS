@@ -10,7 +10,7 @@ function Home() {
     <div className >
 
     <img src ={pic} alt="main" style={{
-              width: 1680,
+              width: 1905,
               height: 909,
               left: 0,
               top: 111,

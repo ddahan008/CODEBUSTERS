@@ -12,21 +12,18 @@ import PostJobs from './pages/PostJobs';
 import Networking from './pages/Networking';
 import Suggested from './pages/Suggested';
 import MainNavigation from './components/layout/MainNavigation';
-import Home from './pages/Home';
 
 function App() {
   return (
     <div>
       
       <MainNavigation/>
-    {/*  <Home/>*/}
-    <MYPROFILE/>
-     {/* 
+     {
      <Routes>
         <Route path="/" element={<HomePage/>} />
         <Route path="/LoginPage" element={<LoginPage />} />
         <Route path="/SignupPage" element={<SignupPage />} />
-        <Route path="/ProfilePage" element={<ProfilePage />} />
+        <Route path="/MYPROFILE" element={<MYPROFILE />} />
         <Route path="/JobSearchPage" element={<JobSearchPage />} />
         <Route path="/ContactsPage" element={<ContactsPage />} />
         <Route path="/NotificationsPage" element={<NotificationsPage />} />
@@ -34,8 +31,7 @@ function App() {
         <Route path="/Networking" element={<Networking />} />
         <Route path="/Suggested" element={<Suggested />} />
       </Routes>
-      */}
-      
+      }
     </div>
   );
 }
