@@ -17,7 +17,7 @@ function MainNavigation() {
           <img src={ require('./Jobster.png') } />
           </li>
           <li>
-            <Link to='/'>HOME</Link>
+            <Link to='/'>HOMEEEEE</Link>
           </li>
           <li>
             <Link to='/MYPROFILE'>MY PROFILE</Link>
