@@ -7,12 +7,15 @@ import Nav from 'react-bootstrap/Nav';
 function HEADER() {
   return (
 <>
-<Nav variant="pills" defaultActiveKey="/home" className="header">
+<Nav variant="pills" defaultActiveKey="/" className="header">
       
       <Nav.Link href="/"><img src={ require('./Jobster.png') } /></Nav.Link>
       
       <Nav.Item>
-        <Nav.Link href="/FIND JOBS"  eventKey="link-1">FIND JOBS</Nav.Link>
+        <Nav.Link href="/FINDJOBS"  eventKey="link-0">FIND JOBS</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link href="/POSTJOBS"  eventKey="link-1">FIND JOBS</Nav.Link>
       </Nav.Item>
       <Nav.Item>
         <Nav.Link href="/NOTIFICATION" eventKey="link-2">NOTIFICATION</Nav.Link>

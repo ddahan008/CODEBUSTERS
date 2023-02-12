@@ -10,7 +10,7 @@ import JobSearchPage from './pages/JobSearch';
 import NOTIFICATION from './pages/NOTIFICATION';
 import PostJobs from './pages/PostJobs';
 import CONTACTS from './pages/CONTACTS';
-import Suggested from './pages/Suggested';
+import SUGGESTED from './pages/SUGGESTED';
 import HEADER from './components/layout/HEADER';
 import Footer from './components/layout/Footer';
 
@@ -32,7 +32,7 @@ function App() {
         <Route path="/NOTIFICATION" element={<NOTIFICATION />} />
         <Route path="/PostJobs" element={<PostJobs />} />
         <Route path="/CONTACTS" element={<CONTACTS />} />
-        <Route path="/Suggested" element={<Suggested />} />
+        <Route path="/SUGGESTED" element={<SUGGESTED />} />
       </Routes>
       }
     <Footer/>
