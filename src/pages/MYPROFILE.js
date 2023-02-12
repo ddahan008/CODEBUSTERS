@@ -408,24 +408,18 @@ function MYPROFILE() {
           <div>Jeffrey Jones</div>
           <div>Marketing Manager</div>
           <br/>
-          <div><img src={ require('./mail-icon.png') } /> Send message</div>
-          <div><img src={ require('./x-icon.png') } /> Remove from network</div>
-          <div><img src={ require('./ex-icon.png') } /> Report</div>
-          <div >Offline</div>
+          <div><img src={ require('./VP-icon.png') } /> View profile </div>
       </div>
     </td>
 
       
     <td >
-      <div className="roundBorder2">
+    <div className="roundBorder2">
           <div><img src={ require('./user1-icon.png') } /></div>
           <div>Jeffrey Jones</div>
           <div>Marketing Manager</div>
           <br/>
-          <div><img src={ require('./mail-icon.png') } /> Send message</div>
-          <div><img src={ require('./x-icon.png') } /> Remove from network</div>
-          <div><img src={ require('./ex-icon.png') } /> Report</div>
-          <div >Offline</div>
+          <div><img src={ require('./VP-icon.png') } /> View profile </div>
       </div>
     </td>
 {/*------ ROW2 ----------*/} 
@@ -433,28 +427,22 @@ function MYPROFILE() {
 
   <tr >
   <td >
-      <div className="roundBorder2">
+  <div className="roundBorder2">
           <div><img src={ require('./user1-icon.png') } /></div>
           <div>Jeffrey Jones</div>
           <div>Marketing Manager</div>
           <br/>
-          <div><img src={ require('./mail-icon.png') } /> Send message</div>
-          <div><img src={ require('./x-icon.png') } /> Remove from network</div>
-          <div><img src={ require('./ex-icon.png') } /> Report</div>
-          <div >Offline</div>
+          <div><img src={ require('./VP-icon.png') } /> View profile </div>
       </div>
     </td>
 
     <td >
-      <div className="roundBorder2">
+    <div className="roundBorder2">
           <div><img src={ require('./user1-icon.png') } /></div>
           <div>Jeffrey Jones</div>
           <div>Marketing Manager</div>
           <br/>
-          <div><img src={ require('./mail-icon.png') } /> Send message</div>
-          <div><img src={ require('./x-icon.png') } /> Remove from network</div>
-          <div><img src={ require('./ex-icon.png') } /> Report</div>
-          <div >Offline</div>
+          <div><img src={ require('./VP-icon.png') } /> View profile </div>
       </div>
     </td>
   </tr>
@@ -462,28 +450,22 @@ function MYPROFILE() {
 {/*------ ROW3 ----------*/} 
   <tr >
   <td >
-      <div className="roundBorder2">
+  <div className="roundBorder2">
           <div><img src={ require('./user1-icon.png') } /></div>
           <div>Jeffrey Jones</div>
           <div>Marketing Manager</div>
           <br/>
-          <div><img src={ require('./mail-icon.png') } /> Send message</div>
-          <div><img src={ require('./x-icon.png') } /> Remove from network</div>
-          <div><img src={ require('./ex-icon.png') } /> Report</div>
-          <div >Offline</div>
+          <div><img src={ require('./VP-icon.png') } /> View profile </div>
       </div>
     </td>
 
     <td >
-      <div className="roundBorder2">
+    <div className="roundBorder2">
           <div><img src={ require('./user1-icon.png') } /></div>
           <div>Jeffrey Jones</div>
           <div>Marketing Manager</div>
           <br/>
-          <div><img src={ require('./mail-icon.png') } /> Send message</div>
-          <div><img src={ require('./x-icon.png') } /> Remove from network</div>
-          <div><img src={ require('./ex-icon.png') } /> Report</div>
-          <div >Offline</div>
+          <div><img src={ require('./VP-icon.png') } /> View profile </div>
       </div>
     </td>
   </tr>      
