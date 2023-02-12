@@ -29,7 +29,7 @@ function MainNavigation() {
             <Link to='/Networking'>NETWORKING</Link>
           </li>
           <li>
-            <Link to='/ContactsPage'>CONTACTS</Link>
+            <Link to='/Notification'>NOTIFICATION</Link>
           </li>
            <li>
             <Link to='/LoginPage'>LOGIN</Link>

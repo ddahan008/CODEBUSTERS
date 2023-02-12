@@ -7,7 +7,7 @@ import SignupPage from './pages/Signup';
 import MYPROFILE from './pages/MYPROFILE';
 import JobSearchPage from './pages/JobSearch';
 import ContactsPage from './pages/Contacts';
-import NotificationsPage from './pages/Notifications';
+import NOTIFICATION from './pages/NOTIFICATION';
 import PostJobs from './pages/PostJobs';
 import Networking from './pages/Networking';
 import Suggested from './pages/Suggested';
@@ -29,7 +29,7 @@ function App() {
         <Route path="/MYPROFILE" element={<MYPROFILE />} />
         <Route path="/JobSearchPage" element={<JobSearchPage />} />
         <Route path="/ContactsPage" element={<ContactsPage />} />
-        <Route path="/NotificationsPage" element={<NotificationsPage />} />
+        <Route path="/NOTIFICATION" element={<NOTIFICATION />} />
         <Route path="/PostJobs" element={<PostJobs />} />
         <Route path="/Networking" element={<Networking />} />
         <Route path="/Suggested" element={<Suggested />} />
