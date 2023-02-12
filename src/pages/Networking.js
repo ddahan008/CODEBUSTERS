@@ -45,11 +45,15 @@ function Networking() {
 
       
     <td >
-      <div className="roundBorder2">
-          <div><img src={ require('./concordia-icon.png') } /></div>
-          <div>Concordia University</div>
-          <div>Teacher assistant</div>
-          <div>2005-2009</div>
+    <div className="roundBorder2">
+          <div><img src={ require('./user1-icon.png') } /></div>
+          <div>Jeffrey Jones</div>
+          <div>Marketing Manager</div>
+          <br/>
+          <div><img src={ require('./mail-icon.png') } /> Send message</div>
+          <div><img src={ require('./x-icon.png') } /> Remove from network</div>
+          <div><img src={ require('./ex-icon.png') } /> Report</div>
+          <div >Offline</div>
       </div>
     </td>
 {/*------ ROW2 ----------*/} 
@@ -57,20 +61,28 @@ function Networking() {
 
   <tr >
   <td >
-      <div className="roundBorder2">
-          <div><img src={ require('./concordia-icon.png') } /></div>
-          <div>Concordia University</div>
-          <div>Teacher assistant</div>
-          <div>2005-2009</div>
+  <div className="roundBorder2">
+          <div><img src={ require('./user1-icon.png') } /></div>
+          <div>Jeffrey Jones</div>
+          <div>Marketing Manager</div>
+          <br/>
+          <div><img src={ require('./mail-icon.png') } /> Send message</div>
+          <div><img src={ require('./x-icon.png') } /> Remove from network</div>
+          <div><img src={ require('./ex-icon.png') } /> Report</div>
+          <div >Offline</div>
       </div>
     </td>
 
     <td >
-      <div className="roundBorder2">
-          <div><img src={ require('./concordia-icon.png') } /></div>
-          <div>Concordia University</div>
-          <div>Teacher assistant</div>
-          <div>2005-2009</div>
+    <div className="roundBorder2">
+          <div><img src={ require('./user1-icon.png') } /></div>
+          <div>Jeffrey Jones</div>
+          <div>Marketing Manager</div>
+          <br/>
+          <div><img src={ require('./mail-icon.png') } /> Send message</div>
+          <div><img src={ require('./x-icon.png') } /> Remove from network</div>
+          <div><img src={ require('./ex-icon.png') } /> Report</div>
+          <div >Offline</div>
       </div>
     </td>
   </tr>
@@ -78,20 +90,28 @@ function Networking() {
 {/*------ ROW3 ----------*/} 
   <tr >
   <td >
-      <div className="roundBorder2">
-          <div><img src={ require('./concordia-icon.png') } /></div>
-          <div>Concordia University</div>
-          <div>Teacher assistant</div>
-          <div>2005-2009</div>
+  <div className="roundBorder2">
+          <div><img src={ require('./user1-icon.png') } /></div>
+          <div>Jeffrey Jones</div>
+          <div>Marketing Manager</div>
+          <br/>
+          <div><img src={ require('./mail-icon.png') } /> Send message</div>
+          <div><img src={ require('./x-icon.png') } /> Remove from network</div>
+          <div><img src={ require('./ex-icon.png') } /> Report</div>
+          <div >Offline</div>
       </div>
     </td>
 
     <td >
-      <div className="roundBorder2">
-          <div><img src={ require('./concordia-icon.png') } /></div>
-          <div>Concordia University</div>
-          <div>Teacher assistant</div>
-          <div>2005-2009</div>
+    <div className="roundBorder2">
+          <div><img src={ require('./user1-icon.png') } /></div>
+          <div>Jeffrey Jones</div>
+          <div>Marketing Manager</div>
+          <br/>
+          <div><img src={ require('./mail-icon.png') } /> Send message</div>
+          <div><img src={ require('./x-icon.png') } /> Remove from network</div>
+          <div><img src={ require('./ex-icon.png') } /> Report</div>
+          <div >Offline</div>
       </div>
     </td>
   </tr>      
