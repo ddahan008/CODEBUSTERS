@@ -89,7 +89,7 @@ function MYPROFILE() {
         </Card>
 
  {/*----------------------------------- SKILLS CARD -----------------------------------*/}  
-      <Card className="text-center" border="light"border="light">
+      <Card className="text-center" border="light">
       <div className="roundBorder">       
         <Card.Body>
            <Card.Text><img src={ require('./skill-icon.png') } /></Card.Text>

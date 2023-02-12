@@ -12,12 +12,15 @@ import PostJobs from './pages/PostJobs';
 import Networking from './pages/Networking';
 import Suggested from './pages/Suggested';
 import MainNavigation from './components/layout/MainNavigation';
+import Footer from './components/layout/Footer';
+
 
 function App() {
   return (
     <div>
       
-      <MainNavigation/>
+      
+<MainNavigation/>
      {
      <Routes>
         <Route path="/" element={<HomePage/>} />
@@ -32,6 +35,9 @@ function App() {
         <Route path="/Suggested" element={<Suggested />} />
       </Routes>
       }
+    <Footer/>
+
+
     </div>
   );
 }
