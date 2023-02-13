@@ -5,7 +5,7 @@ import HomePage from './pages/Home';
 import LoginPage from './pages/Login';
 import SignupPage from './pages/Signup';
 import MYPROFILE from './pages/MYPROFILE';
-import JobSearchPage from './pages/JobSearch';
+import FINDJOBS from './pages/FINDJOBS';
 
 import NOTIFICATION from './pages/NOTIFICATION';
 import PostJobs from './pages/PostJobs';
@@ -27,8 +27,8 @@ function App() {
         <Route path="/LoginPage" element={<LoginPage />} />
         <Route path="/SignupPage" element={<SignupPage />} />
         <Route path="/MYPROFILE" element={<MYPROFILE />} />
-        <Route path="/JobSearchPage" element={<JobSearchPage />} />
-
+       
+        <Route path="/FINDJOBS" element={<FINDJOBS />} />
         <Route path="/NOTIFICATION" element={<NOTIFICATION />} />
         <Route path="/PostJobs" element={<PostJobs />} />
         <Route path="/CONTACTS" element={<CONTACTS />} />
