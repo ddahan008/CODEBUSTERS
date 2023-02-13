@@ -17,7 +17,7 @@ function Home() {
             }}/>
             
         <div className="center__text">
-          <h3>Professional Networking </h3>
+          <h3>Professional Networking! </h3>
         </div>
 
         <div className='background2'>
