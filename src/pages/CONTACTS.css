@@ -9,7 +9,7 @@
 .card{
 margin-left:5%;
 margin-right:5%;
-z-index:-1;
+
 border-color:#a9252500;  
 background: rgba(0, 0, 255, 0) !important;
 
@@ -63,5 +63,11 @@ padding: 15px;
 
 .movetable{
     margin-top: 25%;
+
+}
+
+.CenterPagination{
+  
+margin-left:15%;
 
 }

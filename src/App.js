@@ -5,13 +5,13 @@ import HomePage from './pages/Home';
 import LoginPage from './pages/Login';
 import SignupPage from './pages/Signup';
 import MYPROFILE from './pages/MYPROFILE';
-import JobSearchPage from './pages/JobSearch';
-import ContactsPage from './pages/Contacts';
-import NotificationsPage from './pages/Notifications';
+import MAIL from './pages/MAIL';
+import FINDJOBS from './pages/FINDJOBS';
+import NOTIFICATION from './pages/NOTIFICATION';
 import PostJobs from './pages/PostJobs';
-import Networking from './pages/Networking';
-import Suggested from './pages/Suggested';
-import MainNavigation from './components/layout/MainNavigation';
+import CONTACTS from './pages/CONTACTS';
+import SUGGESTED from './pages/SUGGESTED';
+import HEADER from './components/layout/HEADER';
 import Footer from './components/layout/Footer';
 
 
@@ -20,19 +20,19 @@ function App() {
     <div>
       
       
-<MainNavigation/>
+<HEADER/>
      {
      <Routes>
         <Route path="/" element={<HomePage/>} />
         <Route path="/LoginPage" element={<LoginPage />} />
         <Route path="/SignupPage" element={<SignupPage />} />
         <Route path="/MYPROFILE" element={<MYPROFILE />} />
-        <Route path="/JobSearchPage" element={<JobSearchPage />} />
-        <Route path="/ContactsPage" element={<ContactsPage />} />
-        <Route path="/NotificationsPage" element={<NotificationsPage />} />
+        <Route path="/MAIL" element={<MAIL />} />
+        <Route path="/FINDJOBS" element={<FINDJOBS />} />
+        <Route path="/NOTIFICATION" element={<NOTIFICATION />} />
         <Route path="/PostJobs" element={<PostJobs />} />
-        <Route path="/Networking" element={<Networking />} />
-        <Route path="/Suggested" element={<Suggested />} />
+        <Route path="/CONTACTS" element={<CONTACTS />} />
+        <Route path="/SUGGESTED" element={<SUGGESTED />} />
       </Routes>
       }
     <Footer/>

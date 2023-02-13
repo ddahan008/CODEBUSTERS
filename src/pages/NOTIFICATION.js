@@ -1,10 +1,10 @@
-import classes from './SUGGESTED.css';
+import classes from './NOTIFICATION.css';
     import {Button, Card,CardGroup,Alert,Table,Pagination} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
-function SUGGESTED() {
+function NOTIFICATION() {
     return (
         <>
 
@@ -22,7 +22,7 @@ function SUGGESTED() {
   <Card.Body>
 
 
-  <Card.Text>Suggested items </Card.Text>
+  <Card.Text>Your Notifications</Card.Text>
 
   <Table>
 
@@ -36,7 +36,7 @@ function SUGGESTED() {
           <div>Elementary School Teacher</div>
           <div>Scout Talent</div>
           <br/>
-         
+          <div> posted a new job opportunity</div>
           <br/>
           <div><img src={ require('./work2-icon.png') } /> View job</div>
 
@@ -50,9 +50,9 @@ function SUGGESTED() {
           <div>Jeffrey Jones</div>
           <div>Marketing Manager</div>
           <br/>
-         
+          <div> Sent you a message</div>
           <br/>
-          <div><img src={ require('./userlogo-icon.png') } /> View user</div>
+          <div><img src={ require('./mail-icon.png') } /> View message</div>
  
       </div>
     </td>
@@ -61,15 +61,25 @@ function SUGGESTED() {
 
   <tr >
   <td >
-    <div className="roundBorder2">
-          <div><img src={ require('./user2-icon.png') } /></div>
+  <div className="roundBorder2">
+          <div><img src={ require('./user1-icon.png') } /></div>
           <div>Jeffrey Jones</div>
           <div>Marketing Manager</div>
           <br/>
-         
+          <div><img src={ require('./mail-icon.png') } /> Sent you a network invitation request</div>
+          <div>
+            <Table>
+              <tbody>
+                <tr>
+                  <td><img src={ require('./accept-icon.png') } /> Accept</td>
+                  <td><img src={ require('./reject-icon.png') } /> Reject</td>
+                </tr>
+              </tbody>
+            </Table>
+          </div>
           <br/>
           <div><img src={ require('./userlogo-icon.png') } /> View user</div>
- 
+          
       </div>
     </td>
 
@@ -79,7 +89,17 @@ function SUGGESTED() {
           <div>Jeffrey Jones</div>
           <div>Marketing Manager</div>
           <br/>
-   
+          <div><img src={ require('./mail-icon.png') } /> Sent you a network invitation request</div>
+          <div>
+            <Table>
+              <tbody>
+                <tr>
+                  <td><img src={ require('./accept-icon.png') } /> Accept</td>
+                  <td><img src={ require('./reject-icon.png') } /> Reject</td>
+                </tr>
+              </tbody>
+            </Table>
+          </div>
           <br/>
           <div><img src={ require('./userlogo-icon.png') } /> View user</div>
           
@@ -91,16 +111,16 @@ function SUGGESTED() {
 
   <tr>
      
-  <td >
-  <div className="roundBorder2">
-          <div><img src={ require('./user1-icon.png') } /></div>
-          <div>Jeffrey Jones</div>
-          <div>Marketing Manager</div>
+    <td >
+    <div className="roundBorder2">
+          <div><img src={ require('./school2-icon.png') } /></div>
+          <div>Elementary School Teacher</div>
+          <div>Scout Talent</div>
           <br/>
-   
+          <div> posted a new job opportunity</div>
           <br/>
-          <div><img src={ require('./userlogo-icon.png') } /> View user</div>
-          
+          <div><img src={ require('./work2-icon.png') } /> View job</div>
+
       </div>
     </td>
 
@@ -111,9 +131,9 @@ function SUGGESTED() {
           <div>Jeffrey Jones</div>
           <div>Marketing Manager</div>
           <br/>
-       =
+          <div> Sent you a message</div>
           <br/>
-          <div><img src={ require('./userlogo-icon.png') } /> View user</div>
+          <div><img src={ require('./mail-icon.png') } /> View message</div>
  
       </div>
     </td>
@@ -170,4 +190,4 @@ function SUGGESTED() {
   
 
   
-  export default SUGGESTED;
+  export default NOTIFICATION;

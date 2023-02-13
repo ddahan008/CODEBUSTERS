@@ -9,7 +9,7 @@
 .card{
 margin-left:5%;
 margin-right:5%;
-
+z-index: 2;
 border-color:#a9252500;  
 background: rgba(0, 0, 255, 0) !important;
 
@@ -37,7 +37,7 @@ background: rgba(0, 0, 255, 0) !important;
     background: #ffff;
     width: 100%;
     height: 100%;
-    z-index: -1;   
+    
 }
 
 .roundBorder2{
@@ -47,7 +47,7 @@ background: rgba(0, 0, 255, 0) !important;
     box-shadow: 1px 1px 2px #888888;
     background: #ffff;
 padding: 15px;
-    z-index: -1;   
+ 
 }
 
 
@@ -64,4 +64,47 @@ padding: 15px;
 .movetable{
     margin-top: 25%;
 
+}
+
+.CenterPagination{
+  
+margin-left:15%;
+
+}
+
+.CenterPagination2{
+  
+    margin-left:7%;
+    
+    }
+
+.verticlecenter{
+
+display: flex;
+
+align-items: center;
+
+
+}
+
+.alignleft{
+    text-align: left;
+
+    
+}
+
+.roundBorderSelected{
+
+    border: solid 0.5px;
+    border-color:#c7c7c7;   
+    border-radius: 61px;
+    box-shadow: 1px 1px 2px #888888;
+    background: #687fff;
+    width: 100%;
+    height: 100%;
+}
+
+.chatbar{
+
+margin-top: 200%;
 }
