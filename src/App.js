@@ -5,8 +5,8 @@ import HomePage from './pages/Home';
 import LoginPage from './pages/Login';
 import SignupPage from './pages/Signup';
 import MYPROFILE from './pages/MYPROFILE';
+import MAIL from './pages/MAIL';
 import FINDJOBS from './pages/FINDJOBS';
-
 import NOTIFICATION from './pages/NOTIFICATION';
 import PostJobs from './pages/PostJobs';
 import CONTACTS from './pages/CONTACTS';
@@ -27,7 +27,7 @@ function App() {
         <Route path="/LoginPage" element={<LoginPage />} />
         <Route path="/SignupPage" element={<SignupPage />} />
         <Route path="/MYPROFILE" element={<MYPROFILE />} />
-       
+        <Route path="/MAIL" element={<MAIL />} />
         <Route path="/FINDJOBS" element={<FINDJOBS />} />
         <Route path="/NOTIFICATION" element={<NOTIFICATION />} />
         <Route path="/PostJobs" element={<PostJobs />} />
