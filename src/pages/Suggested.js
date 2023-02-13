@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
-function SUGGESTED() {
+function Suggested() {
     return (
         <>
 
@@ -170,4 +170,4 @@ function SUGGESTED() {
   
 
   
-  export default SUGGESTED;
+  export default Suggested;

@@ -9,8 +9,8 @@ import MAIL from './pages/MAIL';
 import FINDJOBS from './pages/FINDJOBS';
 import NOTIFICATION from './pages/NOTIFICATION';
 import PostJobs from './pages/PostJobs';
-import CONTACTS from './pages/CONTACTS';
-import SUGGESTED from './pages/SUGGESTED';
+import Contacts from './pages/Contacts';
+import Suggested from './pages/Suggested';
 import HEADER from './components/layout/HEADER';
 import Footer from './components/layout/Footer';
 
@@ -31,8 +31,8 @@ function App() {
         <Route path="/FINDJOBS" element={<FINDJOBS />} />
         <Route path="/NOTIFICATION" element={<NOTIFICATION />} />
         <Route path="/PostJobs" element={<PostJobs />} />
-        <Route path="/CONTACTS" element={<CONTACTS />} />
-        <Route path="/SUGGESTED" element={<SUGGESTED />} />
+        <Route path="/Contacts" element={<Contacts />} />
+        <Route path="/Suggested" element={<Suggested />} />
       </Routes>
       }
     <Footer/>
