@@ -1,45 +1,38 @@
 //import {Route} from 'react-router-dom';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
-import HomePage from './pages/Home';
-import LoginPage from './pages/Login';
-import SignupPage from './pages/Signup';
-import MYPROFILE from './pages/MYPROFILE';
-import MAIL from './pages/MAIL';
-import FINDJOBS from './pages/FINDJOBS';
-import NOTIFICATION from './pages/NOTIFICATION';
-import PostJobs from './pages/PostJobs';
-import Contacts from './pages/Contacts';
-import Suggested from './pages/Suggested';
-import HEADER from './components/layout/HEADER';
-import Footer from './components/layout/Footer';
+import HomePage from './Components/Pages/Home';
+import LogInPage from './Components/Pages/LogIn';
+import SignUpPage from './Components/Pages/SignUp';
+import MyProfile from './Components/Pages/MyProfile';
+import Mail from './Components/Pages/Mail';
+import FindJobs from './Components/Pages/FindJobs';
+import Notifications from './Components/Pages/Notifications';
+import PostJobs from './Components/Pages/PostJobs';
+import Contacts from './Components/Pages/Contacts';
+import Suggested from './Components/Pages/Suggested';
+import Header from './Components/Layout/Header';
+import Footer from './Components/Layout/Footer';
 
 
 function App() {
   return (
-    <div>
-      
-      
-<HEADER/>
-     {
-     <Routes>
+  <div>
+    <Header/>
+    <Routes>
         <Route path="/" element={<HomePage/>} />
-        <Route path="/LoginPage" element={<LoginPage />} />
-        <Route path="/SignupPage" element={<SignupPage />} />
-        <Route path="/MYPROFILE" element={<MYPROFILE />} />
-        <Route path="/MAIL" element={<MAIL />} />
-        <Route path="/FINDJOBS" element={<FINDJOBS />} />
-        <Route path="/NOTIFICATION" element={<NOTIFICATION />} />
-        <Route path="/PostJobs" element={<PostJobs />} />
-        <Route path="/Contacts" element={<Contacts />} />
-        <Route path="/Suggested" element={<Suggested />} />
+        <Route path="/LoginPage" element={<LogInPage/>} />
+        <Route path="/SignupPage" element={<SignUpPage/>} />
+        <Route path="/MyProfile" element={<MyProfile/>} />
+        <Route path="/Mail" element={<Mail/>} />
+        <Route path="/FindJobs" element={<FindJobs/>} />
+        <Route path="/Notifications" element={<Notifications/>} />
+        <Route path="/PostJobs" element={<PostJobs/>} />
+        <Route path="/Contacts" element={<Contacts/>} />
+        <Route path="/Suggested" element={<Suggested/>} />
       </Routes>
-      }
     <Footer/>
-
-
     </div>
-  );
-}
-
-export default App;
+    );
+  }
+  export default App;

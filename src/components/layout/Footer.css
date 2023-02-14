@@ -1,9 +1,16 @@
 .centerLogo {
-
-    text-align: center 
+    margin-top: 35px;
+    text-align: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.229);
+    bottom: 0;
   }
-
+  
  .icon {
-
-    margin:10px;
+    margin-top: 35px;
+    margin-bottom: 10px;
+    max-width: 100px;
+    max-height: 100px;
+    width: 100%;
+    height: auto;
   }
+  
