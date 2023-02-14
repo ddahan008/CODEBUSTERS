@@ -1,23 +1,13 @@
 import React from 'react';
-import classes from './Footer.css';
-const Footer = () =>{
+import './Footer.css';
 
-    return (
-        <>
-            
-            <hr></hr>
-            <div className="centerLogo">
-            <img   className="icon" src={ require('./insta-icon.png') } />
-            <img   className="icon" src={ require('./face-icon.png') } />
-
-            </div>
-
-            <div  className="centerLogo">© Jobster, Inc. 2023. Your career in our claws!</div>
-        </>
-
-
-    )
-
+const Footer = () => {
+  return (
+    <footer className="centerLogo">
+    <img   className="icon" alt="insta" src={ require('./footerImages/insta-icon.png') } />
+     <img   className="icon" alt="face" src={ require('./footerImages/face-icon.png') } />
+      <p>© Jobster, Inc. 2023. Your career in our claws!</p>
+    </footer>
+  );
 }
-
 export default Footer;

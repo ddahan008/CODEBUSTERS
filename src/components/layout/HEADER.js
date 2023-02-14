@@ -1,45 +1,38 @@
-import { Link } from 'react-router-dom';
-
-import classes from './HEADER.css';
+import'./Header.css';
 import Nav from 'react-bootstrap/Nav';
 
-//<img className={logos.logo} src={logos} alt='logo'/> this doesn work sadage
-function HEADER() {
+function Header() {
   return (
-<>
-<Nav variant="pills" defaultActiveKey="/" className="header">
-      
-      <Nav.Link href="/"><img src={ require('./Jobster.png') } /></Nav.Link>
-      
+  <Nav variant="pills" defaultActiveKey="/" className="header">
+    <Nav.Link href="/" className='logo-format' > <img src={require('./headerImages/Jobster.png')} className='logo-format'/> </Nav.Link>
       <Nav.Item>
-        <Nav.Link href="/FINDJOBS"  eventKey="link-0">FIND JOBS</Nav.Link>
+        <Nav.Link href="/FindJobs" eventKey="link-0" className="custom-link">FIND JOBS</Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link href="/POSTJOBS"  eventKey="link-1">FIND JOBS</Nav.Link>
+        <Nav.Link href="/PostJobs"  eventKey="link-1" className="custom-link">POST JOBS</Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link href="/NOTIFICATION" eventKey="link-2">NOTIFICATION</Nav.Link>
+        <Nav.Link href="/Notifications" eventKey="link-2" className="custom-link">NOTIFICATIONS</Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link href="/CONTACTS" eventKey="link-3">CONTACTS</Nav.Link>
+        <Nav.Link href="/Contacts" eventKey="link-3" className="custom-link">CONTACTS</Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link href="/SUGGESTED" eventKey="link-4">SUGGESTED</Nav.Link>
+        <Nav.Link href="/Suggested" eventKey="link-4" className="custom-link">SUGGESTED</Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link href="/MAIL" eventKey="link-5">MAIL</Nav.Link>
+        <Nav.Link href="/Mail" eventKey="link-5" className="custom-link">MAIL</Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link href="/MYPROFILE" eventKey="link-6">MY PROFILE </Nav.Link>
+        <Nav.Link href="/MyProfile" eventKey="link-6" className="custom-link">MY PROFILE</Nav.Link>
       </Nav.Item>
       <Nav.Item>
-        <Nav.Link href="/LoginPage" eventKey="link-7">LOGIN </Nav.Link>
-      </Nav.Item>      <Nav.Item>
-        <Nav.Link  href="/SignupPage" eventKey="link-8">SIGNUP </Nav.Link>
+        <Nav.Link href="/LoginPage" eventKey="link-7" className="custom-link">LOG IN</Nav.Link>
+      </Nav.Item>      
+      <Nav.Item>
+        <Nav.Link  href="/SignupPage" eventKey="link-8" className="custom-link">SIGN UP</Nav.Link>
       </Nav.Item>
-    </Nav>
-</>
-  );
-}
-
-export default HEADER;
+      </Nav>
+      );
+    }
+    export default Header;
