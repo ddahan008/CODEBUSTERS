@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
-function CONTACTS() {
+function Contacts() {
     return (
         <>
 
@@ -174,4 +174,4 @@ function CONTACTS() {
   
 
   
-  export default CONTACTS;
+  export default Contacts;
