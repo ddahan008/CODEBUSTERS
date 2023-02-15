@@ -1,18 +1,18 @@
 //import {Route} from 'react-router-dom';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
-import HomePage from './Components/Pages/Home';
-import LogInPage from './Components/Pages/LogIn';
-import SignUpPage from './Components/Pages/SignUp';
-import MyProfile from './Components/Pages/MyProfile';
-import Mail from './Components/Pages/Mail';
-import FindJobs from './Components/Pages/FindJobs';
-import Notifications from './Components/Pages/Notifications';
-import PostJobs from './Components/Pages/PostJobs';
-import Contacts from './Components/Pages/Contacts';
-import Suggested from './Components/Pages/Suggested';
-import Header from './Components/Layout/Header';
-import Footer from './Components/Layout/Footer';
+import HomePage from './components/Pages/Home';
+import LogInPage from './components/Pages/LogIn';
+import SignUpPage from './components/Pages/SignUp';
+import MyProfile from './components/Pages/MyProfile';
+import Mail from './components/Pages/Mail';
+import FindJobs from './components/Pages/FindJobs';
+import Notifications from './components/Pages/Notifications';
+import PostJobs from './components/Pages/PostJobs';
+import Contacts from './components/Pages/Contacts';
+import Suggested from './components/Pages/Suggested';
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
 
 
 function App() {
