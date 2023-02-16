@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jobsters</title>
+<title>Networking</title>
 <link href="css/HeaderAndFooter.css" rel="stylesheet" type="text/css"/>
 <link href="css/HomePage.css" rel="stylesheet" type="text/css"/>
+<link href="css/Description.css" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -39,10 +40,47 @@
  <div class="content">
 
    <!--CONTENT START-->
-   <h3 class="content-header"> News Feed </h3>
-   <h3 > News Feed Content </h3>
-   <!-- CONTENT END-->
+<h3 class="content-header">Networking</h3>
 
+<div class="grid-container">
+
+  <div class="box-pic">
+  <img src="assets/Connections/user.jpg" alt="User" width="100%" height="100%">
+  </div>
+
+  <div class="box">
+    <div class="product-description">
+      <h4 id="name">First Name Last Name</h4>
+      <hr>
+      <br>
+      <div>
+        <div class="row">
+          <div class="col-sm-12 skills">
+            <h2 >Skills</h2>
+            <ul>
+              <li>Java</li>
+              <li>Python</li>
+              <li>JavaScript</li>
+              <li>React</li>
+              <li>Node.js</li>
+              <li>SQL</li>
+              <li>NoSQL</li>
+            </ul>
+          </div>
+        </div>
+        <h2>About Me</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad im veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <br>
+        <button class="more-description" id="myBtn">SEND INVITATION</button>
+      </div>
+
+   </div>
+
+  </div>
+  </div>
+
+  </div>
+<!-- CONTENT END-->
 
 </div>
 <div class="footer">
@@ -78,29 +116,5 @@
     </div>
   </div>
 </div>
-<script>
-  var slideIndex = 1;
-  showSlides(slideIndex);
-
-  function plusSlides(n) {
-    showSlides(slideIndex += n);
-  }
-
-  function currentSlide(n) {
-    showSlides(slideIndex = n);
-  }
-
-  function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-
-    slides[slideIndex-1].style.display = "block";
-  }
-</script>
   </body>
   </html>
