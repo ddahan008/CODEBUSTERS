@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jobsters</title>
+<link href="css/HeaderAndFooter.css" rel="stylesheet" type="text/css"/>
+<link href="css/HomePage.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <header>
+    <a href="Jobsters.html"><img class="logo" src="assets/logo.png" alt="Better Being Logo" width="50%" height="auto" style="float:left"></a>
+<input type="checkbox" id="nav-toggle" class="nav-toggle">
+<nav>
+<ul>
+  <li><a href="Jobsters.html">HOME</a></li>
+<li><a href="#">ABOUT US</a></li>
+<li> <a href="#">SERVICES <i class="fa fa-caret-down"></i></a>
+  <div class="dropdown">
+    <ul>
+      <li><a href="#">Jobs</a></li>
+      <li><a href="#">Networking</a></li>
+      <li><a href="#">Messaging</a></li>
+    </ul>
+  </div>
+</li>
+<li><a href="#">RESOURCES</a></li>
+<li> <a href="LogIn.html">LOG IN</a></li>
+<li><a href="SignUp.html">SIGN UP</a></li>
+</ul>
+</nav>
+<label for="nav-toggle" class="nav-toggle-label">
+<span></span>
+</label>
+</header>
+
+ <div class="content">
+
+   <!--CONTENT START-->
+   <div class="page-wrapper">
+     <div class="slideshow-container">
+   <!--first slide content-->
+      <div class="mySlides fade">
+
+        <img src="assets/main.jpg" alt="Jobsters" height="650px" style="width: 100%">
+        <div class="text">Welcome to<h2 class="slide-text">JOBSTERS</h2>Your career in our claws!</div>
+      </div>
+   <!--second slide content-->
+     <div class="mySlides fade">
+
+     <img src="assets/main2.jpg" alt="Network" height="650px" style="width: 100%">
+     <div class="text-two"><h2 class="slide-text">NETWORKING</h2></div>
+   </div>
+
+   <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+   <a class="next" onclick="plusSlides(1)">&#10095;</a>
+     </div>
+
+   </div>
+   <h3>Home Page Content</h3>
+
+   <!-- CONTENT END-->
+
+
+   <div class="footer">
+    <div class="footer-content">
+      <div class="footer-section about">
+         <h2>Email Address</h2>
+         <p> info@jobsters.com</p>
+         <h2>Phone Number</h2>
+         <p>514-569-1499</p>
+         <h2>Find us on</h2>
+         <p>@jobsters</p>
+         <a href="#" class="fa fa-facebook"></a>
+         <a href="#" class="fa fa-instagram"></a>
+      </div>
+      <div class="footer-section links">
+         <p><a href="#">About us</a></p>
+         <p><a href="#">Careers</a></p>
+         <p><a href="#">Networking</a></p>
+         <p><a href="#">Partner up with us</a></p>
+      </div>
+      <div class="footer-section contact-form">
+        <form action="index.html" method="post">
+          <input type="email" name="email" class="text-input contact-input" placeholder="Your email address...">
+          <button type= "submit" class="btn btn-big">
+            <i class="fa fa-envelope"></i> Send
+          </button>
+        </form>
+        <p>Thanks for subscribing!</p>
+      </div>
+  
+      <div class="footer-bottom">
+        © Jobster, Inc. 2023. Your career in our claws!
+      </div>
+    </div>
+  </div>
+  <script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+  
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+  
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+  
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+      }
+  
+      slides[slideIndex-1].style.display = "block";
+    }
+  </script>
+    </body>
+    </html>
+  
