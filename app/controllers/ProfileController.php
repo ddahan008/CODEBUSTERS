@@ -11,6 +11,10 @@ class ProfileController extends Controller {
             $this->view('Home/Index');
         }
     }
+
+    public function edit() {
+        $this->view('Profile/Edit');
+    }
 }
 
 ?>

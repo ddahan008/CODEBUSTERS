@@ -14,7 +14,7 @@
                     <div class="profile">
                         <img src="../../../assets/Connections/user-01.jpg" alt="Profile Picture">
                         <div class="buttons">
-                            <button class="edit">Edit</button>
+                            <button class="edit" href="/Profile/Edit/">Edit</button>
                             <button class="share">Share</button>
                         </div>
                     </div>
