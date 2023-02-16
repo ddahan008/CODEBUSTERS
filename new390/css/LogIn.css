@@ -1,0 +1,94 @@
+.logImage{
+  width: 10%;
+  height: auto;
+}
+
+.welcome_title{
+  padding-top: 5%;
+}
+.welcome_instruction a{
+  text-decoration: none;
+  color: #18A0FB;
+}
+.box{
+  width: 100%;
+  height: auto;
+}
+.login-box {
+  background: #ffffff;
+  width: 40%;
+  height: auto;
+  border: 1px solid black;
+  margin:auto;
+  padding-bottom: 2%;
+text-align: center;
+}
+
+.titles {
+  text-align: center;
+}
+
+.log_header{
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 2%;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size:xx-large;
+}
+.credentials{
+  padding-bottom: 2%;
+}
+.input_fields{
+  position:relative;
+  text-align: center;
+  width: 70%;
+  height: auto;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  font-size: large;
+}
+input:focus::placeholder {
+  color: transparent;
+}
+.button {
+  border: none;
+  color: white;
+  border-radius: 6px;
+  transition: 0.3s;
+  font-weight: bold;
+  font-family:sans-serif;
+  font-size: large;
+  align-items: center;
+}
+.login_button {
+  background: #18A0FB;
+  width: 30%;
+  height: 50px;
+}
+.google_button {
+  background: #ae3737;
+  width:60%;
+  height: 50px;
+}
+
+.button:hover {
+  background-color: #4CAF50;
+}
+a{
+  color: black;
+}
+a:hover{
+  color: #4CAF50;
+}
+.text_align {
+  margin: 63px 119px 0px 119px;
+  margin-left: 115px;
+
+}
+.fade{
+  color:  rgba(0, 0, 0, 0.8);
+}
+
+.input_format{
+  padding-bottom: 5%;
+}
