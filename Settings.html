@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Networking</title>
+<link href="css/HeaderAndFooter.css" rel="stylesheet" type="text/css"/>
+<link href="css/HomePage.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <header>
+    <a href="HomePage.html"><img class="logo" src="assets/logo.png" alt="Jobsters" width="50%" height="auto" style="float:left"></a>
+<input type="checkbox" id="nav-toggle" class="nav-toggle">
+<nav>
+<ul>
+<li><a href="HomePage.html">HOME</a></li>
+<li> <a href="Network.html">NETWORK</a></li>
+<li><a href="#">FIND JOBS</a></li>
+<li><a href="#">NOTIFICATIONS</a></li>
+<li> <a href="#">MESSAGES</a></li>
+<li> <a href="MyProfile.html">USER <i class="fa fa-caret-down"></i></a>
+  <div class="dropdown">
+    <ul>
+      <li><a href="Connections.html">Connections</a></li>
+      <li><a href="#">Suggestions</a></li>
+      <li><a href="Settings.html">Settings</a></li>
+      <li><a href="#">Sign Out</a></li>
+    </ul>
+  </div>
+</li>
+</ul>
+</nav>
+<label for="nav-toggle" class="nav-toggle-label">
+<span></span>
+</label>
+</header>
+
+ <div class="content">
+
+   <!--CONTENT START-->
+   <h3 class="content-header">Settings</h3>
+   <form>
+       <fieldset>
+           <legend>General Settings</legend>
+           <label for="name">Name:</label>
+           <input type="text" id="name" name="name"><br>
+           <label for="email">Email:</label>
+           <input type="email" id="email" name="email"><br>
+           <label for="timezone">Timezone:</label>
+           <select id="timezone" name="timezone">
+            <option value="-08:00">(GMT -8:00) Pacific Time (US &amp; Canada)</option>
+            <option value="-07:00">(GMT -7:00) Mountain Time (US &amp; Canada)</option>
+            <option value="-06:00">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>
+            <option value="-05:00">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>
+            <option value="-04:00">(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</option>
+           </select><br>
+           <label for="private-account">Make Account Private:</label>
+           <input type="checkbox" id="private-account" name="private-account"><br>
+       </fieldset>
+       <br>
+       <fieldset>
+           <legend>Security Settings</legend>
+           <label for="current-password">Current Password:</label>
+           <input type="password" id="current-password" name="current-password"><br>
+           <label for="new-password">New Password:</label>
+           <input type="password" id="new-password" name="new-password"><br>
+           <label for="confirm-password">Confirm Password:</label>
+           <input type="password" id="confirm-password" name="confirm-password"><br>
+       </fieldset>
+       <br>
+       <fieldset>
+           <legend>Notification Settings</legend>
+           <label for="email-notifications">Receive Email Notifications:</label>
+           <input type="checkbox" id="email-notifications" name="email-notifications"><br>
+           <label for="push-notifications">Receive Push Notifications:</label>
+           <input type="checkbox" id="push-notifications" name="push-notifications"><br>
+       </fieldset>
+       <br>
+       <input type="submit" value="Save Settings">
+   </form>
+<!-- CONTENT END-->
+
+</div>
+<div class="footer">
+  <div class="footer-content">
+    <div class="footer-section about">
+       <h2>Email Address</h2>
+       <p> info@jobsters.com</p>
+       <h2>Phone Number</h2>
+       <p>514-569-1499</p>
+       <h2>Find us on</h2>
+       <p>@jobsters</p>
+       <a href="#" class="fa fa-facebook"></a>
+       <a href="#" class="fa fa-instagram"></a>
+    </div>
+    <div class="footer-section links">
+       <p><a href="#">About us</a></p>
+       <p><a href="#">Careers</a></p>
+       <p><a href="#">Networking</a></p>
+       <p><a href="#">Partner up with us</a></p>
+    </div>
+    <div class="footer-section contact-form">
+      <form action="index.html" method="post">
+        <input type="email" name="email" class="text-input contact-input" placeholder="Your email address...">
+        <button type= "submit" class="btn btn-big">
+          <i class="fa fa-envelope"></i> Send
+        </button>
+      </form>
+      <p>Thanks for subscribing!</p>
+    </div>
+
+    <div class="footer-bottom">
+      © Jobster, Inc. 2023. Your career in our claws!
+    </div>
+  </div>
+</div>
+<script>
+function toggleDescription() {
+  const moreText = document.getElementById("more");
+  if (moreText.style.display === "none") {
+    moreText.style.display = "block";
+  } else {
+    moreText.style.display = "none";
+  }
+}
+</script>
+  </body>
+  </html>
