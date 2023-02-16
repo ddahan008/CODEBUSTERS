@@ -8,14 +8,15 @@
         <h3 class="content-header"> Groups </h3>
         <button><a href="/Group/Add">Add</a></button>
 
+        <div class="grid-container">
+
         <?php if (is_array($data)) { foreach($data as $group) { ?>
-            <div class="grid-container">
             <div class="box"><a href="#"><img src="../../../assets/Connections/user.jpg" alt="<?=$group->name?>"><h4 class="item"><?=$group->name?></h4></a>
                 <p class="description-item"><?=$group->descr?></p>
                 <button class="report">Join</button>
             </div>
-        </div>
         <?php } } ?>
+        </div>
 
     </div>
     <!-- CONTENT END-->
