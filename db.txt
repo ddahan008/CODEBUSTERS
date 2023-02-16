@@ -1,7 +1,0 @@
-CREATE TABLE users (
-	uid INT PRIMARY KEY AUTO_INCREMENT,
-    email TINYTEXT UNIQUE NOT NULL,
-    pwd LONGTEXT NOT NULL
-);
-
-INSERT INTO users (email, pwd) VALUES ("admin@jobsters.com", "admin");
