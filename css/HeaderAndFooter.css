@@ -144,23 +144,23 @@ nav ul li:hover .dropdown ul li {
 
 /* Here begins the placement of font*/
 .item{
-  margin-top: -1px;
+  margin-top: 5px;
   margin-bottom: -1px;
 }
 .description-item{
   margin-top: 0px;
   font-family: Helvetica, sans-serif;
 }
-.price{
+.remove-connection{
     margin-top: -15px;
 }
-.priceperweight{
-  margin-top: -18px;
+.message{
+  margin-top: -15px;
 }
 
 
 .footer {
-  background: rgb(24, 26, 45);
+  background:rgb(2, 22, 8);
   color: white;
   height: 102%;
   position: relative;
@@ -189,7 +189,7 @@ nav ul li:hover .dropdown ul li {
 .footer .footer-content .about{
   font-size: 1.2em;
   text-align: left;
-
+  padding-bottom: 5%;
   padding-left: 75px;
 }
 .footer .footer-content .links {
@@ -273,6 +273,7 @@ nav ul li:hover .dropdown ul li {
   .logo {
     width:10%;
     height:10%;
+    margin-left: 5%;
   }
 }
 
@@ -289,6 +290,7 @@ nav ul li:hover .dropdown ul li {
 
   .logo {
     grid-column: 2 / 3;
+    margin-left: 10%;
   }
 
   nav {
