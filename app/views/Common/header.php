@@ -18,6 +18,8 @@
                 <li> <a href="/Network/">NETWORK</a></li>
                 <li><a href="#">FIND JOBS</a></li>
                 <li><a href="/Notification/">NOTIFICATIONS</a></li>
+                <li><a href="/Event/">EVENTS</a></li>
+                <li><a href="/Group/">GROUPS</a></li>
                 <li> <a href="#">MESSAGES</a></li>
                 <li> <a href="/Profile/">USER <i class="fa fa-caret-down"></i></a>
                     <div class="dropdown">
