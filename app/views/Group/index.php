@@ -13,12 +13,17 @@
         <?php if (is_array($data)) { foreach($data as $group) { ?>
             <div class="box"><a href="#"><img src="../../../assets/Connections/user.jpg" alt="<?=$group->name?>"><h4 class="item"><?=$group->name?></h4></a>
                 <p class="description-item"><?=$group->descr?></p>
-                <button class="report">Join</button>
+<?php if (!$this->amSubscribed($group->id)) { // if I am subscribed to the group ?>
+                    <button type="button" id="subscribeButton" class="btn btn-lg btn-danger"><a href="/Group/Join/<?=$group->id?>">Join</a></button>
+<?php   } else { ?>
+                    <button type="button" id="subscribeButton" class="btn btn-lg btn-success"><a href="/Group/Leave/<?=$group->id?>">Leave</a></button>
+<?php   } ?>
             </div>
         <?php } } ?>
         </div>
 
     </div>
     <!-- CONTENT END-->
+
 
 <?php include 'app/views/Common/footer.php' ?>
