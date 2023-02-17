@@ -27,7 +27,7 @@
                             <li><a href="/Connection/">Connections</a></li>
                             <li><a href="#">Suggestions</a></li>
                             <li><a href="/Setting/">Settings</a></li>
-                            <? if(isset($_SESSION['user_id'])) echo '<li><a href="/Home/Logout">Sign Out</a></li>' ?>
+                            <?php if(isset($_SESSION['user_id'])) echo '<li><a href="/Home/Logout">Sign Out</a></li>' ?>
                         </ul>
                     </div>
                 </li>
