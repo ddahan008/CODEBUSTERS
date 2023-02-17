@@ -27,6 +27,26 @@
           <input type="email" id="email" name="email" required>
         </div>
         <div class="form-group">
+          <label for="skills">Skills:</label>
+          <input type="text" id="skills" name="skills" required>
+        </div>
+        <div class="form-group">
+          <label for="aboutme">About Me</label>
+          <input type="text" id="info" name="aboutme" required>
+        </div>
+        <div class="form-group">
+          <label for="Education">Education</label>
+          <input type="text" id="Education" name="Education" required>
+        </div>
+        <div class="form-group">
+          <label for="Experience">Experience</label>
+          <input type="text" id="Experience" name="Experience" required>
+        </div>
+        <div class="form-group">
+          <label for="Volunteer">Volunteer</label>
+          <input type="text" id="Volunteer" name="Volunteer" required>
+        </div>
+        <div class="form-group">
           <label for="profilePicture">Profile Picture:</label>
           <input type="file" id="profilePicture" name="profilePicture" accept="image/*">
           <img id="preview" src="#" alt="Profile Picture Preview">
