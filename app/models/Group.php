@@ -24,6 +24,39 @@ class Group extends Model {
         $stmt->execute(['name'=>$this->name, 'descr'=>$this->descr]);
         return $stmt->rowCount();
     }
+
+    public function isSubscribed() {
+        $stmt = $this->_connection->prepare(
+            "SELECT *
+            FROM group_mem
+            WHERE gid = :gid AND uid = :uid");
+
+        try {
+            $stmt->execute(['gid'=> $this->id,'uid'=> $_SESSION['user_id']]);
+            return $stmt->fetch();
+        }
+        catch (Exception $e) { return 0; }
+    }
+
+    public function joinGroup() {
+        $stmt = $this->_connection->prepare(
+            "INSERT INTO group_mem(gid, uid) 
+                  VALUES (:gid, :uid)");
+
+        $stmt->execute(['gid'=>$this->id, 'uid'=>$_SESSION['user_id']]);
+        return $stmt->rowCount();
+    }
+
+    public function leaveGroup() {
+        $stmt = $this->_connection->prepare(
+            "DELETE FROM group_mem
+                  WHERE (gid = :gid AND uid = :uid)");
+
+        $stmt->execute(['gid'=>$this->id, 'uid'=>$_SESSION['user_id']]);
+        return $stmt->rowCount();
+    }
+
+
 }
 
 ?>

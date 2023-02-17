@@ -2,21 +2,26 @@
 
     <div class="content">
     <form method="post">
-        <h1>Add Event</h1>
+        <h1>Create Event</h1>
         <br/>
-        <h3 class="mb-4 font-weight-normal">Event info</h3>
+        <h3 class="mb-4 font-weight-normal">Event Info</h3>
 
-        <div class="form-label-group">
+        <div class="form-label-event">
             <input type="text" name="name" class="form-control" id="name" placeholder="Event Name" required/>
             <label for="name">* Event Name</label>
         </div>
 
-        <div class="form-label-group">
+        <div class="form-label-event">
             <input type="text" name="descr" class="form-control" id="descr" placeholder="Description" required/>
             <label for="descr">* Event Description</label>
         </div>
 
-        <input type="submit" name="action" value="Create Group" class="btn btn-lg btn-primary btn-block"/>
+        <div class="form-label-event">
+            <input type="datetime-local" name="date" class="form-control" id="date" placeholder="Date and Time" required/>
+            <label for="date">Event (date and time):</label>
+        </div>
+
+        <input type="submit" name="action" value="Create Event" class="btn btn-lg btn-primary btn-block"/>
         <input type="submit" name="cancel" value="Cancel" class="btn btn-lg btn-primary btn-block"/>
     </form>
     </div>

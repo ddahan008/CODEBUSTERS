@@ -17,6 +17,26 @@ class GroupController extends Controller {
         }
         $this->view('Group/AddGroup');
     }
+
+    public function amSubscribed($gid) {
+        $group = $this->model('Group');
+        $group->id = $gid;
+        return is_array($group->isSubscribed());
+    }
+
+    public function join($gid) {
+        $group = $this->model('Group');
+        $group->id = $gid;
+        $group->joinGroup();
+        $this->index();
+    }
+
+    public function leave($gid) {
+        $group = $this->model('Group');
+        $group->id = $gid;
+        $group->leaveGroup();
+        $this->index();
+    }
 }
 
 ?>
