@@ -3,84 +3,28 @@
     <link href="../../../css/HomePage.css" rel="stylesheet" type="text/css"/>
     <link href="../../../css/Connections.css" rel="stylesheet" type="text/css"/>
 
-<div class="content">
+    <div class="content">
+        <!--CONTENT START-->
+        <h3 class="content-header"> Events </h3>
+        <button><a href="/Event/Add">Add</a></button>
 
-    <!--CONTENT START-->
-    <h3 class="content-header"> Events </h3>
+        <div class="grid-container">
 
-    <div class="grid-container">
-        <div class="box"><a href="#"><img src="../../../assets/Connections/user.jpg" alt="Connections"><h4 class="item">Event</h4></a>
-            <p class="description-item">details</p>
-            <button class="report">Join</button>
+        <?php if (is_array($data)) { foreach($data as $event) { ?>
+            <div class="box"><a href="#"><img src="../../../assets/Connections/user.jpg" alt="<?=$event->name?>"><h4 class="item"><?=$event->name?></h4></a>
+                <p class="description-item"><?=$event->descr?></p>
+                <p class="description-item"><?=$event->date?></p>
+                <?php if (!$this->amSubscribed($event->id)) { // if I am subscribed to the event
+                    ?>
+                        <button type="button" id="subscribeButton" class="btn btn-lg btn-danger"><a href="/Event/Join/<?= $event->id ?>">Join</a></button>
+                    <?php   } else { ?>
+                        <button type="button" id="subscribeButton" class="btn btn-lg btn-success"><a href="/Event/Leave/<?= $event->id ?>">Leave</a></button>
+                    <?php   } ?>
+            </div>
+        <?php } } ?>
+        </div>
 
-        </div>
-        <div class="box"><a href="#"><img src="../../../assets/Connections/user-01.jpg" alt="Connections"><h4 class="item">Event</h4></a>
-            <p class="description-item">details</p>
-            <button class="report">Join</button>
-
-        </div>
-        <div class="box"><a href="#"><img src="../../../assets/Connections/user-02.jpg" alt="Connections"><h4 class="item">Event</h4></a>
-            <p class="description-item">details</p>
-            <button class="report">Join</button>
-        </div>
-        <div class="box"><a href="#"><img src="../../../assets/Connections/user-03.jpg" alt="Connections"><h4 class="item">Event</h4></a>
-            <p class="description-item">details</p>
-            <button class="report">Join</button>
-        </div>
-        <div class="box"><a href="#"><img src="../../../assets/Connections/user.jpg" alt="Connections"><h4 class="item">Event</h4></a>
-            <p class="description-item">details</p>
-            <button class="report">Join</button>
-        </div>
-        <div class="box"><a href="#"><img src="../../../assets/Connections/user-01.jpg" alt="Connections"><h4 class="item">Event</h4></a>
-            <p class="description-item">details</p>
-            <button class="report">Join</button>
-
-        </div>
-        <div class="box"><a href="#"><img src="../../../assets/Connections/user-02.jpg" alt="Connections"><h4 class="item">Event</h4></a>
-            <p class="description-item">details</p>
-            <button class="report">Join</button>
-
-        </div>
-        <div class="box"><a href="#"><img src="../../../assets/Connections/user-03.jpg" alt="Connections"><h4 class="item">Event</h4></a>
-            <p class="description-item">details</p>
-            <button class="report">Join</button>
-        </div>
-        <div class="box"><a href="#"><img src="../../../assets/Connections/user.jpg" alt="Connections"><h4 class="item">Event</h4></a>
-            <p class="description-item">details</p>
-            <button class="report">Join</button>
-        </div>
-        <div class="box"><a href="#"><img src="../../../assets/Connections/user-01.jpg" alt="Connections"><h4 class="item">Event</h4></a>
-            <p class="description-item">details</p>
-            <button class="report">Join</button>
-
-        </div>
-        <div class="box"><a href="#"><img src="../../../assets/Connections/user-02.jpg" alt="Connections"><h4 class="item">Event</h4></a>
-            <p class="description-item">details</p>
-            <button class="report">Join</button>
-        </div>
-        <div class="box"><a href="#"><img src="../../../assets/Connections/user-03.jpg" alt="Connections"><h4 class="item">Event</h4></a>
-            <p class="description-item">details</p>
-            <button class="report">Join</button>
-        </div>
-        <div class="box"><a href="#"><img src="../../../assets/Connections/user.jpg" alt="Connections"><h4 class="item">Event</h4></a>
-            <p class="description-item">details</p>
-            <button class="report">Join</button>
-        </div>
-        <div class="box"><a href="#"><img src="../../../assets/Connections/user-01.jpg" alt="Connections"><h4 class="item">Event</h4></a>
-            <p class="description-item">details</p>
-            <button class="report">Join</button>
-
-        </div>
-        <div class="box"><a href="#"><img src="../../../assets/Connections/user-02.jpg" alt="Connections"><h4 class="item">Event</h4></a>
-            <p class="description-item">details</p>
-            <button class="report">Join</button>
-        </div>
-        <div class="box"><a href="#"><img src="../../../assets/Connections/user-03.jpg" alt="Connections"><h4 class="item">Event</h4></a>
-            <p class="description-item">details</p>
-            <button class="report">Join</button>
-        </div>
     </div>
-</div>
-<!-- CONTENT END-->
+    <!-- CONTENT END-->
 
 <?php include 'app/views/Common/footer.php' ?>
