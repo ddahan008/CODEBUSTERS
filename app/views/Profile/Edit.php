@@ -5,53 +5,53 @@
 <div class="content">
     <div class="container">
       <h1>Update User Profile</h1>
-      <form>
+      <form method="post">
         <div class="form-group">
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username" required>
+          <label for="fname">First Name:</label>
+          <input type="text" id="fname" name="fname" required />
         </div>
         <div class="form-group">
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" required>
-        </div>
-        <div class="form-group">
-          <label for="firstName">First Name:</label>
-          <input type="text" id="firstName" name="firstName" required>
-        </div>
-        <div class="form-group">
-          <label for="lastName">Last Name:</label>
-          <input type="text" id="lastName" name="lastName" required>
+          <label for="lname">Last Name:</label>
+          <input type="text" id="lname" name="lname" required />
         </div>
         <div class="form-group">
           <label for="email">Email Address:</label>
-          <input type="email" id="email" name="email" required>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="job">Job title:</label>
+          <input type="text" id="job" name="job" required />
         </div>
         <div class="form-group">
           <label for="skills">Skills:</label>
-          <input type="text" id="skills" name="skills" required>
+          <input type="text" id="skills" name="skills" required />
         </div>
         <div class="form-group">
-          <label for="aboutme">About Me</label>
-          <input type="text" id="info" name="aboutme" required>
+          <label for="about">About Me</label>
+          <input type="text" id="about" name="about" required />
         </div>
         <div class="form-group">
-          <label for="Education">Education</label>
-          <input type="text" id="Education" name="Education" required>
+          <label for="location">Location</label>
+          <input type="text" id="location" name="location" required />
         </div>
         <div class="form-group">
-          <label for="Experience">Experience</label>
-          <input type="text" id="Experience" name="Experience" required>
+          <label for="educ">Education</label>
+          <input type="text" id="educ" name="educ" required />
         </div>
         <div class="form-group">
-          <label for="Volunteer">Volunteer</label>
-          <input type="text" id="Volunteer" name="Volunteer" required>
+          <label for="exp">Experience</label>
+          <input type="text" id="exp" name="exp" required />
         </div>
         <div class="form-group">
+          <label for="vol">Volunteer</label>
+          <input type="text" id="vol" name="vol" required />
+        </div>
+        <!--div class="form-group">
           <label for="profilePicture">Profile Picture:</label>
           <input type="file" id="profilePicture" name="profilePicture" accept="image/*">
           <img id="preview" src="#" alt="Profile Picture Preview">
-        </div>
-        <button type="submit">Update Profile</button>
+        </div-->
+        <input type="submit" name="action" value="Confirm" />
       </form>
     </div>
 </div>

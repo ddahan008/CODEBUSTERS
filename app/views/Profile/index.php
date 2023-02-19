@@ -14,33 +14,37 @@
                     <div class="profile">
                         <img src="../../../assets/Connections/user-01.jpg" alt="Profile Picture">
                         <div class="buttons">
-                            <button class="edit" href="/Profile/Edit/">Edit</button>
-                            <button class="share">Share</button>
+                            <button class="edit"><a href="/Profile/Edit/">Edit</a></button>
+                        <?php if ($data->public == 0) { // my profile is private ?>
+                            <button type="button" id="makePublic" class="btn btn-lg btn-success"><a href="/Profile/UpdateVisibility/1">Make Public</a></button>
+                        <?php   } else { ?>
+                            <button type="button" id="makePrivate" class="btn btn-lg btn-danger"><a href="/Profile/UpdateVisibility/0">Make Private</a></button>
+                        <?php   } ?>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-9 profile-details">
-                    <h1>Jane Doe</h1>
-                        <h3 class="subject">Software Engineer</h3>
-                        <p>San Francisco, CA</p>
+                    <h1><?=$data->fname, ' ', $data->lname?></h1>
+                        <h3 class="subject"><?=$data->job_title?></h3>
+                        <p><?=$data->location?></p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-12 skills">
                     <h2>Skills</h2>
                     <ul>
-                        <li>Java</li>
-                        <li>Python</li>
+                        <li><?=$data->skills?></li>
+                        <!--li>Python</li>
                         <li>JavaScript</li>
                         <li>React</li>
                         <li>Node.js</li>
                         <li>SQL</li>
-                        <li>NoSQL</li>
+                        <li>NoSQL</li-->
                     </ul>
                 </div>
             </div>
             <h2>About Me</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p><?=$data->about?></p>
 
             <h2>Education</h2>
             <ul>
