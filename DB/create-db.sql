@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 17, 2023 at 12:36 AM
+-- Generation Time: Feb 19, 2023 at 04:43 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 5.6.40
 
@@ -24,15 +24,14 @@ USE `codebusters`;
 --
 
 DROP TABLE IF EXISTS `education`;
-CREATE TABLE IF NOT EXISTS `education` (
-                                           `uid` int(11) NOT NULL,
-                                           `eid` int(11) NOT NULL,
-                                           `degree` varchar(50) NOT NULL,
-                                           `inst` varchar(50) NOT NULL,
-                                           `start` date NOT NULL,
-                                           `end` date NOT NULL,
-                                           `descr` varchar(255) NOT NULL,
-                                           PRIMARY KEY (`uid`,`eid`)
+CREATE TABLE `education` (
+                             `uid` int(11) NOT NULL,
+                             `eid` int(11) NOT NULL,
+                             `degree` varchar(50) NOT NULL,
+                             `inst` varchar(50) NOT NULL,
+                             `start` date NOT NULL,
+                             `end` date NOT NULL,
+                             `descr` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -42,12 +41,11 @@ CREATE TABLE IF NOT EXISTS `education` (
 --
 
 DROP TABLE IF EXISTS `events`;
-CREATE TABLE IF NOT EXISTS `events` (
-                                        `id` int(11) NOT NULL AUTO_INCREMENT,
-                                        `name` varchar(20) NOT NULL,
-                                        `descr` varchar(255) NOT NULL,
-                                        `date` datetime NOT NULL,
-                                        PRIMARY KEY (`id`)
+CREATE TABLE `events` (
+                          `id` int(11) NOT NULL,
+                          `name` varchar(20) NOT NULL,
+                          `descr` varchar(255) NOT NULL,
+                          `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -57,11 +55,9 @@ CREATE TABLE IF NOT EXISTS `events` (
 --
 
 DROP TABLE IF EXISTS `event_mem`;
-CREATE TABLE IF NOT EXISTS `event_mem` (
-                                           `eid` int(11) NOT NULL,
-                                           `uid` int(11) NOT NULL,
-                                           PRIMARY KEY (`eid`,`uid`),
-                                           KEY `GROUP_MEM_UID_FK_TO_USER` (`uid`)
+CREATE TABLE `event_mem` (
+                             `eid` int(11) NOT NULL,
+                             `uid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -71,15 +67,14 @@ CREATE TABLE IF NOT EXISTS `event_mem` (
 --
 
 DROP TABLE IF EXISTS `experience`;
-CREATE TABLE IF NOT EXISTS `experience` (
-                                            `uid` int(11) NOT NULL,
-                                            `eid` int(11) NOT NULL,
-                                            `pos` varchar(50) NOT NULL,
-                                            `inst` varchar(50) NOT NULL,
-                                            `start` date NOT NULL,
-                                            `end` date NOT NULL,
-                                            `descr` varchar(255) NOT NULL,
-                                            PRIMARY KEY (`uid`,`eid`)
+CREATE TABLE `experience` (
+                              `uid` int(11) NOT NULL,
+                              `eid` int(11) NOT NULL,
+                              `pos` varchar(50) NOT NULL,
+                              `inst` varchar(50) NOT NULL,
+                              `start` date NOT NULL,
+                              `end` date NOT NULL,
+                              `descr` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -89,11 +84,10 @@ CREATE TABLE IF NOT EXISTS `experience` (
 --
 
 DROP TABLE IF EXISTS `groups`;
-CREATE TABLE IF NOT EXISTS `groups` (
-                                        `id` int(11) NOT NULL AUTO_INCREMENT,
-                                        `name` varchar(20) NOT NULL,
-                                        `descr` varchar(255) NOT NULL,
-                                        PRIMARY KEY (`id`)
+CREATE TABLE `groups` (
+                          `id` int(11) NOT NULL,
+                          `name` varchar(20) NOT NULL,
+                          `descr` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -103,11 +97,9 @@ CREATE TABLE IF NOT EXISTS `groups` (
 --
 
 DROP TABLE IF EXISTS `group_mem`;
-CREATE TABLE IF NOT EXISTS `group_mem` (
-                                           `gid` int(11) NOT NULL,
-                                           `uid` int(11) NOT NULL,
-                                           PRIMARY KEY (`gid`,`uid`),
-                                           KEY `GROUP_MEM_UID_FK_TO_USER` (`uid`)
+CREATE TABLE `group_mem` (
+                             `gid` int(11) NOT NULL,
+                             `uid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -117,17 +109,17 @@ CREATE TABLE IF NOT EXISTS `group_mem` (
 --
 
 DROP TABLE IF EXISTS `profile`;
-CREATE TABLE IF NOT EXISTS `profile` (
-                                         `id` int(11) NOT NULL,
-                                         `fname` varchar(25) NOT NULL,
-                                         `lname` varchar(25) NOT NULL,
-                                         `job_title` varchar(50) NOT NULL,
-                                         `location` varchar(50) NOT NULL,
-                                         `img_src` varchar(255) NOT NULL,
-                                         `skills` varchar(255) NOT NULL,
-                                         `about` varchar(255) NOT NULL,
-                                         `public` int(1) NOT NULL DEFAULT '1',
-                                         PRIMARY KEY (`id`)
+CREATE TABLE `profile` (
+                           `id` int(11) NOT NULL,
+                           `fname` varchar(25) NOT NULL,
+                           `lname` varchar(25) NOT NULL,
+                           `email` varchar(50) NOT NULL,
+                           `job_title` varchar(50) NOT NULL,
+                           `location` varchar(50) NOT NULL,
+                           `img_src` varchar(255) NOT NULL,
+                           `skills` varchar(255) NOT NULL,
+                           `about` varchar(255) NOT NULL,
+                           `public` int(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -137,13 +129,11 @@ CREATE TABLE IF NOT EXISTS `profile` (
 --
 
 DROP TABLE IF EXISTS `user`;
-CREATE TABLE IF NOT EXISTS `user` (
-                                      `id` int(11) NOT NULL AUTO_INCREMENT,
-                                      `uname` varchar(50) NOT NULL,
-                                      `password_hash` varchar(72) NOT NULL,
-                                      `join_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-                                      PRIMARY KEY (`id`),
-                                      UNIQUE KEY `uname` (`uname`)
+CREATE TABLE `user` (
+                        `id` int(11) NOT NULL,
+                        `uname` varchar(50) NOT NULL,
+                        `password_hash` varchar(72) NOT NULL,
+                        `join_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -153,16 +143,99 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 DROP TABLE IF EXISTS `volunteer`;
-CREATE TABLE IF NOT EXISTS `volunteer` (
-                                           `uid` int(11) NOT NULL,
-                                           `eid` int(11) NOT NULL,
-                                           `pos` varchar(50) NOT NULL,
-                                           `inst` varchar(50) NOT NULL,
-                                           `start` date NOT NULL,
-                                           `end` date NOT NULL,
-                                           `descr` varchar(255) NOT NULL,
-                                           PRIMARY KEY (`uid`,`eid`)
+CREATE TABLE `volunteer` (
+                             `uid` int(11) NOT NULL,
+                             `eid` int(11) NOT NULL,
+                             `pos` varchar(50) NOT NULL,
+                             `inst` varchar(50) NOT NULL,
+                             `start` date NOT NULL,
+                             `end` date NOT NULL,
+                             `descr` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `education`
+--
+ALTER TABLE `education`
+    ADD PRIMARY KEY (`uid`,`eid`);
+
+--
+-- Indexes for table `events`
+--
+ALTER TABLE `events`
+    ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `event_mem`
+--
+ALTER TABLE `event_mem`
+    ADD PRIMARY KEY (`eid`,`uid`),
+    ADD KEY `EVENT_MEM_UID_FK_TO_USER` (`uid`);
+
+--
+-- Indexes for table `experience`
+--
+ALTER TABLE `experience`
+    ADD PRIMARY KEY (`uid`,`eid`);
+
+--
+-- Indexes for table `groups`
+--
+ALTER TABLE `groups`
+    ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `group_mem`
+--
+ALTER TABLE `group_mem`
+    ADD PRIMARY KEY (`gid`,`uid`),
+    ADD KEY `GROUP_MEM_UID_FK_TO_USER` (`uid`);
+
+--
+-- Indexes for table `profile`
+--
+ALTER TABLE `profile`
+    ADD PRIMARY KEY (`id`),
+    ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+    ADD PRIMARY KEY (`id`),
+    ADD UNIQUE KEY `uname` (`uname`);
+
+--
+-- Indexes for table `volunteer`
+--
+ALTER TABLE `volunteer`
+    ADD PRIMARY KEY (`uid`,`eid`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `events`
+--
+ALTER TABLE `events`
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `groups`
+--
+ALTER TABLE `groups`
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -173,6 +246,13 @@ CREATE TABLE IF NOT EXISTS `volunteer` (
 --
 ALTER TABLE `education`
     ADD CONSTRAINT `EDUCATION_UID_FK_TO_USER_ID` FOREIGN KEY (`uid`) REFERENCES `user` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `event_mem`
+--
+ALTER TABLE `event_mem`
+    ADD CONSTRAINT `EVENT_MEM_EID_FK_TO_EVENTS` FOREIGN KEY (`eid`) REFERENCES `events` (`id`) ON DELETE CASCADE,
+    ADD CONSTRAINT `EVENT_MEM_UID_FK_TO_USER` FOREIGN KEY (`uid`) REFERENCES `user` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `experience`
