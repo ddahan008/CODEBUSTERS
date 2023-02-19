@@ -45,7 +45,8 @@ CREATE TABLE `events` (
                           `id` int(11) NOT NULL,
                           `name` varchar(20) NOT NULL,
                           `descr` varchar(255) NOT NULL,
-                          `date` datetime NOT NULL
+                          `date` datetime NOT NULL,
+                          `creator_uid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -240,6 +241,12 @@ ALTER TABLE `user`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `events`
+--
+ALTER TABLE `events`
+    ADD CONSTRAINT `EVENTS_CREATOR_UID_FK_TO_USER_ID` FOREIGN KEY (`creator_uid`) REFERENCES `user` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `education`
