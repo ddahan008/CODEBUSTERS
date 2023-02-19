@@ -1,0 +1,41 @@
+Install Composer: https://getcomposer.org/download/
+    Need to have php installed (xampp)
+
+Install xdebug dll
+    Go on powershell: 
+        Command: php -i > test.txt
+        Command: explorer.exe .
+    
+    Take the contents of test.txt and paste it in this link: https://xdebug.org/wizard
+    This link will show you which version of php_xdebug dll you need to download and give you the path to where input the dll
+    Move the downloaded dll to the specific folder
+    The link will also show you where to make the changes in php.ini file to install the dll
+    Inside the php.ini file
+        Paste this: zend_extension = "Path to the php_xdebug file"
+
+Install PHPUnit Locally inside the project root folder through powershell:
+    Command: composer require --dev phpunit/phpunit ^9.5
+
+Create a file named phpunit.xml in the project directory and paste this:
+
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <phpunit bootstrap="vendor/autoload.php"
+        colors="true"
+        stopOnFailure="false">
+
+        <testsuites>
+            <testsuite name="Test">
+                <directory>test</directory>
+            </testsuite>
+        </testsuites>
+    </phpunit>
+
+Make test cases inside Tests folder. The test case php file should end with "Test": blablablaTest.php
+Make sure to change database to to the test database
+Make sure to create a user with Username Test and password test beforehand
+
+Run this to test: ./vendor/bin/phpunit --coverage-html test/report --coverage-filter app
+
+******************Get rid of all the php header functions
+
+Make delete features for group, event and user, right now you have to delete the Test user everytime to run

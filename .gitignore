@@ -1,2 +1,6 @@
 .idea
 /__MACOSX/
+composer.*
+/vendor
+phpunit.xml
+.phpunit.result.cache
