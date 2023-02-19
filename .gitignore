@@ -1,8 +1,8 @@
 .idea
 /__MACOSX/
-.DS_*
-node_modules/
+.DS_Store
 composer.*
 /vendor
 phpunit.xml
 .phpunit.result.cache
+/node_modules/
