@@ -62,6 +62,16 @@ class User extends Model {
         $stmt->execute(['uname'=>$this->uname, 'password_hash'=>$this->password_hash]);
         return $stmt->rowCount();
     }
+
+    public function deleteByUname() {
+        $stmt = $this->_connection->prepare("DELETE FROM user WHERE uname = :uname");
+        $stmt->execute(['uname'=>$this->uname]);
+
+        $stmt = $this->_connection->prepare("SELECT * FROM user WHERE uname = :uname");
+        $stmt->execute(['uname'=>$this->uname]);
+
+        return $stmt->rowCount();
+    }
 }
 
 ?>

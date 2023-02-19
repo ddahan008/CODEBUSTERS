@@ -32,6 +32,19 @@ class HomeController extends Controller {
         }
     }
 
+    public function deleteUserByUname($uname) {
+
+        if (!empty($uname)) {
+            $user = $this->model('User');
+            $user->uname = $uname;
+            if (!$user->deleteByUname()) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
     public function login() {
         if (isset($_POST['action'])) {
             $user = $this->model('User');
