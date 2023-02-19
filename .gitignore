@@ -1,5 +1,6 @@
 .idea
 /__MACOSX/
+.DS_*
 node_modules/
 composer.*
 /vendor
