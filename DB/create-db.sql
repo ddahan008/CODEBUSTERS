@@ -88,7 +88,8 @@ DROP TABLE IF EXISTS `groups`;
 CREATE TABLE `groups` (
                           `id` int(11) NOT NULL,
                           `name` varchar(20) NOT NULL,
-                          `descr` varchar(255) NOT NULL
+                          `descr` varchar(255) NOT NULL,
+                          `creator_uid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -266,6 +267,12 @@ ALTER TABLE `event_mem`
 --
 ALTER TABLE `experience`
     ADD CONSTRAINT `EXPERIENCE_UID_FK_TO_USER_ID` FOREIGN KEY (`uid`) REFERENCES `user` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `groups`
+--
+ALTER TABLE `groups`
+    ADD CONSTRAINT `GROUPS_CREATOR_UID_FK_TO_USER_ID` FOREIGN KEY (`creator_uid`) REFERENCES `user` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `group_mem`
