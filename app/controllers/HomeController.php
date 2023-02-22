@@ -1,73 +1,105 @@
 <?php
 
 class HomeController extends Controller {
-    public function index() {
 
+    /**
+     * The main landing page for the homepage of the system.
+     *
+     * The entrypoint to the system for all public users.
+     */
+    public function index() {
+        // if the user is signed in
         if (isset($_SESSION['user_id'])) {
-            // user signed in
+            // TODO implement logged in homepage
             $datum = "";
         }
 
-        $this->view('Home/Index');
+        $this->view('Home/Index'); // load the homepage index view
         //header("Location: /Home/Login");
         //$this->view('Home/Login');
     }
 
+    /**
+     * Enables users to register an account in the system.
+     *
+     * Controls the registration form loading and processing.
+     */
     public function register() {
-        if (isset($_POST['action'])) {
-            if ($_POST['password'] == $_POST['password_confirm']) {
-                $user = $this->model('User');
-                $user->uname = $_POST['username'];
+        if (isset($_POST['action'])) { // if the form was posted
+            if ($_POST['password'] == $_POST['password_confirm']) { // if the password fields match
+                $user = $this->model('User'); // get a reference to the user object model
+                $user->uname = $_POST['username']; // set the username field
+                // hash the password and set it
                 $user->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
-                if ($user->insert()) {
-                    header("Location: /Home/Login");
+                if ($user->insert()) { // call the method to insert the user to the DB
+                    header("Location: /Home/Login"); // redirect the user to the login page
                 }
                 else { //TODO add error message
-                    header("Location: /Home/Register");
+                    header("Location: /Home/Register"); // reload the registration form
                 }
             }
         }
         else {
-            $this->view('Home/Register');
+            $this->view('Home/Register'); // load the registration form
         }
     }
 
+    /**
+     * Enables the functionality to delete a user based on a passed username.
+     *
+     * @param $uname string The username of the user to delete.
+     *
+     * @return bool True if the user was successfully deleted, false otherwise.
+     */
     public function deleteUserByUname($uname) {
-
+        // check that the parameter has been passed
         if (!empty($uname)) {
-            $user = $this->model('User');
-            $user->uname = $uname;
-            if (!$user->deleteByUname()) {
-                return true;
-            } else {
-                return false;
+            $user = $this->model('User'); // get a reference to the user object model
+            $user->uname = $uname; // set the username
+            if (!$user->deleteByUname()) { // call the delete method to remove the user from the DB
+                return true; // if successfully removed, return true
+            } else { // otherwise
+                return false; // return false
             }
         }
     }
 
+
+    /**
+     * Enables users to login to the system.
+     *
+     * Manages the login form view and the login behaviour.
+     */
     public function login() {
-        if (isset($_POST['action'])) {
-            $user = $this->model('User');
+        if (isset($_POST['action'])) { // if the form has been posted
+            $user = $this->model('User'); // get a reference to the user object model
+            // call the method to retrieve the user with the given username from the DB
             $theUser = $user->getUserByUname($_POST['username']);
 
+            // check that the password entered matches the hashed password in the DB
             if (password_verify($_POST['password'], $theUser->password_hash)) {
-                $_SESSION['user_id'] = $theUser->id;
-                $_SESSION['uname'] = $theUser->uname;
-                header("Location: /Profile/Index");
+                $_SESSION['user_id'] = $theUser->id; // set the session variable for the user_id
+                $_SESSION['uname'] = $theUser->uname; // set the session variable for the username
+                header("Location: /Profile/Index"); // redirect the user to the profile index page
             }
-            else { //TODO add error message
-                header("Location: /Home/Login");
+            else { // The passwords do not match
+                // TODO add error message to the user
+                header("Location: /Home/Login"); // redirect the user to the login form
             }
         }
-        else {
-            $this->view('Home/Login');
+        else { // the form was not posted
+            $this->view('Home/Login'); // load the login form
         }
     }
 
+
+    /**
+     * Enables a user to logout of the system.
+     */
     public function logout() {
-        unset($_SESSION['user_id']);
-        unset($_SESSION['uname']);
-        header("Location: /");
+        unset($_SESSION['user_id']); // unset the user_id session variable
+        unset($_SESSION['uname']); // unset the username session variable
+        header("Location: /"); // redirect the user to the root of the website
     }
 }
 

@@ -6,111 +6,23 @@
     <div class="content">
 
         <!--CONTENT START-->
-        <h3 class="content-header"> Connections </h3>
-
+        <h3 class="content-header"> Network </h3>
+        <?php if (is_array($data)) { ?>
         <div class="grid-container">
-            <div class="box"><a href="#"><img src="../../../assets/Connections/user.jpg" alt="Connections"><h4 class="item">Name</h4></a>
-                <p class="description-item">Occupation</p>
+            <?php foreach ($data as $datum) { ?>
+            <div class="box"><a href="#"><img src="../../../assets/Connections/user.jpg" alt="Connections"><h4 class="item"><?=$datum->fname, ' ', $datum->lname?></h4></a>
+                <p class="description-item"><?=$datum->job_title?></p>
                 <button class="message">Message</button>
-                <button class="remove-connection">Remove</button>
+                <?php if (isset($datum->isConnected)) { // my profile is private ?>
+                <button type="button" id="disconnect" class="btn btn-lg btn-success"><a href="/Connection/Remove/<?=$datum->id?>">Disconnect</a></button>
+                <?php   } else { ?>
+                <button type="button" id="connect" class="btn btn-lg btn-danger"><a href="/Connection/Create/<?=$datum->id?>">Connect</a></button>
+                <?php   } ?>
                 <button class="report">Report</button>
             </div>
-            <div class="box"><a href="#"><img src="../../../assets/Connections/user-01.jpg" alt="Connections"><h4 class="item">Name</h4></a>
-                <p class="description-item">Occupation</p>
-                <button class="message">Message</button>
-                <button class="remove-connection">Remove</button>
-                <button class="report">Report</button>
-
-            </div>
-            <div class="box"><a href="#"><img src="../../../assets/Connections/user-02.jpg" alt="Connections"><h4 class="item">Name</h4></a>
-                <p class="description-item">Occupation</p>
-                <button class="message">Message</button>
-                <button class="remove-connection">Remove</button>
-                <button class="report">Report</button>
-            </div>
-            <div class="box"><a href="#"><img src="../../../assets/Connections/user-03.jpg" alt="Connections"><h4 class="item">Name</h4></a>
-                <p class="description-item">Occupation</p>
-                <button class="message">Message</button>
-                <button class="remove-connection">Remove</button>
-                <button class="report">Report</button>
-            </div>
-            <div class="box"><a href="#"><img src="../../../assets/Connections/user.jpg" alt="Connections"><h4 class="item">Name</h4></a>
-                <p class="description-item">Occupation</p>
-                <button class="message">Message</button>
-                <button class="remove-connection">Remove</button>
-                <button class="report">Report</button>
-            </div>
-            <div class="box"><a href="#"><img src="../../../assets/Connections/user-01.jpg" alt="Connections"><h4 class="item">Name</h4></a>
-                <p class="description-item">Occupation</p>
-                <button class="message">Message</button>
-                <button class="remove-connection">Remove</button>
-                <button class="report">Report</button>
-
-            </div>
-            <div class="box"><a href="#"><img src="../../../assets/Connections/user-02.jpg" alt="Connections"><h4 class="item">Name</h4></a>
-                <p class="description-item">Occupation</p>
-                <button class="message">Message</button>
-                <button class="remove-connection">Remove</button>
-                <button class="report">Report</button>
-
-            </div>
-            <div class="box"><a href="#"><img src="../../../assets/Connections/user-03.jpg" alt="Connections"><h4 class="item">Name</h4></a>
-                <p class="description-item">Occupation</p>
-                <button class="message">Message</button>
-                <button class="remove-connection">Remove</button>
-                <button class="report">Report</button>
-            </div>
-            <div class="box"><a href="#"><img src="../../../assets/Connections/user.jpg" alt="Connections"><h4 class="item">Name</h4></a>
-                <p class="description-item">Occupation</p>
-                <button class="message">Message</button>
-                <button class="remove-connection">Remove</button>
-                <button class="report">Report</button>
-            </div>
-            <div class="box"><a href="#"><img src="../../../assets/Connections/user-01.jpg" alt="Connections"><h4 class="item">Name</h4></a>
-                <p class="description-item">Occupation</p>
-                <button class="message">Message</button>
-                <button class="remove-connection">Remove</button>
-                <button class="report">Report</button>
-
-            </div>
-            <div class="box"><a href="#"><img src="../../../assets/Connections/user-02.jpg" alt="Connections"><h4 class="item">Name</h4></a>
-                <p class="description-item">Occupation</p>
-                <button class="message">Message</button>
-                <button class="remove-connection">Remove</button>
-                <button class="report">Report</button>
-            </div>
-            <div class="box"><a href="#"><img src="../../../assets/Connections/user-03.jpg" alt="Connections"><h4 class="item">Name</h4></a>
-                <p class="description-item">Occupation</p>
-                <button class="message">Message</button>
-                <button class="remove-connection">Remove</button>
-                <button class="report">Report</button>
-            </div>
-            <div class="box"><a href="#"><img src="../../../assets/Connections/user.jpg" alt="Connections"><h4 class="item">Name</h4></a>
-                <p class="description-item">Occupation</p>
-                <button class="message">Message</button>
-                <button class="remove-connection">Remove</button>
-                <button class="report">Report</button>
-            </div>
-            <div class="box"><a href="#"><img src="../../../assets/Connections/user-01.jpg" alt="Connections"><h4 class="item">Name</h4></a>
-                <p class="description-item">Occupation</p>
-                <button class="message">Message</button>
-                <button class="remove-connection">Remove</button>
-                <button class="report">Report</button>
-
-            </div>
-            <div class="box"><a href="#"><img src="../../../assets/Connections/user-02.jpg" alt="Connections"><h4 class="item">Name</h4></a>
-                <p class="description-item">Occupation</p>
-                <button class="message">Message</button>
-                <button class="remove-connection">Remove</button>
-                <button class="report">Report</button>
-            </div>
-            <div class="box"><a href="#"><img src="../../../assets/Connections/user-03.jpg" alt="Connections"><h4 class="item">Name</h4></a>
-                <p class="description-item">Occupation</p>
-                <button class="message">Message</button>
-                <button class="remove-connection">Remove</button>
-                <button class="report">Report</button>
-            </div>
+            <?php } ?>
         </div>
+        <?php } ?>
     </div>
     <!-- CONTENT END-->
 

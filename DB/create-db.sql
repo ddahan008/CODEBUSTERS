@@ -20,6 +20,18 @@ USE `codebusters`;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `connection`
+--
+
+DROP TABLE IF EXISTS `connection`;
+CREATE TABLE `connection` (
+                              `master` int(11) NOT NULL,
+                              `slave` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `education`
 --
 
@@ -160,6 +172,13 @@ CREATE TABLE `volunteer` (
 --
 
 --
+-- Indexes for table `connection`
+--
+ALTER TABLE `connection`
+    ADD PRIMARY KEY (`master`,`slave`),
+    ADD KEY `CONNECTION_SLAVE_FK_TO_USER_ID` (`slave`);
+
+--
 -- Indexes for table `education`
 --
 ALTER TABLE `education`
@@ -188,7 +207,8 @@ ALTER TABLE `experience`
 -- Indexes for table `groups`
 --
 ALTER TABLE `groups`
-    ADD PRIMARY KEY (`id`);
+    ADD PRIMARY KEY (`id`),
+    ADD KEY `GROUPS_CREATOR_UID_FK_TO_USER_ID` (`creator_uid`);
 
 --
 -- Indexes for table `group_mem`
@@ -248,6 +268,14 @@ ALTER TABLE `user`
 --
 ALTER TABLE `events`
     ADD CONSTRAINT `EVENTS_CREATOR_UID_FK_TO_USER_ID` FOREIGN KEY (`creator_uid`) REFERENCES `user` (`id`) ON DELETE CASCADE;
+
+
+--
+-- Constraints for table `connection`
+--
+ALTER TABLE `connection`
+    ADD CONSTRAINT `CONNECTION_MASTER_FK_TO_USER_ID` FOREIGN KEY (`master`) REFERENCES `user` (`id`) ON DELETE CASCADE,
+    ADD CONSTRAINT `CONNECTION_SLAVE_FK_TO_USER_ID` FOREIGN KEY (`slave`) REFERENCES `user` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `education`
