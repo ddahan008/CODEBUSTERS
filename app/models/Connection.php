@@ -82,7 +82,7 @@ class Connection extends Model {
         );
 
         // supply the replacement parameters to the query
-        $stmt->execute(['master'=>$_SESSION['user_id'], 'slave'=>$this->slave]);
+        $stmt->execute(['master'=>$this->master, 'slave'=>$this->slave]);
         return $stmt->rowCount(); // execute the query and return the number of affected rows (should be 1)
     }
 
@@ -100,7 +100,7 @@ class Connection extends Model {
         );
 
         // supply the replacement parameters to the query
-        $stmt->execute(['master'=>$_SESSION['user_id'], 'slave'=>$this->slave]);
+        $stmt->execute(['master'=>$this->master, 'slave'=>$this->slave]);
         return $stmt->rowCount(); // execute the query and return the number of affected rows (should be 1)
     }
 }

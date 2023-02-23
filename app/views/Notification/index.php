@@ -10,6 +10,18 @@
                 <p>A user wants to join your network.</p>
                 <button>Accept</button>
                 <button>Decline</button>
+
+                <?php if (is_array($data)) { ?>
+                    <div class="grid-container">
+                        <?php foreach ($data as $datum) { ?>
+                            <div class="box"><a href="#"><h4 class="item"><?=$datum->fname, ' ', $datum->lname?></h4></a>
+                                <p class="description-item"><?=$datum->job_title?></p>
+                                <button type="button" id="accept" class="btn btn-lg btn-success"><a href="/Invitation/Accept/<?=$datum->id?>">Accept</a></button>
+                                <button type="button" id="reject" class="btn btn-lg btn-success"><a href="/Invitation/Reject/<?=$datum->id?>">Reject</a></button>
+                            </div>
+                        <?php } ?>
+                    </div>
+                <?php } ?>
             </div>
             <div class="notification info">
                 <h2>Messages</h2>
