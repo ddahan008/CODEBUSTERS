@@ -52,14 +52,15 @@
     <link href="../css/PostJobs.css" rel="stylesheet" type="text/css"/>
 
     <div class="content d-flex justify-content-center">
-
+        <!-- Left Hand Side of the layout-->
         <div class="lhs d-flex flex-column m-2">
-
+            <!-- Tag search to add tags to blocks -->
             <div class="tag-block rounded p-2 m-2">
                 <div class="row h-5 p-2 m-1 justify-content-center">
                     <label class=" align-self-center text-right">Add Tags</label>
                     <input class=" align-self-center search-bar form-control m-2" type="search" placeholder="Tag Search" aria-label="Search">
                 </div>
+                <!-- list of added tags -->
                 <div class="row h-5 p-2">
                     <div for="" class="col">Tag1<a class="" href="remove tag"> X </a></div>
                     <div for="" class="col">Tag2<a class="" href="remove tag"> X </a></div>
@@ -67,7 +68,7 @@
                     <div for="" class="col">Tag4<a class="" href="remove tag"> X </a></div>
                 </div>
             </div>
-
+             <!-- Filled out job posting-->
             <div class="filtered-jobs d-flex flex-column justify-content-center rounded m-2">
                 <div class="job-posting rounded m-2 border d-flex justify-content-center">
                     <div class="">
@@ -84,24 +85,24 @@
                         </ul>
                     </div>
                 </div>
-                
-                <div class="job-posting rounded m-2 border">
+                <!-- empty job postings (none created yet)-->
+                <div class="job-posting rounded m-2 border d-flex justify-content-center">
                     <a class="justify-content-center d-flex" href="go to job creation page"style="font-size: 75px;">+</a>
                 </div>
-                <div class="job-posting rounded m-2 border">
+                <div class="job-posting rounded m-2 border d-flex justify-content-center">
                     <a class="justify-content-center d-flex" href="go to job creation page"style="font-size: 75px;">+</a>
                 </div>
-                <div class="job-posting rounded m-2 border">
+                <div class="job-posting rounded m-2 border d-flex justify-content-center">
                     <a class="justify-content-center d-flex" href="go to job creation page"style="font-size: 75px;">+</a>
                 </div>
-                <div class="job-posting rounded m-2 border">
+                <div class="job-posting rounded m-2 border d-flex justify-content-center">
                     <a class="justify-content-center d-flex" href="go to job creation page"style="font-size: 75px;">+</a>
                 </div>
-                <div class="job-posting m-2 border">
+                <div class="job-posting rounded m-2 border d-flex justify-content-center">
                     <a class="justify-content-center d-flex" href="go to job creation page"style="font-size: 75px;">+</a>
                 </div>
             </div>
-
+            <!-- Page navigation bar for job postings -->
             <div class="page-select d-flex align-self-centerrounded m-2 row justify-content-center text-center">
                     <a class="col" href="next page">Next</a>
                     <a class="col" href="page 1">1</a>
@@ -110,44 +111,46 @@
             </div>
 
         </div>
+        <!-- Right Hand Side of the layout-->
         <div class="rhs d-flex flex-column m-2">
-
+            <!-- Checkbox filters assigned to currently selected job -->
             <div class="job-filters rounded m-2">
                 <div class="form-group form-check d-flex flex-column">
                     <div class="row m-2">
                         <div class="col">
-                            <input type="checkbox" class="form-check-input">
-                            <label class="form-check-label" for="exampleCheck1">Part time</label>
+                            <input type="checkbox" class="form-check-input" id="Part time">
+                            <label class="form-check-label" for="Part time">Part time</label>
                         </div>
                         <div class="col">
-                            <input type="checkbox" class="form-check-input">
-                            <label class="form-check-label" for="exampleCheck1">Remote</label>
+                            <input type="checkbox" class="form-check-input" id="Remote">
+                            <label class="form-check-label" for="Remote">Remote</label>
                         </div>
                     </div>
                     <div class="row m-2">
                         <div class="col">
-                            <input type="checkbox" class="form-check-input">
-                            <label class="form-check-label" for="exampleCheck1">Full time</label>
+                            <input type="checkbox" class="form-check-input" id="Full time">
+                            <label class="form-check-label" for="Full time">Full time</label>
                         </div>
                        <div class="col">
-                        <input type="checkbox" class="form-check-input">
-                        <label class="form-check-label" for="exampleCheck1">On-Site</label>
+                            <input type="checkbox" class="form-check-input" id="On-Site">
+                            <label class="form-check-label" for="On-Site">On-Site</label>
                        </div>
                     </div>
                     <div class="row m-2">
                         <div class="col">
-                            <input type="checkbox" class="form-check-input">
-                            <label class="form-check-label" for="exampleCheck1">Mandatory CV</label>
+                            <input type="checkbox" class="form-check-input" id="Mandatory CV">
+                            <label class="form-check-label" for="Mandatory CV">Mandatory CV</label>
                         </div>
                     </div>
                  </div>
             </div>
-
+            <!-- Job Information for job selected -->
             <div class="job-view rounded m-2 p-2">
                 <h1>Job Title - company - location</h1>
                 <button type="button" class="btn btn-primary m-2">Remove Job Posting</button>
                 <p><b>Submition Deadline</b></p>
                 <p>Description</p>
+                <button type="button" class="btn btn-primary m-2">Edit Job Posting</button>
             </div>
 
         </div>
