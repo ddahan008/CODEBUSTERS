@@ -14,7 +14,7 @@
     width:30%; 
 }
 
-.search-block {
+.tag-block {
     background-color: rgb(255, 255, 255);
     height: 15%;
     font-size: 25px;
@@ -40,7 +40,8 @@
     height: 80%;
 }
 .search-bar{
-    height: 40%;
+    height: 40px;
+    width: 40%;
 }
 .job-posting{
      background-color: rgb(255, 255, 255);
@@ -48,4 +49,7 @@
 }
 .job-description{
     width: 90%;
+}
+.ul{
+    list-style-type: none; 
 }

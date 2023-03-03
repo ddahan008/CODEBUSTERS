@@ -49,58 +49,72 @@
         </label>
     </header>
 
-    <link href="../css/Jobs.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/PostJobs.css" rel="stylesheet" type="text/css"/>
 
     <div class="content d-flex justify-content-center">
 
         <div class="lhs d-flex flex-column m-2">
-            <div class="search-block rounded d-flex justify-content-center p-2 m-2">
-                <label class=" align-self-center col text-right">Search jobs</label>
-                <input class=" align-self-center search-bar col form-control m-2" type="search" placeholder="Search" aria-label="Search">
+
+            <div class="tag-block rounded p-2 m-2">
+                <div class="row h-5 p-2 m-1 justify-content-center">
+                    <label class=" align-self-center text-right">Add Tags</label>
+                    <input class=" align-self-center search-bar form-control m-2" type="search" placeholder="Tag Search" aria-label="Search">
+                </div>
+                <div class="row h-5 p-2">
+                    <div for="" class="col">Tag1<a class="" href="remove tag"> X </a></div>
+                    <div for="" class="col">Tag2<a class="" href="remove tag"> X </a></div>
+                    <div for="" class="col">Tag3<a class="" href="remove tag"> X </a></div>
+                    <div for="" class="col">Tag4<a class="" href="remove tag"> X </a></div>
+                </div>
             </div>
+
             <div class="filtered-jobs d-flex flex-column justify-content-center rounded m-2">
                 <div class="job-posting rounded m-2 border d-flex justify-content-center">
                     <div class="">
-                        <a class="" href="go to company page"><img src="../assets/JobLogo.png" style= "height: 100%;"></a>
+                        <a  href="go to company page"><img class="company-icon" src="../assets/JobLogo.png" style= "height: 100%;"></a>
                     </div>
                     <div class="job-description row p-3">
-                        <ul class ="p-2 col"style="list-style-type: none;">
+                        <ul class ="p-2 col" style="list-style-type: none;">
                             <li style="margin: 0px 0;"><b>Job Name</b></li>
-                            <li style="margin: 0px 0;">Company Name</li>
+                            <li style="margin: 0px 0;"><a class="" href="go to company page">Company Name</a></li>
                         </ul>
-                        <ul class ="p-2 col"style="list-style-type: none;">
+                        <ul class ="p-2 col" style="list-style-type: none;">
                             <li>location</li>
                             <li><a class="" href="apply link"><label>Apply here</label></a></li>
                         </ul>
                     </div>
                 </div>
+                
                 <div class="job-posting rounded m-2 border">
-
+                    <a class="justify-content-center d-flex" href="go to job creation page"style="font-size: 75px;">+</a>
                 </div>
                 <div class="job-posting rounded m-2 border">
-
+                    <a class="justify-content-center d-flex" href="go to job creation page"style="font-size: 75px;">+</a>
                 </div>
                 <div class="job-posting rounded m-2 border">
-
+                    <a class="justify-content-center d-flex" href="go to job creation page"style="font-size: 75px;">+</a>
                 </div>
                 <div class="job-posting rounded m-2 border">
-
+                    <a class="justify-content-center d-flex" href="go to job creation page"style="font-size: 75px;">+</a>
                 </div>
                 <div class="job-posting m-2 border">
-
+                    <a class="justify-content-center d-flex" href="go to job creation page"style="font-size: 75px;">+</a>
                 </div>
             </div>
+
             <div class="page-select d-flex align-self-centerrounded m-2 row justify-content-center text-center">
                     <a class="col" href="next page">Next</a>
                     <a class="col" href="page 1">1</a>
                     <a class="col" href="page 2">2</a>
                     <a class="col" href="page 3">3</a>
             </div>
+
         </div>
         <div class="rhs d-flex flex-column m-2">
+
             <div class="job-filters rounded m-2">
                 <div class="form-group form-check d-flex flex-column">
-                    <div class="row m-3">
+                    <div class="row m-2">
                         <div class="col">
                             <input type="checkbox" class="form-check-input">
                             <label class="form-check-label" for="exampleCheck1">Part time</label>
@@ -110,7 +124,7 @@
                             <label class="form-check-label" for="exampleCheck1">Remote</label>
                         </div>
                     </div>
-                    <div class="row m-3">
+                    <div class="row m-2">
                         <div class="col">
                             <input type="checkbox" class="form-check-input">
                             <label class="form-check-label" for="exampleCheck1">Full time</label>
@@ -120,13 +134,22 @@
                         <label class="form-check-label" for="exampleCheck1">On-Site</label>
                        </div>
                     </div>
+                    <div class="row m-2">
+                        <div class="col">
+                            <input type="checkbox" class="form-check-input">
+                            <label class="form-check-label" for="exampleCheck1">Mandatory CV</label>
+                        </div>
+                    </div>
                  </div>
             </div>
+
             <div class="job-view rounded m-2 p-2">
                 <h1>Job Title - company - location</h1>
-                <button type="button" class="btn btn-primary">Easily apply</button>
+                <button type="button" class="btn btn-primary m-2">Remove Job Posting</button>
+                <p><b>Submition Deadline</b></p>
                 <p>Description</p>
             </div>
+
         </div>
         
 
