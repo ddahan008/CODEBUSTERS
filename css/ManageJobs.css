@@ -21,12 +21,8 @@
 }
 
 .filtered-jobs {
-    height: 75%;
-}
-
-.page-select {
-    height: 5%;
-    font-size: 20px;
+    height: 80%;
+    overflow:scroll;
 }
 
 .job-filters {
@@ -44,12 +40,9 @@
     width: 40%;
 }
 .job-posting{
-     background-color: rgb(255, 255, 255);
-    height: 15%;
+    background-color: rgb(255, 255, 255);
+    height: 100px;
 }
 .job-description{
     width: 90%;
-}
-.ul{
-    list-style-type: none; 
 }

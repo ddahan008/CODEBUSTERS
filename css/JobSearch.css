@@ -21,7 +21,8 @@
 }
 
 .filtered-jobs {
-    height: 75%;
+    height: 80%;
+    overflow:scroll;
 }
 
 .page-select {
@@ -43,8 +44,8 @@
     height: 40%;
 }
 .job-posting{
-     background-color: rgb(255, 255, 255);
-    height: 15%;
+    background-color: rgb(255, 255, 255);
+    height: 100px;
 }
 .job-description{
     width: 90%;
