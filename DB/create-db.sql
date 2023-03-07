@@ -173,6 +173,7 @@ CREATE TABLE `user` (
                         `id` int(11) NOT NULL,
                         `uname` varchar(50) NOT NULL,
                         `password_hash` varchar(72) NOT NULL,
+                        `user_type` varchar(11) NOT NULL,
                         `join_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
