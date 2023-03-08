@@ -14,61 +14,18 @@
             <div class="contact-list">
                 <h1>Contact List</h1>
                 <ul>
-                    <li class='friend selected'>
+                    <?php if(is_array($data) && is_array($data['contacts'])) { ?>
+                    <?php foreach ($data['contacts'] as $contact) { ?>
+                    <li class='friend'>
                         <img src='https://i.imgur.com/nkN3Mv0.jpg' />
                         <div class='name'>
-                            Andres Perez
+                            <?=$contact->fname, ' ', $contact->lname?>
                         </div>
                         <div class="status">
                             Online
                         </div>
                     </li>
-                    <li class='friend'>
-                        <img src='https://i.imgur.com/0I4lkh9.jpg' />
-                        <div class='name'>
-                            Leah Slaten
-                        </div>
-                        <div class="status">
-                            Online
-                        </div>
-                    </li>
-                    <li class='friend'>
-                        <img src='https://i.imgur.com/s2WCwH2.jpg' />
-                        <div class='name'>
-                            Mario Martinez
-                        </div>
-                        <div class="status">
-                            Offline
-                        </div>
-                    </li>
-                    <li class='friend'>
-                        <img src='https://i.imgur.com/rxBwsBB.jpg' />
-                        <div class='name'>
-                            Cynthia Lo
-                        </div>
-                        <div class="status">
-                            Offline
-                        </div>
-                    </li>
-                    <li class='friend'>
-                        <img src='https://i.imgur.com/tovkOg2.jpg' />
-                        <div class='name'>
-                            Sally Lin
-                        </div>
-                        <div class="status">
-                            Online
-                        </div>
-                    </li>
-                    <li class='friend'>
-                        <img src='https://i.imgur.com/A7lNstm.jpg' />
-                        <div class='name'>
-                            Danny Tang
-                        </div>
-                        <br>
-                        <div class="status">
-                            Online
-                        </div>
-                    </li>
+                    <?php } } ?>
                 </ul>
             </div>
             <div class="chat-container">
