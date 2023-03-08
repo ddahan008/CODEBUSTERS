@@ -5,11 +5,10 @@
     <link href="../../../css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 
 
-<div class="content">
+    <div class="content">
     <!--CONTENT START-->
 
-    <h3 class="content-header">MESSAGING</h3>
-    <body>
+        <h3 class="content-header">MESSAGING</h3>
         <div class="container">
             <div class="contact-list">
                 <h1>Contact List</h1>
@@ -51,11 +50,12 @@
                         <button type="submit">Send</button>
 
                     </form>
-
                 </div>
-
             </div>
         </div>
-        <!-- CONTENT END-->
+    </div>
+    <!-- CONTENT END-->
+
+    <script type="text/javascript" src="../../../js/jquery-3.6.4.min.js"></script>
 
 <?php include 'app/views/Common/footer.php' ?>
