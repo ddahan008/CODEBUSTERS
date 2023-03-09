@@ -12,7 +12,20 @@ class ChatController extends Controller {
     }
 
     public function get() {
+        $chat = $this->model('Chat');
+        $chat->rid = $_GET['receiverID'];
+        $chat->sid = $_SESSION['user_id'];
 
+        $chats = $chat->getAll();
+
+        $profile = $this->model('Profile');
+        $html = "";
+
+        foreach ($chats as $c) {
+            $html .= "<p><strong>" . $profile->getFnameForUser($c->sid) . ": </strong>" . $c->content . "</p>\n";
+        }
+
+        echo $html;
     }
 
     public function send() {
