@@ -1,3 +1,12 @@
+<?php
+
+    require_once "app/models/User.php";
+
+    $user = new User;
+    $data = $user->getAllUserTypes();
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -35,9 +44,12 @@
         </div>
 
         <div class="form-label-group">
-            <select class="form-control" name="user_type" id="user_type" placeholder="User Type" required>
-                <option value="seeker">Job Seeker</option>
-                <option value="recruiter">Recruiter</option>
+            <select class="form-control" name="u_type" id="u_type" placeholder="User Type" required>
+                <?php 
+                    foreach ($data as $datum) {
+                        echo "<option value=".$datum["id"].">". $datum["type"] ."</option>";
+                    }
+                ?>
             </select>
         </div>
 
