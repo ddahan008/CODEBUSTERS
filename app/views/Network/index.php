@@ -13,8 +13,8 @@
             <?php if ($datum->public == 1) { ?>
             <div class="box"><a href="#"><img src="../../../assets/Connections/user.jpg" alt="Connections"><h4 class="item"><?=$datum->fname, ' ', $datum->lname?></h4></a>
                 <p class="description-item"><?=$datum->job_title?></p>
+                <?php if (isset($datum->isConnected)) { // my profile is connected ?>
                 <button class="message"><a href="/Chat/">Message</a></button>
-                <?php if (isset($datum->isConnected)) { // my profile is private ?>
                 <button type="button" id="disconnect" class="btn btn-lg btn-success"><a href="/Connection/Remove/<?=$datum->id?>">Disconnect</a></button>
                 <?php   } else { ?>
                 <button type="button" id="connect" class="btn btn-lg btn-danger"><a href="/Invitation/Create/<?=$datum->id?>">Connect</a></button>
