@@ -62,7 +62,7 @@
                 return false;
             });
 
-            $("#refresh").click(function loadLog() {
+            /*$("#refresh").click(*/function loadLog() {
                 var receiverID = $("#receiverID").html();
                 var prevHeight = $("#chat")[0].scrollHeight - 20; //Scroll height before the request
                 $.ajax({
@@ -79,9 +79,8 @@
                         }
                     }
                 });
-            });
+            }/*);*/
 
-            //setInterval (loadLog, 1000);
 
             $(".friend").click(function () {
                 $(".selected").removeClass("selected");
@@ -89,6 +88,8 @@
                 var uid = $(this).children("span").html();
                 $("#receiverID").html(uid);
             });
+
+            setInterval (loadLog, 1000);
         });
     </script>
 <?php include 'app/views/Common/footer.php' ?>
