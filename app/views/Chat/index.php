@@ -31,10 +31,7 @@
             </div>
             <div class="chat-container">
                 <div class="chat-tile">
-                    <h1>Chat with John Doe</h1>
-                    <form>
-                        <button type="button" class="startchat">Start Chat</button>
-                    </form>
+                    <h1>Select a contact to start a chat!</h1>
                 </div>
 
                 <div class="chat" id="chat"></div>
