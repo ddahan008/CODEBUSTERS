@@ -1,0 +1,154 @@
+.Job-main-box {
+    display: flex;
+    width: 100%;
+    margin-top: 60px;
+}
+
+.Job-list-box {
+    width: 50%;
+    margin-right: 20px;
+}
+
+.Job-misc-box {
+    width: 50%;
+    height: max-content;
+    margin-left: 20px;
+    border: solid black;
+    border-width: thin;
+    border-radius: 39px;
+}
+
+.Job-misc-title-box {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 15px;
+}
+
+.Job-misc-title-box h3 {
+    font-weight: 900;
+}
+
+.Job-misc-input-box {
+    display: block;
+    padding: 0px 15px 20px 15px;
+}
+
+.Job-misc-input-box div {
+    width: 100%;
+    display: flex;
+}
+
+.Job-misc-form-label {
+    width: 25%;
+}
+
+.Job-misc-form-input {
+    width: 75%;
+    border-radius: 39px;
+    border: solid black;
+    border-width: thin;
+    padding: 0px 10px;
+}
+
+.Job-list-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    border: solid black;
+    border-width: thin;
+    border-radius: 33px;
+    position: relative;
+}
+
+.Job-list-logo {
+    padding: 30px;
+}
+
+.Job-list-content {
+    padding: 30px 60px 30px 0px;
+}
+
+.Job-list-content p {
+    margin: 0px;
+}
+
+.Job-list-delete-btn {
+    position: absolute;
+    border-radius: 100%;
+    border: none;
+    padding: 0px 7px;
+    top: 25px;
+    right: 25px;
+    background: #000000;
+    color: #ffffff;
+}
+
+#description {
+    height: 400px;
+    width: 100% ;
+    padding: 25px;
+    overflow: hidden;
+}
+
+.Job-misc-check-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Job-misc-form-item {
+    padding-bottom: 10px;
+}
+
+.Job-misc-btn {
+    background: #F3CD03;
+    border-radius: 6px;
+    border: none;
+    color: #ffffff;
+    width: 100px;
+    height: 40px;
+    transition: 0.3s;
+}
+
+.Job-misc-btn:hover {
+    background: #a08800;
+    transition: 0.3s;
+}
+
+.Job-save-btn {
+    background: #2DC071;
+    border-radius: 6px;
+    border: none;
+    color: #ffffff;
+    width: 100px;
+    height: 40px;
+    transition: 0.3s;
+}
+
+.Job-save-btn:hover {
+    background: #1a7946;
+    transition: 0.3s;
+}
+
+.Job-edit-btn {
+    background: #18A0FB;
+    border-radius: 6px;
+    border: none;
+    color: #ffffff;
+    width: 100px;
+    height: 40px;
+    transition: 0.3s;
+}
+
+.Job-edit-btn:hover {
+    background: #0467aa;
+    transition: 0.3s;
+}
+
+.Job-misc-check {
+    width: 24px;
+}
+
+.Job-item-active {
+    background: #C3E7FC;
+}
