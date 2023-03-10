@@ -20,6 +20,48 @@ USE `codebusters`;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `chat`
+--
+
+DROP TABLE IF EXISTS `chat`;
+CREATE TABLE `chat` (
+                        `id` int(11) NOT NULL,
+                        `sid` int(11) NOT NULL,
+                        `rid` int(11) NOT NULL,
+                        `type` int(1) NOT NULL,
+                        `content` varchar(255) NOT NULL,
+                        `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `company`
+--
+
+DROP TABLE IF EXISTS `company`;
+CREATE TABLE `company` (
+                           `id` int(11) NOT NULL,
+                           `name` varchar(20) NOT NULL,
+                           `descr` varchar(255) NOT NULL,
+                           `creator_uid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `company_follower`
+--
+
+DROP TABLE IF EXISTS `company_follower`;
+CREATE TABLE `company_follower` (
+                                    `cid` int(11) NOT NULL,
+                                    `uid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `connection`
 --
 
@@ -57,8 +99,7 @@ CREATE TABLE `events` (
                           `id` int(11) NOT NULL,
                           `name` varchar(20) NOT NULL,
                           `descr` varchar(255) NOT NULL,
-                          `date` datetime NOT NULL,
-                          `creator_uid` int(11) NOT NULL
+                          `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -145,6 +186,18 @@ CREATE TABLE `group_mem` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `invitation`
+--
+
+DROP TABLE IF EXISTS `invitation`;
+CREATE TABLE `invitation` (
+                              `master` int(11) NOT NULL,
+                              `slave` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `profile`
 --
 
@@ -196,6 +249,28 @@ CREATE TABLE `volunteer` (
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `chat`
+--
+ALTER TABLE `chat`
+    ADD PRIMARY KEY (`id`),
+    ADD KEY `SENDER_SID_FK_TO_USER_ID` (`sid`),
+    ADD KEY `SENDER_RID_FK_TO_USER_ID` (`rid`);
+
+--
+-- Indexes for table `company`
+--
+ALTER TABLE `company`
+    ADD PRIMARY KEY (`id`),
+    ADD KEY `COMPANY_CREATOR_UID_FK_TO_USER_ID` (`creator_uid`);
+
+--
+-- Indexes for table `company_follower`
+--
+ALTER TABLE `company_follower`
+    ADD PRIMARY KEY (`cid`,`uid`),
+    ADD KEY `company_follower_UID_FK_TO_USER` (`uid`);
 
 --
 -- Indexes for table `connection`
@@ -257,6 +332,13 @@ ALTER TABLE `group_mem`
     ADD KEY `GROUP_MEM_UID_FK_TO_USER` (`uid`);
 
 --
+-- Indexes for table `invitation`
+--
+ALTER TABLE `invitation`
+    ADD PRIMARY KEY (`master`,`slave`),
+    ADD KEY `INVITATION_SLAVE_FK_TO_USER_ID` (`slave`) USING BTREE;
+
+--
 -- Indexes for table `profile`
 --
 ALTER TABLE `profile`
@@ -281,15 +363,21 @@ ALTER TABLE `volunteer`
 --
 
 --
--- AUTO_INCREMENT for table `events`
+-- AUTO_INCREMENT for table `chat`
 --
-ALTER TABLE `events`
+ALTER TABLE `chat`
     MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `events`
+--
+ALTER TABLE `events`
     MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -309,16 +397,24 @@ ALTER TABLE `user`
 --
 
 --
--- Constraints for table `events`
+-- Constraints for table `chat`
 --
-ALTER TABLE `events`
-    ADD CONSTRAINT `EVENTS_CREATOR_UID_FK_TO_USER_ID` FOREIGN KEY (`creator_uid`) REFERENCES `user` (`id`) ON DELETE CASCADE;
+ALTER TABLE `chat`
+    ADD CONSTRAINT `SENDER_RID_FK_TO_USER_ID` FOREIGN KEY (`rid`) REFERENCES `user` (`id`) ON DELETE CASCADE,
+    ADD CONSTRAINT `SENDER_SID_FK_TO_USER_ID` FOREIGN KEY (`sid`) REFERENCES `user` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `company`
 --
 ALTER TABLE `company`
     ADD CONSTRAINT `COMPANY_CREATOR_UID_FK_TO_USER_ID` FOREIGN KEY (`creator_uid`) REFERENCES `user` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `company_follower`
+--
+ALTER TABLE `company_follower`
+    ADD CONSTRAINT `company_follower_CID_FK_TO_COMPANY` FOREIGN KEY (`cid`) REFERENCES `company` (`id`) ON DELETE CASCADE,
+    ADD CONSTRAINT `company_follower_UID_FK_TO_USER` FOREIGN KEY (`uid`) REFERENCES `user` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `connection`

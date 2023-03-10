@@ -31,7 +31,7 @@
                         </ul>
                     </div>
                 </li>
-                <li> <a href="#">MESSAGES</a></li>
+                <li> <a href="/Chat/">MESSAGES</a></li>
                 <li> <a href="/Profile/">USER</a>
                     <div class="dropdown">
                         <ul>

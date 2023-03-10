@@ -108,6 +108,21 @@ class Profile extends Model {
         $stmt->execute(['id'=>$this->id, 'public'=>$this->public]);
         return $stmt->rowCount(); // return the number of affected rows (should be 1)
     }
+
+
+    public function getFnameForUser($uid) {
+        // prepare the SQL DML Statements
+        $stmt = $this->_connection->prepare(
+            "SELECT fname
+             FROM profile
+             WHERE id = :id"
+        );
+
+        // supply the replacement parameters to the query
+        $stmt->execute(['id'=>$uid]);
+        $result = $stmt->fetch(); // execute the query and intercept the result
+        return $result['fname']; // return the user's first name, or false
+    }
 }
 
 ?>
