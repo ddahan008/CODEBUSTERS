@@ -41,7 +41,9 @@ class HomeController extends Controller {
             }
         }
         else {
-            $this->view('Home/Register'); // load the registration form
+            $user = $this->model('User');
+            $data = $user->getAllUserTypes();
+            $this->view('Home/Register', $data); // load the registration form
         }
     }
 

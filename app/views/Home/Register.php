@@ -1,12 +1,3 @@
-<?php
-
-    require_once "app/models/User.php";
-
-    $user = new User;
-    $data = $user->getAllUserTypes();
-
-?>
-
 <!doctype html>
 <html lang="en">
 
