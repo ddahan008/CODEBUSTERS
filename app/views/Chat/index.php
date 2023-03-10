@@ -31,7 +31,7 @@
             </div>
             <div class="chat-container">
                 <div class="chat-tile">
-                    <h1>Select a contact to start a chat!</h1>
+                    <h1 id="chatTitle">Select a contact to start a chat!</h1>
                 </div>
 
                 <div class="chat" id="chat"></div>
