@@ -23,7 +23,7 @@
                         <div class="status">
                             Online
                         </div>
-                        <span><?=$contact->id?></span>
+                        <span style="visibility: hidden"><?=$contact->id?></span>
                     </li>
                     <?php } } ?>
                 </ul>
