@@ -80,6 +80,7 @@
 
 
             $(".friend").click(function () {
+                $("#chatTitle").html("Chatting with " + $(this).children("div").html());
                 $(".selected").removeClass("selected");
                 $(this).addClass("selected");
                 var uid = $(this).children("span").html();
