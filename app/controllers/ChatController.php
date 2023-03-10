@@ -16,7 +16,7 @@ class ChatController extends Controller {
         $chat->rid = $_GET['receiverID'];
         $chat->sid = $_SESSION['user_id'];
 
-        $chats = $chat->getAll();
+        $chats = $chat->getConversation();
 
         $profile = $this->model('Profile');
         $html = "";

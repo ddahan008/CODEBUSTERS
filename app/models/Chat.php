@@ -23,7 +23,7 @@ class Chat extends Model {
         return $stmt->rowCount(); // execute the query and return the number of affected rows (should be 1)
     }
 
-    public function getAll() {
+    public function getConversation() {
         // prepare the SQL DML Statements
         $stmt = $this->_connection->prepare(
             "SELECT *
