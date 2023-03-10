@@ -4,6 +4,7 @@ class User extends Model {
     public $id;
     public $uname;
     public $password_hash;
+    public $u_type;
 
     /**
      * Retrieves a user record from the DB having the username similar to the passed parameter.
@@ -103,10 +104,10 @@ class User extends Model {
      */
     public function insert() {
         // prepare the SQL DML Statements
-        $stmt = $this->_connection->prepare("INSERT INTO User(uname, password_hash) VALUES(:uname, :password_hash)");
+        $stmt = $this->_connection->prepare("INSERT INTO User(uname, password_hash, u_type) VALUES(:uname, :password_hash, :u_type)");
 
         // supply the replacement parameters to the query
-        $stmt->execute(['uname'=>$this->uname, 'password_hash'=>$this->password_hash]);
+        $stmt->execute(['uname'=>$this->uname, 'password_hash'=>$this->password_hash, 'u_type'=>$this->u_type]);
         return $stmt->rowCount(); // return the number of affected rows (should be 1)
     }
 
@@ -127,6 +128,18 @@ class User extends Model {
         $stmt->execute(['uname'=>$this->uname]);
 
         return $stmt->rowCount(); // return the number of affected rows (should be 1)
+    }
+
+    /**
+     * Fetches all available user types from the database.
+     *
+     * @return  mixed everything that is in the 'u_types' table.
+     */
+    public function getAllUserTypes() {
+        $stmt = $this->_connection->prepare("SELECT * FROM u_types");
+        $stmt->execute();
+        
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
 

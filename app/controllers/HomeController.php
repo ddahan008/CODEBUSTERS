@@ -13,7 +13,7 @@ class HomeController extends Controller {
             // TODO implement logged in homepage
             $datum = "";
         }
-
+        
         $this->view('Home/Index'); // load the homepage index view
         //header("Location: /Home/Login");
         //$this->view('Home/Login');
@@ -29,6 +29,7 @@ class HomeController extends Controller {
             if ($_POST['password'] == $_POST['password_confirm']) { // if the password fields match
                 $user = $this->model('User'); // get a reference to the user object model
                 $user->uname = $_POST['username']; // set the username field
+                $user->u_type = $_POST['u_type']; // set the usertype field
                 // hash the password and set it
                 $user->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
                 if ($user->insert()) { // call the method to insert the user to the DB
@@ -40,7 +41,9 @@ class HomeController extends Controller {
             }
         }
         else {
-            $this->view('Home/Register'); // load the registration form
+            $user = $this->model('User');
+            $data = $user->getAllUserTypes();
+            $this->view('Home/Register', $data); // load the registration form
         }
     }
 

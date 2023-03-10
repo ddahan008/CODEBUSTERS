@@ -221,11 +221,30 @@ CREATE TABLE `profile` (
 -- Table structure for table `user`
 --
 
+DROP TABLE IF EXISTS `u_types`;
+CREATE TABLE `u_types` (
+                        `id` int(1) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+                        `type` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+-- Pre-inserts for u_types
+INSERT INTO `u_types` (type) VALUES ('Recruiter');
+INSERT INTO `u_types` (type) VALUES ('Seeker');
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
                         `id` int(11) NOT NULL,
                         `uname` varchar(50) NOT NULL,
                         `password_hash` varchar(72) NOT NULL,
+                        `u_type` int(1) NOT NULL,
                         `join_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -350,7 +369,8 @@ ALTER TABLE `profile`
 --
 ALTER TABLE `user`
     ADD PRIMARY KEY (`id`),
-    ADD UNIQUE KEY `uname` (`uname`);
+    ADD UNIQUE KEY `uname` (`uname`),
+    ADD KEY `USER_U_TYPE_FK_TO_U_TYPES` (`u_type`);
 
 --
 -- Indexes for table `volunteer`
@@ -454,6 +474,12 @@ ALTER TABLE `experience`
 --
 ALTER TABLE `groups`
     ADD CONSTRAINT `GROUPS_CREATOR_UID_FK_TO_USER_ID` FOREIGN KEY (`creator_uid`) REFERENCES `user` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `user`
+--
+ALTER TABLE `user`
+    ADD CONSTRAINT `USER_U_TYPE_FK_TO_U_TYPES` FOREIGN KEY (`u_type`) REFERENCES `u_types` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `group_mem`
