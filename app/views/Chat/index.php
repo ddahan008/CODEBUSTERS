@@ -54,7 +54,7 @@
             $("#submit").click(function () {
                 var receiverID = $("#receiverID").html();
                 var clientmsg = $("#message").val();
-                $.post("Chat/Send", { text: clientmsg, receiverID: receiverID });
+                $.post("/Chat/Send/", { text: clientmsg, receiverID: receiverID });
                 $("#message").val("");
                 return false;
             });
@@ -63,7 +63,7 @@
                 var receiverID = $("#receiverID").html();
                 var prevHeight = $("#chat")[0].scrollHeight - 20; //Scroll height before the request
                 $.ajax({
-                    url: "Chat/Get",
+                    url: "/Chat/Get/",
                     type: "GET",
                     data: { receiverID: receiverID },
                     cache: false,
