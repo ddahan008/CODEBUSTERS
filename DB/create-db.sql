@@ -212,6 +212,25 @@ CREATE TABLE `volunteer` (
                              `descr` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jobs`
+--
+
+DROP TABLE IF EXISTS `jobs`;
+CREATE TABLE `jobs` (
+                             `id` int(11) NOT NULL,
+                             `title` varchar(50) NOT NULL,
+                             `deadline` date NOT NULL,
+                             `location` varchar(50) NOT NULL,
+                             `easy_apply` int(1) NOT NULL,
+                             `apply_on_web` int(1) NOT NULL,
+                             `web_link` varchar(255),
+                             `descr` varchar(255) NOT NULL,
+                             `creator_uid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Indexes for dumped tables
 --
@@ -297,6 +316,13 @@ ALTER TABLE `volunteer`
     ADD PRIMARY KEY (`uid`,`eid`);
 
 --
+-- Indexes for table `jobs`
+--
+ALTER TABLE `jobs`
+    ADD PRIMARY KEY (`id`),
+    ADD KEY `JOBS_CREATOR_UID_FK_TO_USER_ID` (`creator_uid`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -322,6 +348,12 @@ ALTER TABLE `groups`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `jobs`
     MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -404,3 +436,9 @@ ALTER TABLE `profile`
 ALTER TABLE `volunteer`
     ADD CONSTRAINT `VOLUNTEER_UID_FK_TO_USER_ID` FOREIGN KEY (`uid`) REFERENCES `user` (`id`) ON DELETE CASCADE;
 COMMIT;
+
+--
+-- Constraints for table `jobs`
+--
+ALTER TABLE `jobs`
+    ADD CONSTRAINT `JOBS_CREATOR_UID_FK_TO_USER_ID` FOREIGN KEY (`creator_uid`) REFERENCES `user` (`id`) ON DELETE CASCADE;
