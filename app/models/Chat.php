@@ -1,6 +1,7 @@
 <?php
 
 class Chat extends Model {
+    // Constant declared to reference the content type of a chat message
     CONST _TYPES = ['TEXT'=>0, 'MEDIA'=>1];
 
     public $id; // message ID
@@ -11,6 +12,11 @@ class Chat extends Model {
     public $timestamp; // date and time of the message
 
 
+    /**
+     * Creates a chat record in the DB based on the current object status.
+     *
+     * @return int Number of rows affected. Expected to be 1.
+     */
     public function insert() {
         // prepare the SQL DML Statements
         $stmt = $this->_connection->prepare(
@@ -23,6 +29,11 @@ class Chat extends Model {
         return $stmt->rowCount(); // execute the query and return the number of affected rows (should be 1)
     }
 
+    /**
+     * Fetches all the messages between the two specified users based on the object status.
+     *
+     * @return array Array of all the message records.
+     */
     public function getConversation() {
         // prepare the SQL DML Statements
         $stmt = $this->_connection->prepare(
