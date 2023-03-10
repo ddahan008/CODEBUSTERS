@@ -1,0 +1,52 @@
+.content {
+    display:inline-block;
+    vertical-align:middle;
+    height: 1200px;
+  }
+
+.lhs {
+    background-color: rgb(205, 205, 205);
+    width:30%;
+}
+
+.rhs {
+    background-color: rgb(205, 205, 205);
+    width:30%; 
+}
+
+.search-block {
+    background-color: rgb(255, 255, 255);
+    height: 15%;
+    font-size: 25px;
+}
+
+.filtered-jobs {
+    height: 80%;
+    overflow:scroll;
+}
+
+.page-select {
+    height: 5%;
+    font-size: 20px;
+}
+
+.job-filters {
+    background-color: rgb(255, 255, 255);
+    height: 15%;
+    font-size: 20px;
+}
+
+.job-view {
+    background-color: rgb(255, 255, 255);
+    height: 80%;
+}
+.search-bar{
+    height: 40%;
+}
+.job-posting{
+    background-color: rgb(255, 255, 255);
+    height: 100px;
+}
+.job-description{
+    width: 90%;
+}
