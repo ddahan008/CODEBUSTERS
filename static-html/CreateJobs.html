@@ -59,23 +59,11 @@
 
     <div class="content">
 
-        <h3 class="content-header">Manage Jobs</h3>
+        <h3 class="content-header">Create Job Posting</h3>
 
         <div class="container">
             <div class="Job-main-box">
                 <div class="Job-list-box">
-                    <div class="Job-list-item Job-item-active">
-                        <div class="Job-list-logo">
-                            <img src="../assets/Jobs/temp_company_logo.png" alt="temp_company_logo">
-                        </div>
-                        <div class="Job-list-content">
-                            <h5>Montreal Elementary School Science Tutor</h5>
-                            <p>Varsity Tutors, a Nerdy Company</p>
-                            <p>Montreal, QC</p>
-                        </div>
-                        <button class="Job-list-delete-btn">X</button>
-                    </div>
-
                     <div class="Job-list-item">
                         <div class="Job-list-logo">
                             <img src="../assets/Jobs/temp_company_logo.png" alt="temp_company_logo">
@@ -111,7 +99,7 @@
                         </div>
                         <button class="Job-list-delete-btn">X</button>
                     </div>
-
+                    
                     <div class="Job-list-item">
                         <div class="Job-list-logo">
                             <img src="../assets/Jobs/temp_company_logo.png" alt="temp_company_logo">
@@ -123,7 +111,7 @@
                         </div>
                         <button class="Job-list-delete-btn">X</button>
                     </div>
-
+                    
                     <div class="Job-list-item">
                         <div class="Job-list-logo">
                             <img src="../assets/Jobs/temp_company_logo.png" alt="temp_company_logo">
@@ -135,7 +123,7 @@
                         </div>
                         <button class="Job-list-delete-btn">X</button>
                     </div>
-
+                    
                     <div class="Job-list-item">
                         <div class="Job-list-logo">
                             <img src="../assets/Jobs/temp_company_logo.png" alt="temp_company_logo">
@@ -147,7 +135,7 @@
                         </div>
                         <button class="Job-list-delete-btn">X</button>
                     </div>
-
+                    
                     <div class="Job-list-item">
                         <div class="Job-list-logo">
                             <img src="../assets/Jobs/temp_company_logo.png" alt="temp_company_logo">
@@ -159,37 +147,71 @@
                         </div>
                         <button class="Job-list-delete-btn">X</button>
                     </div>
-
+                    
+                    <div class="Job-list-item">
+                        <div class="Job-list-logo">
+                            <img src="../assets/Jobs/temp_company_logo.png" alt="temp_company_logo">
+                        </div>
+                        <div class="Job-list-content">
+                            <h5>Montreal Elementary School Science Tutor</h5>
+                            <p>Varsity Tutors, a Nerdy Company</p>
+                            <p>Montreal, QC</p>
+                        </div>
+                        <button class="Job-list-delete-btn">X</button>
+                    </div>
+                    
                 </div>
-
+ 
                 <div class="Job-create-box">
-                    <div class="Job-create-title-box">
-                        <h3>Job Overview</h3>
-                        <button class="Job-save-btn">EDIT</button>
-                    </div>
-                    <div class="Job-create-input-box">
+                    <form method="post">
+                        <div class="Job-create-title-box">
+                            <h3>Create Job</h3>
+                            <button class="Job-create-btn">CREATE</button>
+                        </div>
+                        <div class="Job-create-input-box">
 
-                        <h5>Varsity Tutors, a Nerdy Company Montreal, QC</h5>
-                        <p>Submision Deadline: March 21, 2023</p>
-                        <p>External Application</p>
-                        <p>
-                            Montreal Elementary School Science Tutor Job Varsity Tutors is looking for experts like you
-                            to tutor K-12 and college students online in a variety of academic subjects! By partnering
-                            with Varsity Tutors, teaching online is seamless and interactive. Some benefits of the
-                            platform include: Conduct remote tutoring sessions from the comfort of your home (on laptop,
-                            desktop, tablet or mobile device) Easily access interactive learning tools, such as our
-                            whiteboard, practice questions, diagnostics/assessments and quizzes What's in it for you?
-                            The opportunity to earn while working online, using the skills and experience you already
-                            have Set your own hours and schedule - flexible part-time work around your existing
-                            commitments Varsity Tutors will handle payment for you, so that you can focus on tutoring
-                            Share your knowledge and help students else achieve their goals About Varsity Tutors We are
-                            revolutionizing the way the world learns. Our mission is simple: to help people learn!
-                            Varsity Tutors is a fast-growing education technology company that is revolutionizing how
-                            people learn with new and innovative technology. As a part of this vision we are looking to
-                            contract with educators to connect with students nationwide.
-                        </p>
+                            <div class="Job-create-form-item">
+                                <label class="Job-create-form-label" for="title">Title:</label>
+                                <input class="Job-create-form-input" type="text" id="title" name="title">
+                            </div>
 
-                    </div>
+                            <div class="Job-create-form-item">
+                                <label class="Job-create-form-label" for="deadline">Deadline:</label>
+                                <input class="Job-create-form-input" type="text" id="deadline" name="deadline">
+                            </div>
+
+                            <div class="Job-create-form-item">
+                                <label class="Job-create-form-label" for="location">Location:</label>
+                                <input class="Job-create-form-input" type="text" id="location" name="location">
+                            </div>
+
+                            <div class="Job-create-check-box Job-create-form-item">
+                                <label class="" for="easyapply">Easily Apply:</label>
+                                <input class="Job-create-check" type="checkbox" id="easyapply" name="easyapply">
+                            </div>
+
+                            <div class="Job-create-check-box Job-create-form-item">
+                                <label class="" for="applyonwebsite">Apply On Company Website:</label>
+                                <input class="Job-create-check" type="checkbox" id="applyonwebsite" name="applyonwebsite">
+                            </div>
+
+                            <div class="Job-create-form-item">
+                                <label class="Job-create-form-label" for="link">Website Link:</label>
+                                <input class="Job-create-form-input" type="test" id="link" name="link">
+                            </div>
+
+                            <div class="Job-create-form-label Job-create-form-item">Description:</div>
+                            <div class="Job-create-form-item">
+                                <textarea class="Job-create-form-input" type="checkbox" id="description"
+                                    name="description"></textarea>
+                            </div>
+
+                            <div class="Job-create-form-item">
+                                <label class="Job-create-form-label" for="companylogo">Company Logo:</label>
+                                <input class="Job-create-form-input" type="file" id="companylogo" name="companylogo">
+                            </div>
+
+                        </div>
                     </form>
                 </div>
             </div>
