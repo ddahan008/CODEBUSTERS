@@ -1,12 +1,25 @@
+a {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+.Job-mother-box {
+    margin-top: 60px;
+}
+
 .Job-main-box {
     display: flex;
     width: 100%;
-    margin-top: 60px;
+    margin-top: 40px;
 }
 
 .Job-list-box {
     width: 50%;
     margin-right: 20px;
+    border: solid black;
+    border-width: thin;
+    border-radius: 39px;
+    padding: 15px;
 }
 
 .Job-misc-box {
@@ -52,7 +65,7 @@
 
 .Job-list-item {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     margin-bottom: 20px;
     border: solid black;
@@ -149,6 +162,88 @@
     width: 24px;
 }
 
+.Job-list-item:hover {
+    background: #C3E7FC;
+}
+
 .Job-item-active {
     background: #C3E7FC;
+}
+
+.Job-list-logo img {
+    width: 79px;
+    height: 74px;
+}
+
+.Job-misc-title-box button a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.Job-add-btn-box {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#Job-overview-box {
+    visibility: hidden;
+}
+
+.Job-search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Job-search-box {
+    width: 50%;
+    margin-right: 20px;
+    border: solid black;
+    border-width: thin;
+    border-radius: 39px;
+    padding: 15px;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Job-search {
+    margin-left: 10px;
+    display: flex;
+    width: 300px;
+    border: solid #000000;
+    border-width: thin;
+    border-radius: 10px;
+}
+
+.Job-search input{
+    height: 40px;
+    width: 100%;
+    border-radius: 10px 0px 0px 10px;
+    border: none;
+    
+}
+
+.Job-search button {
+    border-radius: 0px 10px 10px 0px;
+    border: none;
+}
+
+.Job-filter-box {
+    width: 50%;
+    margin-left: 20px;
+    border: solid black;
+    border-width: thin;
+    border-radius: 39px;
+    padding: 15px;
+    padding: 20px 70px;
+    text-align: center;
+    height: 130px;
+}
+
+.Job-filter-list {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px;
 }
