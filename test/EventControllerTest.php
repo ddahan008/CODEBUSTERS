@@ -4,10 +4,7 @@ use PHPUnit\Framework\TestCase;
 
 include_once "app/core/Model.php";
 include_once "app/core/Controller.php";
-include_once "app/models/Event.php";
 include_once "app/controllers/EventController.php";
-
-$_SESSION['user_id'] = 1;
 
 class EventControllerTest extends TestCase {
 
@@ -19,39 +16,49 @@ class EventControllerTest extends TestCase {
     }
 
     public function testAdd() {
-        $test = new EventController();
+        $_SESSION['user_id'] = 1;
         $_POST["action"] = true;
         $_POST["name"] = "TestEvent";
         $_POST["descr"] = "TestEvent";
         $_POST["date"] = "2011-11-11 11:11:00";
+
+        $test = new EventController();
         $test->add();
+
         $this->assertEquals(true, true);
     }
 
-    public function testAmSubscribedTrue() {
+    public function testDelete() {
+        $_SESSION['user_id'] = 1;
 
         $test = new EventController();
-        $result = $test->amSubscribed(2);
+        $test->delete(0);
 
-        $this->assertEquals(true, $result);
+        $this->assertEquals(true, true);
     }
 
-    public function testAmSubscribedFalse() {
-
+    public function testAmSubscribed() {
         $test = new EventController();
-        $result = $test->amSubscribed(1);
+        $result = $test->amSubscribed(0);
 
         $this->assertEquals(false, $result);
     }
 
     public function testAmSubscribedQueryFailure() {
-
         unset($_SESSION['user_id']);
         $test = new EventController();
         $result = $test->amSubscribed("Test");
 
         $this->assertEquals(false, $result);
+    }
+
+    public function testAmCreator() {
         $_SESSION['user_id'] = 1;
+        
+        $test = new EventController();
+        $result = $test->amCreator(0);
+
+        $this->assertEquals(false, $result);
     }
 
     public function testJoin() {

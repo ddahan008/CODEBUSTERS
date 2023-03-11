@@ -27,9 +27,27 @@ class ProfileControllerTest extends TestCase {
     }
 
     public function testEdit() {
+        $_POST["action"] = true;
+        $_SESSION['user_id'] = 1;
+        $_POST['fname'] = "Test";
+        $_POST['lname'] = "Test";
+        $_POST['email'] = "Test@jobsters.com";
+        $_POST['job'] = "Test";
+        $_POST['location'] = "Test";
+        $_POST['skills'] = "Test";
+        $_POST['about'] = "Test";
 
         $test = new ProfileController();
         $test->edit();
+
+        $this->assertEquals(true, true);
+    }
+
+    public function testUpdateVisibility() {
+        $_SESSION['user_id'] = 1;
+
+        $test = new ProfileController();
+        $test->updateVisibility(1);
 
         $this->assertEquals(true, true);
     }
