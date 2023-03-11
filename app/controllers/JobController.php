@@ -130,7 +130,8 @@ class JobController extends Controller {
 
             $this->view('Job/JobSearch', $jobs);
         }
-
-        header("Location: /Job/JobSearch");
+        else {
+            header("Location: /Job/JobSearch");
+        }
     }
 }
