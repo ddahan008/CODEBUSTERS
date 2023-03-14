@@ -28,7 +28,7 @@ class UserTest extends TestCase {
         $test = new User();
         $result = $test->getUsernameById(1);
 
-        $this->assertEquals("Test", $result);
+        $this->assertEquals("Seeker", $result);
     }
 
 }

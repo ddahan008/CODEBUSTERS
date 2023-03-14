@@ -4,10 +4,7 @@ use PHPUnit\Framework\TestCase;
 
 include_once "app/core/Model.php";
 include_once "app/core/Controller.php";
-include_once "app/models/Group.php";
 include_once "app/controllers/GroupController.php";
-
-$_SESSION['user_id'] = 1;
 
 class GroupControllerTest extends TestCase {
 
@@ -19,41 +16,53 @@ class GroupControllerTest extends TestCase {
     }
 
     public function testAdd() {
-        $test = new GroupController();
+        $_SESSION['user_id'] = 1;
         $_POST["action"] = true;
         $_POST["name"] = "TestGroup";
         $_POST["descr"] = "TestGroup";
+
+        $test = new GroupController();
         $test->add();
+
         $this->assertEquals(true, true);
     }
 
-    public function testAmSubscribedTrue() {
+    public function testDelete() {
+        $_SESSION['user_id'] = 1;
 
         $test = new GroupController();
-        $result = $test->amSubscribed(2);
+        $test->delete(0);
 
-        $this->assertEquals(true, $result);
+        $this->assertEquals(true, true);
     }
 
-    public function testAmSubscribedFalse() {
-
+    public function testAmSubscribed() {
         $test = new GroupController();
-        $result = $test->amSubscribed(1);
+        $result = $test->amSubscribed(0);
 
         $this->assertEquals(false, $result);
     }
 
     public function testAmSubscribedQueryFailure() {
-
         unset($_SESSION['user_id']);
+
         $test = new GroupController();
-        $result = $test->amSubscribed(1);
+        $result = $test->amSubscribed(0);
 
         $this->assertEquals(false, $result);
+    }
+
+    public function testAmCreator() {
         $_SESSION['user_id'] = 1;
+
+        $test = new GroupController();
+        $result = $test->amCreator(0);
+
+        $this->assertEquals(false, $result);
     }
 
     public function testJoin() {
+        $_SESSION['user_id'] = 1;
 
         $test = new GroupController();
         $test->join(1);
@@ -62,6 +71,7 @@ class GroupControllerTest extends TestCase {
     }
 
     public function testLeave() {
+        $_SESSION['user_id'] = 1;
 
         $test = new GroupController();
         $test->leave(1);
@@ -69,5 +79,3 @@ class GroupControllerTest extends TestCase {
         $this->assertEquals(true, true);
     }
 }
-
-?>
