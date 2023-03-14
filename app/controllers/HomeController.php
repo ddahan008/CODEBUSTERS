@@ -83,6 +83,7 @@ class HomeController extends Controller {
             if (password_verify($_POST['password'], $theUser->password_hash)) {
                 $_SESSION['user_id'] = $theUser->id; // set the session variable for the user_id
                 $_SESSION['uname'] = $theUser->uname; // set the session variable for the username
+                $_SESSION['u_type'] = $theUser->u_type; // set the session variable for the u_type
                 header("Location: /Profile/Index"); // redirect the user to the profile index page
             }
             else { // The passwords do not match

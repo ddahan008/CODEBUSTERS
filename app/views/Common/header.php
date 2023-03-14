@@ -22,7 +22,7 @@
                         </ul>
                     </div>
                 </li>
-                <li><a href="#">FIND JOBS</a></li>
+                <li><a href="/Job/">JOBS</a></li>
                 <li><a href="/Notification/">NOTIFICATIONS</a></li>
                 <li><a href="/Group/">GROUPS</a>
                     <div class="dropdown">
