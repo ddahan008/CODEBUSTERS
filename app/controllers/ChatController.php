@@ -42,7 +42,31 @@ class ChatController extends Controller {
      * Enables the sending message functionality
      */
     public function send() {
-        if (isset($_POST['text'])) { // if a message was sent
+        if (is_array($_FILES)) {
+            $allowedExts = array('txt');
+            $extension = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
+
+            if (($_FILES['file']['size'] < 52428800)
+                && in_array($extension, $allowedExts))
+            {
+                if ($_FILES['file']['error'] > 0)
+                    echo 'Return Code: ' . $_FILES['file']['error'] . '<br />';
+                else {
+                    $filename = 'file-' . uniqid(true) . '.' .$extension;
+                    $file_path = 'upload/' . $filename;
+                    move_uploaded_file($_FILES['file']['tmp_name'], 'upload/' . $filename);
+
+                    $chat = $this->model('Chat');
+                    $chat->sid = $_SESSION['user_id']; // set the sender property
+                    $chat->rid = $_POST['receiverID']; // set the receiver property
+                    $chat->type = Chat::_TYPES['MEDIA']; // set the message type
+                    $chat->content = $file_path; // set the message text content
+
+                    $chat->insert(); // call the method to store the message
+                }
+            }
+        }
+        else if (isset($_POST['text'])) { // if a message was sent
             $chat = $this->model('Chat'); // get a reference to the chat object model
             $chat->sid = $_SESSION['user_id']; // set the sender property
             $chat->rid = $_POST['receiverID']; // set the receiver property
