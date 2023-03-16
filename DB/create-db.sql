@@ -117,32 +117,6 @@ CREATE TABLE `event_mem` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `company`
---
-
-DROP TABLE IF EXISTS `company`;
-CREATE TABLE `company` (
-                          `id` int(11) NOT NULL,
-                          `name` varchar(20) NOT NULL,
-                          `descr` varchar(255) NOT NULL,
-                          `creator_uid` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `company_follower`
---
-
-DROP TABLE IF EXISTS `company_follower`;
-CREATE TABLE `company_follower` (
-                             `cid` int(11) NOT NULL,
-                             `uid` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `experience`
 --
 
@@ -308,7 +282,7 @@ ALTER TABLE `company`
 --
 ALTER TABLE `company_follower`
     ADD PRIMARY KEY (`cid`,`uid`),
-    ADD KEY `company_follower_UID_FK_TO_USER` (`uid`);
+    ADD KEY `COMPANY_FOLLOWER_UID_FK_TO_USER` (`uid`);
 
 --
 -- Indexes for table `connection`
@@ -335,19 +309,6 @@ ALTER TABLE `events`
 ALTER TABLE `event_mem`
     ADD PRIMARY KEY (`eid`,`uid`),
     ADD KEY `EVENT_MEM_UID_FK_TO_USER` (`uid`);
-
---
--- Indexes for table `company`
---
-ALTER TABLE `company`
-    ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `company_follower`
---
-ALTER TABLE `company_follower`
-    ADD PRIMARY KEY (`cid`,`uid`),
-    ADD KEY `company_follower_UID_FK_TO_USER` (`uid`);
 
 --
 -- Indexes for table `experience`
@@ -465,8 +426,8 @@ ALTER TABLE `company`
 -- Constraints for table `company_follower`
 --
 ALTER TABLE `company_follower`
-    ADD CONSTRAINT `company_follower_CID_FK_TO_COMPANY` FOREIGN KEY (`cid`) REFERENCES `company` (`id`) ON DELETE CASCADE,
-    ADD CONSTRAINT `company_follower_UID_FK_TO_USER` FOREIGN KEY (`uid`) REFERENCES `user` (`id`) ON DELETE CASCADE;
+    ADD CONSTRAINT `COMPANY_FOLLOWER_CID_FK_TO_COMPANY` FOREIGN KEY (`cid`) REFERENCES `company` (`id`) ON DELETE CASCADE,
+    ADD CONSTRAINT `COMPANY_FOLLOWER_UID_FK_TO_USER` FOREIGN KEY (`uid`) REFERENCES `user` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `connection`
@@ -487,13 +448,6 @@ ALTER TABLE `education`
 ALTER TABLE `event_mem`
     ADD CONSTRAINT `EVENT_MEM_EID_FK_TO_EVENTS` FOREIGN KEY (`eid`) REFERENCES `events` (`id`) ON DELETE CASCADE,
     ADD CONSTRAINT `EVENT_MEM_UID_FK_TO_USER` FOREIGN KEY (`uid`) REFERENCES `user` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `company_follower`
---
-ALTER TABLE `company_follower`
-    ADD CONSTRAINT `company_follower_CID_FK_TO_COMPANY` FOREIGN KEY (`cid`) REFERENCES `company` (`id`) ON DELETE CASCADE,
-    ADD CONSTRAINT `company_follower_UID_FK_TO_USER` FOREIGN KEY (`uid`) REFERENCES `user` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `experience`
