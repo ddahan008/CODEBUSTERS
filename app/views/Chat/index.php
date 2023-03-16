@@ -62,7 +62,7 @@
                 return false;
             });
 
-            /*$("#refresh").click(*/function loadLog() {
+            function loadLog() {
                 var receiverID = $("#receiverID").html();
                 var prevHeight = $("#chat")[0].scrollHeight - 20; //Scroll height before the request
                 $.ajax({
@@ -79,7 +79,7 @@
                         }
                     }
                 });
-            }/*);*/
+            }
 
 
             $(".friend").click(function () {
