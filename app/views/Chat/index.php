@@ -38,7 +38,7 @@
 
                 <form>
                     <input type="text" name="message" id="message" class="text_input" placeholder="Type your message here..." />
-                    <input type="file" class="attachment_input" />
+                    <input type="file" name="file" id="file" class="attachment_input" />
                     <button type="submit" name="submit" id="submit">Send</button>
                 </form>
                 <button id="refresh">REFRESH</button>
@@ -52,10 +52,13 @@
         $(document).ready(function () {
 
             $("#submit").click(function () {
-                var receiverID = $("#receiverID").html();
-                var clientmsg = $("#message").val();
-                $.post("/Chat/Send/", { text: clientmsg, receiverID: receiverID });
+                let formData = new FormData();
+                formData.append("receiverID", $("#receiverID").html());
+                formData.append("clientmsg", $("#message").val());
+                formData.append("file", $("#file")[0].files[0]);
+                fetch ("/Chat/Send/", { method:"POST", body:formData });
                 $("#message").val("");
+                $("#file").val("");
                 return false;
             });
 
