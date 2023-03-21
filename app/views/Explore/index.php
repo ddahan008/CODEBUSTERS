@@ -9,22 +9,22 @@
         <h3 class="content-header"> Network </h3>
         <main>
         <section class = "grid">
-
-            <a href="/People/">
-            <div class="people">
-            People
+            
+            <a href="/Group/">
+            <div class="group">
+            Groups
             </div>
             </a>
 
-            <a href="/Company/">
-            <div class="company">
-            Company
+            <a href="/Event/">
+            <div class="event">
+            Events
             </div>
             </a>
 
-            <a href="/Connection/">
-            <div class="connections">
-            Connections
+            <a href="/#/">
+            <div class="suggest">
+            Suggestions
             </div>
             </a>
 

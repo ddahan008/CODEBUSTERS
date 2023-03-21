@@ -6,8 +6,9 @@
 <div class="content">
     <!--CONTENT START-->
     <h3 class="content-header"> Groups </h3>
-    <button><a href="/Group/Add">Add</a></button>
-
+    <div class="addPlacement">
+    <button class="add-button"><a href="/Group/Add">ADD</a></button>
+    </div>
     <div class="grid-container">
 
         <?php if (is_array($data)) {

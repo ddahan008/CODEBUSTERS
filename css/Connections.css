@@ -1,4 +1,3 @@
-
 h4{
   font-size: 170%;
   font-weight: lighter;
@@ -6,11 +5,10 @@ h4{
   letter-spacing: 1px;
   text-align: center;
 }
-
 .grid-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 20vw);
+    grid-template-rows: repeat(1, 20vw);
     grid-gap: 100px 15px;
     padding-top: 15px;
     padding-bottom: 100px;
@@ -30,20 +28,30 @@ object-fit: cover;
   text-align: center;
   border: 2px solid black;
 }
-.remove-connection{
+button{
   color: rgb(0, 0, 0);
   font-size: 100%;
   font-weight: bold;
 }
-.message{
-  color: rgb(0, 0, 0);
-  font-size: 100%;
-  font-weight: bold;
+.btn-big{
+font-size: small;
+font-weight:400;
 }
-.report{
-  color: rgb(0, 0, 0);
-  font-size: 100%;
-  font-weight: bold;
+
+.addPlacement{
+text-align: left;
+padding-left: 10px;
+}
+.add-button {
+  background-color: rgb(2, 22, 8);
+  border: 2px solid black;
+  width: 100px;
+}
+.add-button a {
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  padding: 8px 16px;
 }
 @media only screen and (max-width: 625px) {
   .grid-container {
