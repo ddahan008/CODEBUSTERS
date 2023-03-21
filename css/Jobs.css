@@ -142,7 +142,19 @@ a {
     background: #1a7946;
     transition: 0.3s;
 }
-
+.Job-share{
+    background: #fbb318;
+    border-radius: 6px;
+    border: none;
+    color: #ffffff;
+    width: 100px;
+    height: 40px;
+    transition: 0.3s; 
+}
+.Job-share:hover {
+    background: #a08800;
+    transition: 0.3s;
+}
 .Job-edit-btn {
     background: #18A0FB;
     border-radius: 6px;
@@ -246,4 +258,53 @@ a {
     display: flex;
     justify-content: space-between;
     padding: 10px 0px;
+}
+/* Share modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  .share-icons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  .share-icons a {
+    font-size: 30px;
+    color: #333;
+    text-decoration: none;
+    margin-right: 20px;
+  }
+  .Job-cancel-share{
+    background: #fb1818;
+    border-radius: 6px;
+    border: none;
+    color: #ffffff;
+    width: 100px;
+    height: 40px;
+    transition: 0.3s; 
+  }
+.Job-cancel-share:hover {
+    background: #a00000;
+    transition: 0.3s;
+}
+.cxx{
+    text-align: center;
+    padding-top: 3%;
 }
