@@ -8,7 +8,7 @@
 <div class="content">
     <h3 class="content-header">Manage Jobs</h3>
 
-    <div class="container">
+    <div class="container">   
         <div class="Job-main-box">
             <div class="Job-list-box">
                 <div class="Job-add-btn-box">
@@ -36,9 +36,25 @@
                 ?>
 
             </div>
+              <!-- Add the share modal code here -->
+              <div id="Job-share-modal" class="modal">
+                <div class="modal-content"> 
+                <h3>Share this Job Posting on:</h3>
+                    <div class="share-icons">
+                        <a href="https://facebook.com">Facebook</a>
+                        <a href="https://twitter.com/compose/tweet">Twitter</a>
+                        <a href="https://www.linkedin.com/post/new/">LinkedIn</a>
+                    </div>
+                    <div class="cxx">
+                    <button type="button" class="Job-cancel-share">CANCEL</button>
+                </div>
+                </div>
+            </div>
+
             <div class="Job-misc-box" id="Job-overview-box">
                 <div class="Job-misc-title-box">
                     <h3>Job Overview</h3>
+                    <button type="button" class="Job-share">SHARE</button>
                     <button type="button" class="Job-edit-btn "><a class="Job-overview-content" href="#">EDIT</a></button>
                 </div>
                 <div class="Job-misc-input-box">
@@ -72,6 +88,29 @@
         overviewContent[2].innerHTML = "Location: " + location;
         overviewContent[3].innerHTML = "Deadline: " + deadline;
         overviewContent[4].innerHTML = "Description: " + description;
+
+        // Get the share button element
+  var shareBtn = document.querySelector('.Job-share');
+
+// Add a click event listener to the share button
+shareBtn.addEventListener('click', function() {
+  // Get the modal element
+  var modal = document.getElementById('Job-share-modal');
+
+  // Set the modal to visible
+  modal.style.display = 'block';
+});
+// Get the cancel button element
+var cancelBtn = document.querySelector('.Job-cancel-share');
+
+// Add a click event listener to the cancel button
+cancelBtn.addEventListener('click', function() {
+    // Get the modal element
+    var modal = document.getElementById('Job-share-modal');
+
+    // Hide the modal
+    modal.style.display = 'none';
+});
     }
 </script>
 
