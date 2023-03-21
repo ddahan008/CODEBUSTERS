@@ -10,7 +10,7 @@ class InvitationController extends Controller {
         $invitation = $this->model('Invitation'); // get a reference to the Connection object model
         $invitation->slave = $sid; // set the slave field to the id of the user to connect
         $invitation->create(); // call the method to create the connection in the DB
-        $this->index(); // load the index view
+        header("Location: /People"); // load the index view
     }
 
     public function accept($sid) {
