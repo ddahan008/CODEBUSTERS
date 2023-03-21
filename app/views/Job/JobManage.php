@@ -12,7 +12,7 @@
         <div class="Job-main-box">
             <div class="Job-list-box">
                 <div class="Job-add-btn-box">
-                    <button type="button" class="Job-misc-btn"><a href="/Job/Create/">CREATE JOB</a></button>
+                <a href="/Job/Create/"><button type="button" class="Job-misc-btn">CREATE JOB</button></a>
                 </div>
 
                 <?php
