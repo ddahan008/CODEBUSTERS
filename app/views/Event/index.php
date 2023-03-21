@@ -6,7 +6,9 @@
     <div class="content">
         <!--CONTENT START-->
         <h3 class="content-header"> Events </h3>
-        <button><a href="/Event/Add">Add</a></button>
+        <div class="addPlacement">
+        <button class="add-button"><a href="/Group/Add">ADD</a></button>
+        </div>
 
         <div class="grid-container">
 

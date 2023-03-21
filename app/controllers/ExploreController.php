@@ -1,6 +1,6 @@
 <?php
 
-class NetworkController extends Controller {
+class ExploreController extends Controller {
 
     /**
      * Main landing page for the Network section of the system.
@@ -11,7 +11,7 @@ class NetworkController extends Controller {
         // user signed in
         if (isset($_SESSION['user_id'])) {
             // load the index view with the correct data
-            $this->view('Network/index');
+            $this->view('Explore/index');
         } else {
             $this->view('Home/Index');
         }
