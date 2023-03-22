@@ -8,7 +8,7 @@
     <div class="content">
     <!--CONTENT START-->
 
-        <h3 class="content-header">MESSAGING</h3>
+        <h3 class="content-header">Messaging</h3>
         <div class="container">
             <div class="contact-list">
                 <h1>Contact List</h1>

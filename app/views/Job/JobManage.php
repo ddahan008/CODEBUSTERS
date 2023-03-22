@@ -6,7 +6,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <div class="content">
-    <h3 class="content-header">Manage Jobs</h3>
+    <h3 class="content-header" style="font-weight:100;">Manage Jobs</h3>
 
     <div class="container">   
         <div class="Job-main-box">
