@@ -18,15 +18,22 @@
                 <?php
                 if (is_array($data)) {
                     foreach ($data as $job) {
+                        $title = $job->title;
+                        if ($job->easy_apply == 1) {
+                            $title .= ' <br><span class="Job-list-easy-apply">Easily Apply</span>';
+                        }
+                        if ($job->apply_on_web == 1) {
+                            $title .= ' <br><span class="Job-list-apply-on-web">Apply On Company Website</span>';
+                        }
                         echo '
-                                <div class="Job-list-item" onclick="getDescription(this, \'' . $job->id . '\', \'' . $job->title . '\', \'' . $job->location . '\', \'' . $job->deadline . '\', \'' . $job->descr . '\');">
-                                    <div class="Job-list-logo">
-                                        <img src="../../../assets/Jobs/temp_company_logo.png" alt="temp_company_logo">
-                                    </div>
-                                    <div class="Job-list-content">
-                                        <h5>' . $job->title . '</h5>
-                                        <p>Location: ' . $job->location . '</p>
-                                        <p>Deadline: ' . $job->deadline . '</p>
+                            <div class="Job-list-item" onclick="getDescription(this, \'' . $job->id . '\', \'' . $job->title . '\', \'' . $job->location . '\', \'' . $job->deadline . '\', \'' . $job->descr . '\');">
+                                <div class="Job-list-logo">
+                                    <img src="../../../assets/Jobs/temp_company_logo.png" alt="temp_company_logo">
+                                </div>
+                                <div class="Job-list-content">
+                                    <h5>' . $title . '</h5>
+                                    <p>Location: ' . $job->location . '</p>
+                                    <p>Deadline: ' . $job->deadline . '</p>
                                     </div>
                                     <button type="button" class="Job-list-delete-btn"><a href="/Job/Delete/' . $job->id . '">X</a></button>
                                 </div>
@@ -36,8 +43,8 @@
                 ?>
 
             </div>
-              <!-- Add the share modal code here -->
-              <div id="Job-share-modal" class="modal">
+                          <!-- Add the share modal code here -->
+                          <div id="Job-share-modal" class="modal">
                 <div class="modal-content"> 
                 <h3>Share this Job Posting on:</h3>
                     <div class="share-icons">
@@ -50,7 +57,7 @@
                 </div>
                 </div>
             </div>
-
+             
             <div class="Job-misc-box" id="Job-overview-box">
                 <div class="Job-misc-title-box">
                     <h3>Job Overview</h3>

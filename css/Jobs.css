@@ -308,3 +308,29 @@ a {
     text-align: center;
     padding-top: 3%;
 }
+
+.Job-list-easy-apply{
+        display: inline-block;
+        padding: 0.5em 1em;
+        margin: 0;
+        font-size: .9rem;
+
+        text-align: center;
+        color: #fff;
+        background-color: rgb(167, 185, 209);
+        border: none;
+        border-radius: 0.25rem;
+      }
+
+.Job-list-apply-on-web{
+    display: inline-block;
+    padding: 0.5em 1em;
+    margin: 0;
+    font-size: .9rem;
+
+    text-align: center;
+    color: #fff;
+    background-color: lightslategrey;
+    border: none;
+    border-radius: 0.25rem;
+}
