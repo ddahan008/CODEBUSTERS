@@ -4,7 +4,7 @@
     <form method="post">
         <h1>Create Company</h1>
         <br/>
-        <h3 class="mb-4 font-weight-normal">Company info</h3>
+        <h3 class="mb-4 font-weight-normal">Company Info</h3>
 
         <div class="form-label-company">
             <input type="text" name="name" class="form-control" id="name" placeholder="Company Name" required/>

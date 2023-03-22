@@ -7,7 +7,7 @@
         <!--CONTENT START-->
         <h3 class="content-header"> Events </h3>
         <div class="addPlacement">
-        <button class="add-button"><a href="/Group/Add">ADD</a></button>
+        <button class="add-button"><a href="/Event/Add">ADD</a></button>
         </div>
 
         <div class="grid-container">

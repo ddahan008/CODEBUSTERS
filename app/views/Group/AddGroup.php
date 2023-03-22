@@ -4,7 +4,7 @@
     <form method="post">
         <h1>Create Group</h1>
         <br/>
-        <h3 class="mb-4 font-weight-normal">Group info</h3>
+        <h3 class="mb-4 font-weight-normal">Group Info</h3>
 
         <div class="form-label-group">
             <input type="text" name="name" class="form-control" id="name" placeholder="Group Name" required/>
