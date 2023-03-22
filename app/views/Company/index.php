@@ -7,7 +7,7 @@
     <!--CONTENT START-->
     <h3 class="content-header"> Company </h3>
     <div class="addPlacement">
-    <button class="add-button"><a href="/Group/Add">ADD</a></button>
+    <button class="add-button"><a href="/Company/Add">ADD</a></button>
     </div>
     <div class="grid-container">
 

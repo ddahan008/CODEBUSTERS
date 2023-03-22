@@ -1,5 +1,5 @@
 <?php include 'app/views/Common/header.php' ?>
-
+<link href="../css/Notifications.css" rel="stylesheet" type="text/css"/>
     <div class="content">
 
         <!--CONTENT START-->
@@ -7,10 +7,6 @@
         <div class="container">
             <div class="notification success">
                 <h2>Invitation Request</h2>
-                <p>A user wants to join your network.</p>
-                <button>Accept</button>
-                <button>Decline</button>
-
                 <?php if (is_array($data)) { ?>
                     <div class="grid-container">
                         <?php foreach ($data as $datum) { ?>

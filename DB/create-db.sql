@@ -99,7 +99,8 @@ CREATE TABLE `events` (
                           `id` int(11) NOT NULL,
                           `name` varchar(20) NOT NULL,
                           `descr` varchar(255) NOT NULL,
-                          `date` datetime NOT NULL
+                          `date` datetime NOT NULL,
+                          `creator_uid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
