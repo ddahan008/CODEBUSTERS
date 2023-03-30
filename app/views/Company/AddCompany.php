@@ -16,8 +16,8 @@
             <label for="descr">* Company Description</label>
         </div>
 
-        <input type="submit" name="action" value="Create Company" class="btn btn-lg btn-primary btn-block"/>
-        <input type="submit" name="cancel" value="Cancel" class="btn btn-lg btn-primary btn-block"/>
+        <button type="submit" name="action">Create Company</button>
+        <a href="/Company/">Cancel</a>
     </form>
     </div>
 

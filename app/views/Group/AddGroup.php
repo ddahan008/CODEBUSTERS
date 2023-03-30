@@ -16,8 +16,8 @@
             <label for="descr">* Group Description</label>
         </div>
 
-        <input type="submit" name="action" value="Create Group" class="btn btn-lg btn-primary btn-block"/>
-        <input type="submit" name="cancel" value="Cancel" class="btn btn-lg btn-primary btn-block"/>
+        <button type="submit" name="action">Create Group</button>
+        <a href="/Group/">Cancel</a>
     </form>
     </div>
 
