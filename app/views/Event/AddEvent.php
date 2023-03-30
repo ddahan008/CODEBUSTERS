@@ -21,8 +21,8 @@
             <label for="date">Event (date and time):</label>
         </div>
 
-        <input type="submit" name="action" value="Create Event" class="btn btn-lg btn-primary btn-block"/>
-        <input type="submit" name="cancel" value="Cancel" class="btn btn-lg btn-primary btn-block"/>
+        <button type="submit" name="action">Create Event</button>
+        <a href="/Event/">Cancel</a>
     </form>
     </div>
 
