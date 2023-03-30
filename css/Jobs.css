@@ -63,6 +63,20 @@ a {
     padding: 0px 10px;
 }
 
+.Job-misc-customize-form-input {
+    width: 75%;
+    border: solid rgb(197, 197, 197);
+    border-width: thin;
+    height: 30px;
+}
+
+.Job-misc-customize-form-input-two-wide {
+    width:102.5px;
+    border: solid rgb(197, 197, 197);
+    border-width: thin;
+    height: 30px;
+}
+
 .Job-list-item {
     display: flex;
     justify-content: start;
@@ -97,6 +111,20 @@ a {
     color: #ffffff;
 }
 
+.Job-mandatory-checkbox{
+    width: 25px;
+    height: 25px;
+}
+
+.Job-form-management-delete-btn {
+    border-radius: 100%;
+    position: absolute;
+    border: none;
+    padding: 0px 7px;
+    background: #000000;
+    color: #ffffff;
+}
+
 #description {
     height: 400px;
     width: 100% ;
@@ -121,6 +149,13 @@ a {
     width: 200px;
     height: 50px;
     transition: 0.3s;
+}
+.Job-add-form-field-btn {
+    border-radius: 6px;
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 68%;
+
 }
 
 .Job-misc-btn:hover {
