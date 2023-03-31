@@ -11,7 +11,10 @@ class NotificationController extends Controller {
         if(isset($_SESSION['user_id'])) { // if the user is signed in
             $data = [];
             $invitation = $this->model('Invitation');
-            $data = $invitation->getAllInvitedProfiles();
+            $notification = $this->model('Notification');
+            $notification->uid = $_SESSION['user_id'];
+            $data['connection'] = $invitation->getAllInvitedProfiles();
+            $data['messages'] = $notification->getAllTypeNotificationsForUserID('MESSAGE');
             $this->view('Notification/index', $data); // load the notifications view
         } else { // otherwise
             $this->view('Home/index'); // load the homepage view
