@@ -33,8 +33,15 @@
             </div>
             <div class="notification warning">
                 <h2>New Job Posting</h2>
-                <p>There is a new job posting that matches your interests.</p>
-                <button>View Job Posting</button>
+            <?php if (is_array($data['jobs']) && sizeof($data['jobs']) > 0) { ?>
+                <?php foreach($data['jobs'] as $datum) { ?>
+                <p><?=$datum->content?></p>
+                <?php } ?>
+                <button><a href="/Job/JobManage/">Go to jobs</a></button>
+                <button><a href="/Notification/clearAllJobMessages/">Clear all job notifications</a></button>
+            <?php } else { ?>
+                <p>All caught up!</p>
+            <?php } ?>
             </div>
             <div class="notification error">
                 <h2>Updates</h2>
