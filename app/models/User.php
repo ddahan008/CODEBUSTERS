@@ -141,6 +141,22 @@ class User extends Model {
         
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getAllSeekers() {
+        // prepare the SQL DML Statements
+        $stmt = $this->_connection->prepare(
+            "SELECT id
+             FROM user
+             WHERE u_type = (SELECT id 
+                             FROM u_types
+                             WHERE type=:type)"
+        );
+
+        // supply the replacement parameters to the query
+        $stmt->execute(['type'=>"Seeker"]);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, "User"); // set the retrieval to match an object of type User
+        return $stmt->fetchAll(); // execute the query and intercept the result
+    }
 }
 
 ?>
