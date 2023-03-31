@@ -21,6 +21,18 @@ class Controller
 
         $notification->create();
     }
+    public function notifyAllSeekers($type, $content)
+    {
+        $users = $this->model('User')->getAllSeekers();
+        $notification = $this->model('Notification');
+        $notification->type = Notification::_TYPES[$type];
+        $notification->content = $content;
+
+        foreach ($users as $seeker) {
+            $notification->uid = $seeker->id;
+            $notification->create();
+        }
+    }
 }
 
 ?>
