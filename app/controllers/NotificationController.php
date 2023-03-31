@@ -28,6 +28,12 @@ class NotificationController extends Controller {
         $notification->destroyAllTypeNotificationsForUserID('MESSAGE');
         header("Location: /Notification/");
     }
+    public function clearAllJobMessages() {
+        $notification = $this->model('Notification');
+        $notification->uid = $_SESSION['user_id'];
+        $notification->destroyAllTypeNotificationsForUserID('JOB');
+        header("Location: /Notification/");
+    }
 }
 
 ?>
