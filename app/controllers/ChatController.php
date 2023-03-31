@@ -71,6 +71,8 @@ class ChatController extends Controller {
                     $chat->content = $file_path; // set the message text content
 
                     $chat->insert(); // call the method to store the message
+
+                    $this->notify('MESSAGE', "You have a new file message!", $_POST['receiverID']);
                 }
             }
         }
@@ -82,6 +84,8 @@ class ChatController extends Controller {
             $chat->content = $_POST['clientmsg']; // set the message text content
 
             $chat->insert(); // call the method to store the message
+
+            $this->notify('MESSAGE', "You have a new text message!", $_POST['receiverID']);
         }
     }
 
