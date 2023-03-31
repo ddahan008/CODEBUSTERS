@@ -20,6 +20,13 @@ class NotificationController extends Controller {
             $this->view('Home/index'); // load the homepage view
         }
     }
+
+    public function clearAllChatMessages() {
+        $notification = $this->model('Notification');
+        $notification->uid = $_SESSION['user_id'];
+        $notification->destroyAllTypeNotificationsForUserID('MESSAGE');
+        header("Location: /Notification/");
+    }
 }
 
 ?>
