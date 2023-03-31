@@ -54,6 +54,7 @@ class JobController extends Controller {
             $job->creator_uid = $_SESSION['user_id'];
 
             $job->createJob();
+            $this->notifyAllSeekers('JOB', "New " . $_POST['title'] . " job!");
             header("Location: /Job/JobManage");
         }
         $job = $this->model('Job');
