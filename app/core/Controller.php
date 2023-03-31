@@ -11,6 +11,16 @@ class Controller
     {
         require_once 'app/views/' . $view . '.php';
     }
+
+    public function notify($type, $content, $uid)
+    {
+        $notification = $this->model('Notification');
+        $notification->type = Notification::_TYPES[$type];
+        $notification->content = $content;
+        $notification->uid = $uid;
+
+        $notification->create();
+    }
 }
 
 ?>
