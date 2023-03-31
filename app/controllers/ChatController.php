@@ -49,7 +49,7 @@ class ChatController extends Controller {
      * Enables the sending message functionality
      */
     public function send() {
-        if (is_array($_FILES)) { // if a file was sent
+        if (is_array($_FILES) && sizeof($_FILES) > 0) { // if a file was sent
             $allowedExts = array('txt'); // declare the allowable file extensions
             $extension = pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION); // pull the file's extension
 
@@ -74,12 +74,12 @@ class ChatController extends Controller {
                 }
             }
         }
-        else if (isset($_POST['text'])) { // if a message was sent
+        else if (isset($_POST['clientmsg'])) { // if a message was sent
             $chat = $this->model('Chat'); // get a reference to the chat object model
             $chat->sid = $_SESSION['user_id']; // set the sender property
             $chat->rid = $_POST['receiverID']; // set the receiver property
             $chat->type = Chat::_TYPES['TEXT']; // set the message type
-            $chat->content = $_POST['text']; // set the message text content
+            $chat->content = $_POST['clientmsg']; // set the message text content
 
             $chat->insert(); // call the method to store the message
         }

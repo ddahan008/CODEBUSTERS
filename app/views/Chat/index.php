@@ -41,7 +41,7 @@
                     <input type="file" name="file" id="file" class="attachment_input" />
                     <button type="submit" name="submit" id="submit">Send</button>
                 </form>
-                <button id="refresh">REFRESH</button>
+                <!--button id="refresh">REFRESH</button-->
             </div>
         </div>
     </div>
