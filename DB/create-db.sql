@@ -288,8 +288,27 @@ CREATE TABLE `application_rule` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Table structure for table notification
+--
+
+DROP TABLE IF EXISTS `notification`;
+CREATE TABLE `notification` (
+                            `id` int(11) NOT NULL,
+                            `type` varchar(255) NOT NULL,
+                            `content` varchar(255) NOT NULL,
+                            `uid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table notification
+--
+ALTER TABLE `notification`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `NOTIFICATION_UID_FK_TO_USER_UID` (`uid`);
 
 --
 -- Indexes for table `application_rule`
@@ -442,6 +461,12 @@ ALTER TABLE `jobs`
     MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table notification
+--
+ALTER TABLE `notification`
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -450,6 +475,12 @@ ALTER TABLE `jobs`
 --
 ALTER TABLE `application_rule`
     ADD CONSTRAINT `APLICATION_RULE_JID_FK_TO_JOBS_ID` FOREIGN KEY (`jid`) REFERENCES `jobs` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table notification
+--
+ALTER TABLE `notification`
+    ADD CONSTRAINT `NOTIFICATION_UID_FK_TO_USER_UID` FOREIGN KEY (`uid`) REFERENCES `user` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `chat`
