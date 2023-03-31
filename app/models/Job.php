@@ -11,6 +11,7 @@ class Job extends Model
     public $web_link;
     public $descr;
     public $creator_uid;
+    public $application_rule;
 
     /**
      * Retrieves all Job elements from the Database that belongs to a specific creator.
@@ -19,7 +20,7 @@ class Job extends Model
      */
     public function getAllJobsForCreator()
     {
-        $stmt = $this->_connection->prepare("SELECT * FROM jobs WHERE creator_uid = :creator_uid");
+        $stmt = $this->_connection->prepare("SELECT * FROM jobs WHERE creator_uid = :creator_uid;");
         $stmt->execute(['creator_uid' => $this->creator_uid]);
 
         $stmt->setFetchMode(PDO::FETCH_CLASS, "Job");
@@ -33,7 +34,7 @@ class Job extends Model
      */
     public function getAllJobs()
     {
-        $stmt = $this->_connection->prepare("SELECT * FROM jobs");
+        $stmt = $this->_connection->prepare("SELECT * FROM jobs;");
         $stmt->execute();
 
         $stmt->setFetchMode(PDO::FETCH_CLASS, "Job");
@@ -47,7 +48,7 @@ class Job extends Model
      */
     public function getJobByJobId()
     {
-        $stmt = $this->_connection->prepare("SELECT * FROM jobs WHERE id = :id AND creator_uid = :creator_uid");
+        $stmt = $this->_connection->prepare("SELECT * FROM jobs WHERE id = :id AND creator_uid = :creator_uid;");
         $stmt->execute(['id' => $this->id, 'creator_uid' => $this->creator_uid]);
 
         $stmt->setFetchMode(PDO::FETCH_CLASS, "Job");
@@ -57,14 +58,14 @@ class Job extends Model
     /**
      * Adds a job to the DB based on the current object status.
      *
-     * @return int Number of affected rows. Expected to be 1.
+     * @return int Id of the job that was just created.
      */
     public function createJob()
     {
         // prepare the SQL DML Statements
         $stmt = $this->_connection->prepare(
             "INSERT INTO jobs(title, deadline, location, easy_apply, apply_on_web, web_link, descr, creator_uid) 
-                  VALUES (:title, :deadline, :location, :easy_apply, :apply_on_web, :web_link, :descr, :creator_uid)"
+                  VALUES (:title, :deadline, :location, :easy_apply, :apply_on_web, :web_link, :descr, :creator_uid);"
         );
 
         // supply the replacement parameters to the query
@@ -72,7 +73,16 @@ class Job extends Model
             'title' => $this->title, 'deadline' => $this->deadline, 'location' => $this->location, 'easy_apply' => $this->easy_apply,
             'apply_on_web' => $this->apply_on_web, 'web_link' => $this->web_link, 'descr' => $this->descr, 'creator_uid' => $this->creator_uid
         ]);
-        return $stmt->rowCount();
+
+        //Get the id of the job that was just created
+        $stmt = $this->_connection->prepare(
+            "SELECT id FROM jobs ORDER BY id DESC LIMIT 1;"
+        );
+
+        $stmt->execute();
+        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $data["0"]["id"];
     }
 
     /**
@@ -85,7 +95,7 @@ class Job extends Model
         // prepare the SQL DML Statements
         $stmt = $this->_connection->prepare(
             "UPDATE jobs SET title = :title, deadline = :deadline, location = :location, easy_apply = :easy_apply, apply_on_web = :apply_on_web, web_link = :web_link, descr = :descr, creator_uid = :creator_uid 
-            WHERE id = :id AND creator_uid = :creator_uid"
+            WHERE id = :id AND creator_uid = :creator_uid;"
         );
 
         // supply the replacement parameters to the query
@@ -106,7 +116,7 @@ class Job extends Model
     {
         // prepare the SQL DML Statements
         $stmt = $this->_connection->prepare(
-            "DELETE FROM jobs WHERE id = :id AND creator_uid = :creator_uid"
+            "DELETE FROM jobs WHERE id = :id AND creator_uid = :creator_uid;"
         );
 
         // supply the replacement parameters to the query
@@ -124,7 +134,7 @@ class Job extends Model
         $temp = '%' . $tag . '%';
         // prepare the SQL DML Statements
         $stmt = $this->_connection->prepare(
-            "SELECT * FROM jobs WHERE title LIKE ? OR location LIKE ?  OR descr LIKE ?"
+            "SELECT * FROM jobs WHERE title LIKE ? OR location LIKE ?  OR descr LIKE ?;"
         );
         // supply the replacement parameters to the query
         $stmt->execute([$temp, $temp, $temp]);
@@ -132,4 +142,5 @@ class Job extends Model
 
         return $stmt->fetchAll();
     }
+
 }

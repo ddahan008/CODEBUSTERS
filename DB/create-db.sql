@@ -260,8 +260,62 @@ CREATE TABLE `jobs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Table structure for table `application_rule`
+--
+
+DROP TABLE IF EXISTS `application_rule`;
+CREATE TABLE `application_rule` (
+                             `id` int(11) NOT NULL,
+                             `jid` int(11) NOT NULL,
+                             `prefix_mandatory` int(1) NOT NULL,
+                             `fname_mandatory` int(1) NOT NULL,
+                             `lname_mandatory` int(1) NOT NULL,
+                             `pronouns_mandatory` int(1) NOT NULL,
+                             `email_mandatory` int(1) NOT NULL,
+                             `work_phone_mandatory` int(1) NOT NULL,
+                             `cell_phone_mandatory` int(1) NOT NULL,
+                             `upload_cv_mandatory` int(1) NOT NULL,
+                             `custom_question_1` varchar(255),
+                             `custom_question_1_mandatory` int(1) NOT NULL,
+                             `custom_question_2` varchar(255),
+                             `custom_question_2_mandatory` int(1) NOT NULL,
+                             `custom_question_3` varchar(255),
+                             `custom_question_3_mandatory` int(1) NOT NULL,
+                             `custom_question_4` varchar(255),
+                             `custom_question_4_mandatory` int(1) NOT NULL,
+                             `custom_question_5` varchar(255),
+                             `custom_question_5_mandatory` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table notification
+--
+
+DROP TABLE IF EXISTS `notification`;
+CREATE TABLE `notification` (
+                            `id` int(11) NOT NULL,
+                            `type` varchar(255) NOT NULL,
+                            `content` varchar(255) NOT NULL,
+                            `uid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table notification
+--
+ALTER TABLE `notification`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `NOTIFICATION_UID_FK_TO_USER_UID` (`uid`);
+
+--
+-- Indexes for table `application_rule`
+--
+ALTER TABLE `application_rule`
+    ADD PRIMARY KEY (`id`),
+    ADD KEY `APLICATION_RULE_JID_FK_TO_JOBS_ID` (`jid`);
 
 --
 -- Indexes for table `chat`
@@ -407,8 +461,26 @@ ALTER TABLE `jobs`
     MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table notification
+--
+ALTER TABLE `notification`
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `application_rule`
+--
+ALTER TABLE `application_rule`
+    ADD CONSTRAINT `APLICATION_RULE_JID_FK_TO_JOBS_ID` FOREIGN KEY (`jid`) REFERENCES `jobs` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table notification
+--
+ALTER TABLE `notification`
+    ADD CONSTRAINT `NOTIFICATION_UID_FK_TO_USER_UID` FOREIGN KEY (`uid`) REFERENCES `user` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `chat`

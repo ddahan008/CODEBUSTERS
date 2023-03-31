@@ -35,25 +35,40 @@ class JobController extends Controller {
             $job->deadline = date_format($date, "Y/m/d");
             $job->location = $_POST['location'];
 
-            if (isset($_POST['easyapply'])) {
-                $job->easy_apply = 1;
-            }
-            else {
-                $job->easy_apply = 0;
-            }
-
-            if (isset($_POST['applyonwebsite'])) {
-                $job->apply_on_web = 1;
-            }
-            else {
-                $job->apply_on_web = 0;
-            }
+            (isset($_POST['easy_apply'])) ? $job->easy_apply = 1 : $job->easy_apply = 0;
+            (isset($_POST['apply_on_web'])) ? $job->apply_on_web = 1 : $job->apply_on_web = 0;
 
             $job->web_link = $_POST['link'];
             $job->descr = $_POST['description'];
             $job->creator_uid = $_SESSION['user_id'];
+            
+            $created_job_id = $job->createJob();
 
-            $job->createJob();
+            //Sets the job application requirements
+            $application = $this->model('Application');
+            $application->jid = $created_job_id;
+
+            (isset($_POST['prefix_mandatory'])) ? $application->prefix_mandatory = 1 : $application->prefix_mandatory = 0;
+            (isset($_POST['fname_mandatory'])) ? $application->fname_mandatory = 1 : $application->fname_mandatory = 0;
+            (isset($_POST['lname_mandatory'])) ? $application->lname_mandatory = 1 : $application->lname_mandatory = 0;
+            (isset($_POST['pronouns_mandatory'])) ? $application->pronouns_mandatory = 1 : $application->pronouns_mandatory = 0;
+            (isset($_POST['email_mandatory'])) ? $application->email_mandatory = 1 : $application->email_mandatory = 0;
+            (isset($_POST['work_phone_mandatory'])) ? $application->work_phone_mandatory = 1 : $application->work_phone_mandatory = 0;
+            (isset($_POST['cell_phone_mandatory'])) ? $application->cell_phone_mandatory = 1 : $application->cell_phone_mandatory = 0;
+            (isset($_POST['upload_cv_mandatory'])) ? $application->upload_cv_mandatory = 1 : $application->upload_cv_mandatory = 0;
+            (isset($_POST['custom_question_1'])) ? $application->custom_question_1 = $_POST['custom_question_1'] : $application->custom_question_1 = 0;
+            (isset($_POST['custom_question_1_mandatory'])) ? $application->custom_question_1_mandatory = 1 : $application->custom_question_1_mandatory = 0;
+            (isset($_POST['custom_question_2'])) ? $application->custom_question_2 = $_POST['custom_question_2'] : $application->custom_question_2 = 0;
+            (isset($_POST['custom_question_2_mandatory'])) ? $application->custom_question_2_mandatory = 1 : $application->custom_question_2_mandatory = 0;
+            (isset($_POST['custom_question_3'])) ? $application->custom_question_3 = $_POST['custom_question_3'] : $application->custom_question_3 = 0;
+            (isset($_POST['custom_question_3_mandatory'])) ? $application->custom_question_3_mandatory = 1 : $application->custom_question_3_mandatory = 0;
+            (isset($_POST['custom_question_4'])) ? $application->custom_question_4 = $_POST['custom_question_4'] : $application->custom_question_4 = 0;
+            (isset($_POST['custom_question_4_mandatory'])) ? $application->custom_question_4_mandatory = 1 : $application->custom_question_4_mandatory = 0;
+            (isset($_POST['custom_question_5'])) ? $application->custom_question_5 = $_POST['custom_question_5'] : $application->custom_question_5 = 0;
+            (isset($_POST['custom_question_5_mandatory'])) ? $application->custom_question_5_mandatory = 1 : $application->custom_question_5_mandatory = 0;
+
+            $application->createApplicationRules();
+
             $this->notifyAllSeekers('JOB', "New " . $_POST['title'] . " job!");
             header("Location: /Job/JobManage");
         }
@@ -77,25 +92,39 @@ class JobController extends Controller {
             $job->deadline = date_format($date, "Y/m/d");
             $job->location = $_POST['location'];
 
-            if (isset($_POST['easyapply'])) {
-                $job->easy_apply = 1;
-            }
-            else {
-                $job->easy_apply = 0;
-            }
-
-            if (isset($_POST['applyonwebsite'])) {
-                $job->apply_on_web = 1;
-            }
-            else {
-                $job->apply_on_web = 0;
-            }
+            (isset($_POST['easy_apply'])) ? $job->easy_apply = 1 : $job->easy_apply = 0;
+            (isset($_POST['apply_on_web'])) ? $job->apply_on_web = 1 : $job->apply_on_web = 0;
 
             $job->web_link = $_POST['link'];
             $job->descr = $_POST['description'];
             $job->creator_uid = $_SESSION['user_id'];
 
             $job->editJob();
+
+            $application = $this->model('Application');
+            $application->jid = $jid;
+
+            (isset($_POST['prefix_mandatory'])) ? $application->prefix_mandatory = 1 : $application->prefix_mandatory = 0;
+            (isset($_POST['fname_mandatory'])) ? $application->fname_mandatory = 1 : $application->fname_mandatory = 0;
+            (isset($_POST['lname_mandatory'])) ? $application->lname_mandatory = 1 : $application->lname_mandatory = 0;
+            (isset($_POST['pronouns_mandatory'])) ? $application->pronouns_mandatory = 1 : $application->pronouns_mandatory = 0;
+            (isset($_POST['email_mandatory'])) ? $application->email_mandatory = 1 : $application->email_mandatory = 0;
+            (isset($_POST['work_phone_mandatory'])) ? $application->work_phone_mandatory = 1 : $application->work_phone_mandatory = 0;
+            (isset($_POST['cell_phone_mandatory'])) ? $application->cell_phone_mandatory = 1 : $application->cell_phone_mandatory = 0;
+            (isset($_POST['upload_cv_mandatory'])) ? $application->upload_cv_mandatory = 1 : $application->upload_cv_mandatory = 0;
+            (isset($_POST['custom_question_1'])) ? $application->custom_question_1 = $_POST['custom_question_1'] : null;
+            (isset($_POST['custom_question_1_mandatory'])) ? $application->custom_question_1_mandatory = 1 : $application->custom_question_1_mandatory = 0;
+            (isset($_POST['custom_question_2'])) ? $application->custom_question_2 = $_POST['custom_question_2'] : null;
+            (isset($_POST['custom_question_2_mandatory'])) ? $application->custom_question_2_mandatory = 1 : $application->custom_question_2_mandatory = 0;
+            (isset($_POST['custom_question_3'])) ? $application->custom_question_3 = $_POST['custom_question_3'] : null;
+            (isset($_POST['custom_question_3_mandatory'])) ? $application->custom_question_3_mandatory = 1 : $application->custom_question_3_mandatory = 0;
+            (isset($_POST['custom_question_4'])) ? $application->custom_question_4 = $_POST['custom_question_4'] : null;
+            (isset($_POST['custom_question_4_mandatory'])) ? $application->custom_question_4_mandatory = 1 : $application->custom_question_4_mandatory = 0;
+            (isset($_POST['custom_question_5'])) ? $application->custom_question_5 = $_POST['custom_question_5'] : null;
+            (isset($_POST['custom_question_5_mandatory'])) ? $application->custom_question_5_mandatory = 1 : $application->custom_question_5_mandatory = 0;
+            
+            $application->editApplicationRules();
+
             header("Location: /Job/JobManage");
         }
 
@@ -103,6 +132,10 @@ class JobController extends Controller {
         $job->id = $jid;
         $job->creator_uid = $_SESSION["user_id"];
         $data = $job->getJobByJobId();
+
+        $application = $this->model('Application');
+        $application->jid = $jid;
+        $data[0]->application_rule = $application->getRulesByJobId();
 
         $this->view('Job/JobEdit', $data); // load the JobEdit form view
     }
