@@ -15,6 +15,7 @@ class NotificationController extends Controller {
             $notification->uid = $_SESSION['user_id'];
             $data['connection'] = $invitation->getAllInvitedProfiles();
             $data['messages'] = $notification->getAllTypeNotificationsForUserID('MESSAGE');
+            $data['jobs'] = $notification->getAllTypeNotificationsForUserID('JOB');
             $this->view('Notification/index', $data); // load the notifications view
         } else { // otherwise
             $this->view('Home/index'); // load the homepage view
