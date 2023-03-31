@@ -7,9 +7,9 @@
         <div class="container">
             <div class="notification success">
                 <h2>Invitation Request</h2>
-                <?php if (is_array($data)) { ?>
+                <?php if (is_array($data['connection'])) { ?>
                     <div class="grid-container">
-                        <?php foreach ($data as $datum) { ?>
+                        <?php foreach ($data['connection'] as $datum) { ?>
                             <div class="box"><a href="#"><h4 class="item"><?=$datum->fname, ' ', $datum->lname?></h4></a>
                                 <p class="description-item"><?=$datum->job_title?></p>
                                 <button type="button" id="accept" class="btn btn-lg btn-success"><a href="/Invitation/Accept/<?=$datum->id?>">Accept</a></button>
@@ -21,8 +21,15 @@
             </div>
             <div class="notification info">
                 <h2>Messages</h2>
-                <p>You received a message from a user.</p>
-                <button>Go to messages</button>
+            <?php if (is_array($data['messages']) && sizeof($data['messages']) > 0) { ?>
+                <?php foreach($data['messages'] as $datum) { ?>
+                <p><?=$datum->content?></p>
+                <?php } ?>
+                <button><a href="/Chat/">Go to chat</a></button>
+                <button><a href="/Notification/clearAllChatMessages/">Clear all message notifications</a></button>
+            <?php } else { ?>
+                <p>All caught up!</p>
+            <?php } ?>
             </div>
             <div class="notification warning">
                 <h2>New Job Posting</h2>
