@@ -4,6 +4,9 @@ class Chat extends Model {
     // Constant declared to reference the content type of a chat message
     CONST _TYPES = ['TEXT'=>0, 'MEDIA'=>1];
 
+    // Constant declared to identify censorable words in the chat
+    CONST _CURSE = ['fuck', 'bitch', 'cunt', 'shit', 'asshole', 'fucker'];
+
     public $id; // message ID
     public $sid; // sender ID
     public $rid; // recipient ID
@@ -45,6 +48,26 @@ class Chat extends Model {
 
         // supply the replacement parameters to the query
         $stmt->execute(['sid'=>$this->sid, 'rid'=>$this->rid]);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, "Chat"); // set the retrieval to match an object of type Chat
+        return $stmt->fetchAll(); // return the array of chats, or false
+    }
+
+    /**
+     * Fetches all the messages for a specified user.
+     *
+     * @return array Array of all the message records.
+     */
+    public function getAllMessagesBySenderId() {
+        // prepare the SQL DML Statements
+        $stmt = $this->_connection->prepare(
+            "SELECT *
+             FROM chat
+             WHERE sid=:sid
+             ORDER BY timestamp ASC;"
+        );
+
+        // supply the replacement parameters to the query
+        $stmt->execute(['sid'=>$this->sid]);
         $stmt->setFetchMode(PDO::FETCH_CLASS, "Chat"); // set the retrieval to match an object of type Chat
         return $stmt->fetchAll(); // return the array of chats, or false
     }
