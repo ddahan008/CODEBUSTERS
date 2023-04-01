@@ -38,7 +38,9 @@
             <select class="form-control" name="u_type" id="u_type" placeholder="User Type" required>
                 <?php 
                     foreach ($data as $datum) {
-                        echo "<option value=".$datum["id"].">". $datum["type"] ."</option>";
+                        if ($datum["type"] != "Admin") {
+                            echo "<option value=".$datum["id"].">". $datum["type"] ."</option>";
+                        }
                     }
                 ?>
             </select>
