@@ -206,6 +206,7 @@ CREATE TABLE `u_types` (
 -- Pre-inserts for u_types
 INSERT INTO `u_types` (type) VALUES ('Recruiter');
 INSERT INTO `u_types` (type) VALUES ('Seeker');
+INSERT INTO `u_types` (type) VALUES ('Admin');
 
 
 -- --------------------------------------------------------

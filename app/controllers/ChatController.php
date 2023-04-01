@@ -81,7 +81,7 @@ class ChatController extends Controller {
             $chat->sid = $_SESSION['user_id']; // set the sender property
             $chat->rid = $_POST['receiverID']; // set the receiver property
             $chat->type = Chat::_TYPES['TEXT']; // set the message type
-            $chat->content = $_POST['clientmsg']; // set the message text content
+            $chat->content = $this->checkMessage($_POST['clientmsg']); // set the message text content
 
             $chat->insert(); // call the method to store the message
 
@@ -113,6 +113,25 @@ class ChatController extends Controller {
         else { // file does  not exist
             echo "File does not exist!";
         }
+    }
+
+    /**
+     * Parses the message content to censor curse words
+     */
+    public function checkMessage($message) {
+        $flagged = false;
+        for ($idx = 0; $idx < sizeof(Chat::_CURSE); $idx++) {
+            if (strpos($message, Chat::_CURSE[$idx])) {
+                $message = str_ireplace(Chat::_CURSE[$idx], "****", $message);
+                $flagged = true;
+            }
+        }
+
+        if ($flagged) {
+            $message = $message." FLAGGED";
+        }
+
+        return $message;
     }
 }
 

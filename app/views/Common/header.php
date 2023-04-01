@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Jobsters</title>
-    <link href="../../../css/HeaderAndFooter.css" rel="stylesheet" type="text/css"/>
-    <link href="../../../css/HomePage.css" rel="stylesheet" type="text/css"/>
+    <link href="../../../css/HeaderAndFooter.css" rel="stylesheet" type="text/css" />
+    <link href="../../../css/HomePage.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="../../../css/font-awesome.min.css">
 </head>
+
 <body>
     <header>
         <a href="/Home/"><img class="logo" src="../../../assets/logo.png" alt="Better Being Logo" width="50%" height="auto" style="float:left"></a>
@@ -40,10 +42,19 @@
                     <div class="dropdown">
                         <ul>
                             <li><a href="/Setting/">Settings</a></li>
-                            <?php if(isset($_SESSION['user_id'])) echo '<li><a href="/Home/Logout">Sign Out</a></li>' ?>
+                            <?php if (isset($_SESSION['user_id'])) echo '<li><a href="/Home/Logout">Sign Out</a></li>' ?>
                         </ul>
                     </div>
                 </li>
+                <?php
+                if (isset($_SESSION['user_id'])) {
+                    if ($_SESSION['u_type'] == 3) {
+                        echo '
+                            <li><a href="/Admin/">ADMIN</a></li>
+                            ';
+                    }
+                }
+                ?>
             </ul>
         </nav>
         <label for="nav-toggle" class="nav-toggle-label">

@@ -142,6 +142,11 @@ class User extends Model {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    /**
+     * Retrieves all seeker users from the DB.
+     *
+     * @return mixed The user object lists.
+     */
     public function getAllSeekers() {
         // prepare the SQL DML Statements
         $stmt = $this->_connection->prepare(
@@ -157,6 +162,20 @@ class User extends Model {
         $stmt->setFetchMode(PDO::FETCH_CLASS, "User"); // set the retrieval to match an object of type User
         return $stmt->fetchAll(); // execute the query and intercept the result
     }
-}
 
-?>
+    /**
+     * Retrieves all users record from the DB.
+     *
+     * @return mixed User object list.
+     */
+    public function getAllUsers() {
+        // prepare the SQL DML Statements
+        $stmt = $this->_connection->prepare(
+            "SELECT * FROM user WHERE u_type != 3;");
+
+        // supply the replacement parameters to the query
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_CLASS, "User");
+        return $stmt->fetchAll();
+    }
+}

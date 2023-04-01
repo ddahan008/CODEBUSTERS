@@ -25,22 +25,21 @@ class HomeController extends Controller {
      * Controls the registration form loading and processing.
      */
     public function register() {
-        if (isset($_POST['action'])) { // if the form was posted
-            if ($_POST['password'] == $_POST['password_confirm']) { // if the password fields match
-                $user = $this->model('User'); // get a reference to the user object model
-                $user->uname = $_POST['username']; // set the username field
-                $user->u_type = $_POST['u_type']; // set the usertype field
-                // hash the password and set it
-                $user->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
-                if ($user->insert()) { // call the method to insert the user to the DB
-                    header("Location: /Home/Login"); // redirect the user to the login page
-                }
-                else { //TODO add error message
-                    header("Location: /Home/Register"); // reload the registration form
-                }
+        if (isset($_POST['action']) && $_POST['u_type'] != 3 && $_POST['password'] == $_POST['password_confirm']) { // if everything is correct
+            $user = $this->model('User'); // get a reference to the user object model
+            $user->uname = $_POST['username']; // set the username field
+            $user->u_type = $_POST['u_type']; // set the usertype field
+            // hash the password and set it
+            $user->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            if ($user->insert()) { // call the method to insert the user to the DB
+                header("Location: /Home/Login"); // redirect the user to the login page
+            }
+            else { //TODO add error message
+                header("Location: /Home/Register"); // reload the registration form
             }
         }
-        else {
+        else 
+        {
             $user = $this->model('User');
             $data = $user->getAllUserTypes();
             $this->view('Home/Register', $data); // load the registration form
