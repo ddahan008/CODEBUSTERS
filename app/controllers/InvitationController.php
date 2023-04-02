@@ -25,7 +25,7 @@ class InvitationController extends Controller {
 
     private function destroy($sid) {
         $invitation = $this->model('Invitation');
-        $invitation->master = $sid;
+        $invitation->slave = $sid;
         $invitation->destroy();
     }
 

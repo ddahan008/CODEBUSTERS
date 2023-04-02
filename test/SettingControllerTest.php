@@ -6,24 +6,23 @@ include_once "app/core/Model.php";
 include_once "app/core/Controller.php";
 include_once "app/controllers/SettingController.php";
 
+/* ********************* SETUP ********************* */
+$_SESSION['user_id'] = 1;
+/* ********************* SETUP ********************* */
+
 class SettingControllerTest extends TestCase {
 
-    public function testIndexUserIdSet() {
-
-        $_SESSION['user_id'] = 1;
+    public function testIndex() {
         $test = new SettingController();
         $test->index();
-
-        $this->assertEquals(true, true);
-    }
-
-    public function testIndexUserIdNotSet() {
 
         unset($_SESSION['user_id']);
-        $test = new SettingController();
+
         $test->index();
 
-        $this->assertEquals(true, true);
+        $_SESSION['user_id'] = 1;
+
+        $this->assertTrue(true);
     }
 
 }

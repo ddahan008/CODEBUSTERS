@@ -6,43 +6,38 @@ include_once "app/core/Model.php";
 include_once "app/core/Controller.php";
 include_once "app/controllers/ConnectionController.php";
 
+/* ********************* SETUP ********************* */
+$_SESSION['user_id'] = 1;
+CONST _TWO = 2;
+/* ********************* SETUP ********************* */
+
 class ConnectionControllerTest extends TestCase {
     
-
-    public function testIndexConnected() {
-        $_SESSION['user_id'] = 1;
-
+    public function testIndex() {
         $test = new ConnectionController();
         $test->index();
 
-        $this->assertEquals(true, true);
-    }
-
-    public function testIndexNotConnected() {
         unset($_SESSION['user_id']);
 
-        $test = new ConnectionController();
         $test->index();
 
-        $this->assertEquals(true, true);
+        $_SESSION['user_id'] = 1;
+
+        $this->assertTrue(true);
     }
 
     public function testCreate() {
-        $_SESSION['user_id'] = 2;
-
         $test = new ConnectionController();
-        $test->create(1);
+        $test->create(_TWO);
 
-        $this->assertEquals(true, true);
+        $this->assertTrue(true);
     }
 
     public function testRemove() {
-        $_SESSION['user_id'] = 1;
-
         $test = new ConnectionController();
-        $test->remove(2);
+        $test->remove(_TWO);
 
-        $this->assertEquals(true, true);
+        $this->assertTrue(true);
     }
 }
 

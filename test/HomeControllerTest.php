@@ -6,13 +6,17 @@ include_once "app/core/Model.php";
 include_once "app/core/Controller.php";
 include_once "app/controllers/HomeController.php";
 
+/* ********************* SETUP ********************* */
+// Requries Custom Setup For Each Functions
+/* ********************* SETUP ********************* */
+
 class HomeControllerTest extends TestCase {
 
     public function testIndex() {
         $test = new HomeController();
         $test->index();
 
-        $this->assertEquals(true, true);
+        $this->assertTrue(true);
     }
 
     public function testRegisterPasswordMatch() {
@@ -24,7 +28,7 @@ class HomeControllerTest extends TestCase {
         $test = new HomeController();
         $test->register();
 
-        $this->assertEquals(true, true);
+        $this->assertTrue(true);
     }
 
     public function testRegisterPasswordNoMatch() {
@@ -36,7 +40,7 @@ class HomeControllerTest extends TestCase {
         $test = new HomeController();
         $test->register();
 
-        $this->assertEquals(true, true);
+        $this->assertTrue(true);
     }
 
     public function testRegisterActionNotSet() {
@@ -48,7 +52,7 @@ class HomeControllerTest extends TestCase {
         $test = new HomeController();
         $test->register();
 
-        $this->assertEquals(true, true);
+        $this->assertTrue(true);
     }
 
     public function testLoginActionNotSet() {
@@ -58,7 +62,7 @@ class HomeControllerTest extends TestCase {
         $test = new HomeController();
         $test->login();
 
-        $this->assertEquals(true, true);
+        $this->assertTrue(true);
     }
 
     public function testLoginUserPasswordMatch() {
@@ -68,7 +72,7 @@ class HomeControllerTest extends TestCase {
         $test = new HomeController();
         $test->login();
 
-        $this->assertEquals(true, true);
+        $this->assertTrue(true);
     }
 
     public function testLoginUserPasswordNoMatch() {
@@ -78,7 +82,7 @@ class HomeControllerTest extends TestCase {
         $test = new HomeController();
         $test->login();
 
-        $this->assertEquals(true, true);
+        $this->assertTrue(true);
     }
 
     public function testLogout() {
@@ -88,7 +92,7 @@ class HomeControllerTest extends TestCase {
         $test->logout();
 
         if (!isset($_SESSION['user_id']) && !isset($_SESSION['uname'])) {
-            $this->assertEquals(true, true);
+            $this->assertTrue(true);
         }
         else {
             $this->assertEquals(true, false);

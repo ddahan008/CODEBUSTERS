@@ -468,6 +468,12 @@ ALTER TABLE `notification`
     MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table notification
+--
+ALTER TABLE `application_rule`
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- Constraints for dumped tables
 --
 

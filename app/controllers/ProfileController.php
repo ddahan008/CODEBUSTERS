@@ -15,10 +15,12 @@ class ProfileController extends Controller {
             $profile = $this->model('Profile'); // get a reference to the profile object model
             $profile->id = $_SESSION['user_id']; // set the profile ID field
             $data = $profile->getProfile(); // call the method to load the profile from the DB
-            if ($data == false) // if the user does not have a profile
+            if ($data == false) {// if the user does not have a profile
                 header("Location: /Profile/Create/"); // redirect the user to the profile creation page
-            else // the user has a profile
+            }
+            else {// the user has a profile
                 $this->view('Profile/index', $data); // load the profile view with the correct data
+            }
         } else { // the user is not signed in
             $this->view('Home/Index'); // load the homepage view
         }

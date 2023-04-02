@@ -5,34 +5,46 @@ use PHPUnit\Framework\TestCase;
 include_once "app/core/Model.php";
 include_once "app/core/Controller.php";
 include_once "app/controllers/InvitationController.php";
+include_once "app/controllers/ConnectionController.php";
+
+/* ********************* SETUP ********************* */
+CONST _TWO = 2;
+CONST _THREE = 3;
+/* ********************* SETUP ********************* */
 
 class InvitationControllerTest extends TestCase {
 
+    public function testIndex() {
+        $test = new InvitationController;
+        $test->index();
+        
+        $this->assertTrue(true);
+    }
+
     public function testCreate() {
         $_SESSION["user_id"] = 1;
-
         $test = new InvitationController;
-        $test->create(2);
+        $test->create(_TWO);
+        $test->create(_THREE);
 
-        $this->assertEquals(true, true);
+        $this->assertTrue(true);
     }
 
     public function testAccept() {
-        $_SESSION["user_id"] = 1;
-
         $test = new InvitationController;
-        $test->accept(2);
+        $test->accept(_TWO);
 
-        $this->assertEquals(true, true);
+        $temp = new ConnectionController;
+        $temp->remove(_TWO);
+
+        $this->assertTrue(true);
     }
     
     public function testReject() {
-        $_SESSION["user_id"] = 1;
-
         $test = new InvitationController;
-        $test->reject(2);
+        $test->reject(_THREE);
         
-        $this->assertEquals(true, true);
+        $this->assertTrue(true);
     }
 
 }
