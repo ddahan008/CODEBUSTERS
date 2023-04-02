@@ -64,7 +64,7 @@
                 <div class="Job-misc-box" id="Job-overview-box">
                     <div class="Job-misc-title-box">
                         <h3>Job Overview</h3>
-                        <button type="button" class="Job-edit-btn "><a class="Job-overview-content" href="#">APPLY</a></button>
+                        <button type="button" class="Job-edit-btn " name="apply" id="apply"><a class="Job-overview-content" href="#">APPLY</a></button>
                     </div>
                     <div class="Job-misc-input-box">
                         <h5 class="Job-overview-content"></h5>
@@ -78,7 +78,15 @@
     </div>
 </div>
 
+<script src="../../../js/jquery-3.6.4.min.js"></script>
+
 <script>
+
+    var lastID;
+
+    function updateCookie(id){
+        var cookieContent = document.cookie + "," + id;
+    }
     function getDescription(thisLmnt, id, title, location, deadline, description) {
         var lmnts = document.getElementsByClassName("Job-list-item");
 
@@ -90,7 +98,10 @@
 
         miscBox = document.getElementById("Job-overview-box");
         miscBox.style.visibility = "visible";
-
+        
+        if(document.cookie.indexOf(id) >= 0){
+        $("#apply").html("pending");
+        }
         var overviewContent = document.getElementsByClassName("Job-overview-content");
 
         overviewContent[0].href = "";
@@ -98,7 +109,12 @@
         overviewContent[2].innerHTML = "Location: " + location;
         overviewContent[3].innerHTML = "Deadline: " + deadline;
         overviewContent[4].innerHTML = "Description: " + description;
+        
+        lastID = id;
     }
+    $("#apply").click(updateCookie(lastID));
+
+
 </script>
 
 <!-- CONTENT END-->
