@@ -44,6 +44,9 @@ class ConnectionController extends Controller {
         $connection->master = $_SESSION['user_id']; // set the slave field to the id of the user to connect
         $connection->slave = $sid; // set the slave field to the id of the user to connect
         $connection->remove(); // call the method to destroy the connection in the DB
+        $connection->master = $sid; // set the slave field to the id of the user to connect
+        $connection->slave = $_SESSION['user_id']; // set the slave field to the id of the user to connect
+        $connection->remove(); // call the method to destroy the connection in the DB
         $this->index(); // load the index view
     }
 }

@@ -6,66 +6,71 @@ include_once "app/core/Model.php";
 include_once "app/core/Controller.php";
 include_once "app/controllers/CompanyController.php";
 
+/* ********************* SETUP ********************* */
+$_SESSION['user_id'] = 1;
+$_SESSION['u_type'] = 1;
+$_POST["action"] = true;
+$_POST['name'] = "Test Company";
+$_POST['descr'] = "Test Company Description";
+CONST _ZERO = 0;
+CONST _ONE = 1;
+/* ********************* SETUP ********************* */
+
 class CompanyControllerTest extends TestCase {
 
-    public function testIndexConnected() {
-        $_SESSION['user_id'] = 1;
-
+    public function testIndex() {
         $test = new CompanyController();
         $test->index();
 
-        $this->assertEquals(true, true);
+        unset($_SESSION['user_id']);
+
+        $test->index();
+
+        $_SESSION['user_id'] = 1;
+
+        $this->assertTrue(true);
     }
 
     public function testAdd() {
-        $_POST["action"] = true;
-        $_POST['name'] = "Test";
-        $_POST['descr'] = "Test";
-        $_SESSION['user_id'] = 1;
-
         $test = new CompanyController();
         $test->add();
 
-        $this->assertEquals(true, true);
+        $this->assertTrue(true);
     }
 
     public function testDelete() {
-        $_SESSION['user_id'] = 1;
-
         $test = new CompanyController();
-        $test->delete(0);
+        $test->delete(_ZERO);
 
-        $this->assertEquals(true, true);
+        $this->assertTrue(true);
     }
 
     public function testAmFollowing() {
         $test = new CompanyController();
-        $result = $test->amFollowing(0);
+        $result = $test->amFollowing(_ZERO);
 
         $this->assertEquals(false, $result);
     }
 
     public function testAmCreator() {
-        $_SESSION['user_id'] = 1;
-
         $test = new CompanyController();
-        $result = $test->amCreator(0);
+        $result = $test->amCreator(_ZERO);
 
         $this->assertEquals(false, $result);
     }
 
     public function testFollow() {
         $test = new CompanyController();
-        $test->follow(1);
+        $test->follow(_ONE);
 
-        $this->assertEquals(true, true);
+        $this->assertTrue(true);
     }
 
     public function testUnFollow() {
         $test = new CompanyController();
-        $test->Unfollow(1);
+        $test->Unfollow(_ONE);
 
-        $this->assertEquals(true, true);
+        $this->assertTrue(true);
     }
 
 }

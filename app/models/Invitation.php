@@ -24,7 +24,7 @@ class Invitation extends Model {
         );
 
         // supply the replacement parameters to the query
-        $stmt->execute(['master'=>$this->master, 'slave'=>$_SESSION['user_id']]);
+        $stmt->execute(['master'=>$_SESSION['user_id'], 'slave'=>$this->slave]);
         return $stmt->rowCount(); // execute the query and return the number of affected rows (should be 1)
     }
 
