@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jobsters</title>
+    <link href="../css/HeaderAndFooter.css" rel="stylesheet" type="text/css" />
+    <link href="../css/HomePage.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> 
+</head>
+
+<body>
+    <header>
+        <a href="/Home/"><img class="logo" src="../assets/logo.png" alt="Better Being Logo" width="50%" height="auto"
+                style="float:left"></a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <nav>
+            <ul>
+                <li><a href="/Home/">HOME</a></li>
+                <li><a href="/Network/">NETWORK</a>
+                    <div class="dropdown">
+                        <ul>
+                            <li><a href="/Company/">COMPANY</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">FIND JOBS</a></li>
+                <li><a href="/Notification/">NOTIFICATIONS</a></li>
+                <li><a href="/Group/">GROUPS</a>
+                    <div class="dropdown">
+                        <ul>
+                            <li><a href="/Event/">EVENTS</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li> <a href="#">MESSAGES</a></li>
+                <li> <a href="/Profile/">USER</a>
+                    <div class="dropdown">
+                        <ul>
+                            <li><a href="/Connection/">Connections</a></li>
+                            <li><a href="#">Suggestions</a></li>
+                            <li><a href="/Setting/">Settings</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+        </label>
+    </header>
+
+    <!--CONTENT START-->
+
+    <!--Uncomment the next line and add the path to your css file that is in the css folder-->
+    <link href="../css/JobApply.css" rel="stylesheet" type="text/css" />
+
+    <div class="content">
+        <h3 class="content-header">Job Application</h3>
+        <div class="container" >
+        <div class="Job-mother-box" >
+        <form method="post" class="Job-application-form">
+            <div class="Job-resume-box" >
+                <div>
+                    <div class="row apply-row">
+                        <input class="Job-misc-check col-sm-9" type="checkbox" id="prevresume" name="prevresume">
+                        <label for="prevresume" class="col">Use previous resume</label>
+                        <select class="col drop-down">
+                            <option value="Resume1">Resume1</option>
+                            <option value="Resume2">Resume2</option>
+                            <option value="Resume3">Resume3</option>
+                        </select>
+                    </div>
+                    <div class="row apply-row">
+                        <input class="Job-misc-check col-sm-9" type="checkbox" id="newresume" name="newresume" >
+                        <label for="newresume" class="col">Upload new resume</label>
+                        <input class="col file-picker" type="file" id="resume" name="resume">
+                    </div>
+                    <div class="row apply-row">
+                        <input class="Job-misc-check col-sm-9" type="checkbox" id="autoresume" name="autoresume">
+                        <label for="autoresume" class="col">Autogenerate resume</label>
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <button class="Job-submit-btn">Submit Application</button>
+            
+        </form>
+        <form method="post" class="Job-application-form">
+            <div class="Job-coverletter-box" >
+                <div>
+                    <div class="row apply-row">
+                        <input class="Job-misc-check col-sm-9" type="checkbox" id="prevCL" name="prevCL">
+                        <label for="prevCL" class="col">Use previous Cover Letter</label>
+                        <select class="col drop-down">
+                            <option value="coverletter1">Cover Letter 1</option>
+                            <option value="coverletter2">Cover Letter 2</option>
+                            <option value="coverletter3">Cover Letter 3</option>
+                        </select>
+                    </div>
+                    <div class="row apply-row">
+                        <input class="Job-misc-check col-sm-9" type="checkbox" id="newCL" name="newCL" >
+                        <label for="newCL" class="col">Upload new Cover Letter</label>
+                        <input class="col file-picker" type="file" id="coverletter" name="coverletter">
+                    </div>
+                </div>
+            </div>
+            <div style="width: 19.5%">
+
+            </div>
+        
+            
+        </form>
+        <div style="display: flex; justify-content: center; align-items: center;">Autogenerate resume</div>
+        </div>
+        </div>
+    <section>
+		<div class="row">
+			<div class="col-sm-3">
+		
+        <div class="profile">
+          <img src="../assets/Connections/user-01.jpg" alt="Profile Picture">
+
+        </div>
+			</div>
+			<div class="col-sm-9 profile-details">
+				<h1>Jane Doe</h2>
+				<h3 class="subject">Software Engineer</h3>
+				<p>San Francisco, CA</p>
+			</div>
+		</div>
+        <div class="row">
+			<div class="col-sm-12 skills">
+				<h2>Skills</h2>
+				<ul>
+					<li>Java</li>
+					<li>Python</li>
+					<li>JavaScript</li>
+					<li>React</li>
+					<li>Node.js</li>
+					<li>SQL</li>
+					<li>NoSQL</li>
+				</ul>
+			</div>
+		</div>
+		<h2>About Me</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    <h2>Education</h2>
+		<ul>
+			<li>
+				<h3 class="subject">Senior Software Engineer, ABC Company</h3>
+				<p>June 2015 - Present</p>
+				<p>Responsible for designing, developing and testing complex web applications using Java, Spring, and Hibernate frameworks. Worked with teams to implement new features and improve application performance. Managed a team of junior developers and provided guidance and mentorship as needed.</p>
+			</li>
+			<li>
+				<h3 class="subject">Senior Software Engineer, ABC Company</h3>
+				<p>June 2015 - Present</p>
+				<p>Responsible for designing, developing and testing complex web applications using Java, Spring, and Hibernate frameworks. Worked with teams to implement new features and improve application performance. Managed a team of junior developers and provided guidance and mentorship as needed.</p>
+			</li>
+        </ul>
+
+		<h2>Experience</h2>
+		<ul>
+			<li>
+				<h3 class="subject">Senior Software Engineer, ABC Company</h3>
+				<p>June 2015 - Present</p>
+				<p>Responsible for designing, developing and testing complex web applications using Java, Spring, and Hibernate frameworks. Worked with teams to implement new features and improve application performance. Managed a team of junior developers and provided guidance and mentorship as needed.</p>
+			</li>
+			<li>
+				<h3 class="subject">Senior Software Engineer, ABC Company</h3>
+				<p>June 2015 - Present</p>
+				<p>Responsible for designing, developing and testing complex web applications using Java, Spring, and Hibernate frameworks. Worked with teams to implement new features and improve application performance. Managed a team of junior developers and provided guidance and mentorship as needed.</p>
+			</li>
+        </ul>
+        <h2>Volunteer</h2>
+		<ul>
+			<li>
+				<h3 class="subject">Senior Software Engineer, ABC Company</h3>
+				<p>June 2015 - Present</p>
+				<p>Responsible for designing, developing and testing complex web applications using Java, Spring, and Hibernate frameworks. Worked with teams to implement new features and improve application performance. Managed a team of junior developers and provided guidance and mentorship as needed.</p>
+			</li>
+			<li>
+				<h3 class="subject">Senior Software Engineer, ABC Company</h3>
+				<p>June 2015 - Present</p>
+				<p>Responsible for designing, developing and testing complex web applications using Java, Spring, and Hibernate frameworks. Worked with teams to implement new features and improve application performance. Managed a team of junior developers and provided guidance and mentorship as needed.</p>
+			</li>
+        </ul>
+        </section>
+
+    <!-- CONTENT END-->
+    </div>
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h2>Email Address</h2>
+                <p> info@jobsters.com</p>
+                <h2>Phone Number</h2>
+                <p>514-569-1499</p>
+                <h2>Find us on</h2>
+                <p>@jobsters</p>
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-instagram"></a>
+            </div>
+            <div class="footer-section links">
+                <p><a href="#">About us</a></p>
+                <p><a href="#">Careers</a></p>
+                <p><a href="#">Networking</a></p>
+                <p><a href="#">Partner up with us</a></p>
+            </div>
+            <div class="footer-section contact-form">
+                <form action="index.html" method="post">
+                    <input type="email" name="email" class="text-input contact-input"
+                        placeholder="Your email address...">
+                    <button type="submit" class="btn btn-big">
+                        <i class="fa fa-envelope"></i> Send
+                    </button>
+                </form>
+                <p>Thanks for subscribing!</p>
+            </div>
+
+            <div class="footer-bottom">
+                © Jobster, Inc. 2023. Your career in our claws!
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
