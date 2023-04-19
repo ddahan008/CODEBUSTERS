@@ -12,7 +12,7 @@
 
 <body>
     <header>
-        <a href="/Home/"><img class="logo" src="../../../assets/logo.png" alt="Better Being Logo" width="50%" height="auto" style="float:left"></a>
+        <a href="/Home/"><img class="logo" src="../../../assets/logo.png" alt="Better Being Logo" width="100px" height="100px" style="float:left"></a>
         <input type="checkbox" id="nav-toggle" class="nav-toggle">
         <nav>
             <ul>
@@ -31,7 +31,7 @@
                 <li><a href="/Explore/">EXPLORE</a>
                     <div class="dropdown">
                         <ul>
-                            <li><a href="/Group/">Groups</a>
+                            <li><a href="/Group/">Groups</a></li>
                             <li><a href="/Event/">Events</a></li>
                             <li><a href="#">Suggestions</a></li>
                         </ul>
