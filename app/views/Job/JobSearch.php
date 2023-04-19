@@ -103,9 +103,6 @@
         miscBox = document.getElementById("Job-overview-box");
         miscBox.style.visibility = "visible";
         
-        if(document.cookie.indexOf(id) >= 0){
-        $("#apply").html("pending");
-        }
         var overviewContent = document.getElementsByClassName("Job-overview-content");
 
         if (already_applied) {
