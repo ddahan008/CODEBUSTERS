@@ -16,10 +16,16 @@ class JobController extends Controller {
             $this->view('Job/JobManage', $jobs);
         }
         else if ($_SESSION["u_type"] == 2) {
+            $data = [];
+
             $job = $this->model('Job');
-            $jobs = $job->getAllJobs();
+            $data['jobs'] = $job->getAllJobs();
+
+            $application = $this->model('Application');
+            $application->applier_id = $_SESSION['user_id'];
+            $data['already_applied'] = $application->getJobIdsUserAppliedTo();
     
-            $this->view('Job/JobSearch', $jobs);
+            $this->view('Job/JobSearch', $data);
         }
     }
 
@@ -44,30 +50,30 @@ class JobController extends Controller {
             
             $created_job_id = $job->createJob();
 
-            //Sets the job application requirements
-            $application = $this->model('Application');
-            $application->jid = $created_job_id;
+            //Sets the job application_rule requirements
+            $application_rule = $this->model('ApplicationRule');
+            $application_rule->jid = $created_job_id;
 
-            (isset($_POST['prefix_mandatory'])) ? $application->prefix_mandatory = 1 : $application->prefix_mandatory = 0;
-            (isset($_POST['fname_mandatory'])) ? $application->fname_mandatory = 1 : $application->fname_mandatory = 0;
-            (isset($_POST['lname_mandatory'])) ? $application->lname_mandatory = 1 : $application->lname_mandatory = 0;
-            (isset($_POST['pronouns_mandatory'])) ? $application->pronouns_mandatory = 1 : $application->pronouns_mandatory = 0;
-            (isset($_POST['email_mandatory'])) ? $application->email_mandatory = 1 : $application->email_mandatory = 0;
-            (isset($_POST['work_phone_mandatory'])) ? $application->work_phone_mandatory = 1 : $application->work_phone_mandatory = 0;
-            (isset($_POST['cell_phone_mandatory'])) ? $application->cell_phone_mandatory = 1 : $application->cell_phone_mandatory = 0;
-            (isset($_POST['upload_cv_mandatory'])) ? $application->upload_cv_mandatory = 1 : $application->upload_cv_mandatory = 0;
-            (isset($_POST['custom_question_1'])) ? $application->custom_question_1 = $_POST['custom_question_1'] : $application->custom_question_1 = 0;
-            (isset($_POST['custom_question_1_mandatory'])) ? $application->custom_question_1_mandatory = 1 : $application->custom_question_1_mandatory = 0;
-            (isset($_POST['custom_question_2'])) ? $application->custom_question_2 = $_POST['custom_question_2'] : $application->custom_question_2 = 0;
-            (isset($_POST['custom_question_2_mandatory'])) ? $application->custom_question_2_mandatory = 1 : $application->custom_question_2_mandatory = 0;
-            (isset($_POST['custom_question_3'])) ? $application->custom_question_3 = $_POST['custom_question_3'] : $application->custom_question_3 = 0;
-            (isset($_POST['custom_question_3_mandatory'])) ? $application->custom_question_3_mandatory = 1 : $application->custom_question_3_mandatory = 0;
-            (isset($_POST['custom_question_4'])) ? $application->custom_question_4 = $_POST['custom_question_4'] : $application->custom_question_4 = 0;
-            (isset($_POST['custom_question_4_mandatory'])) ? $application->custom_question_4_mandatory = 1 : $application->custom_question_4_mandatory = 0;
-            (isset($_POST['custom_question_5'])) ? $application->custom_question_5 = $_POST['custom_question_5'] : $application->custom_question_5 = 0;
-            (isset($_POST['custom_question_5_mandatory'])) ? $application->custom_question_5_mandatory = 1 : $application->custom_question_5_mandatory = 0;
+            (isset($_POST['prefix_mandatory'])) ? $application_rule->prefix_mandatory = 1 : $application_rule->prefix_mandatory = 0;
+            (isset($_POST['fname_mandatory'])) ? $application_rule->fname_mandatory = 1 : $application_rule->fname_mandatory = 0;
+            (isset($_POST['lname_mandatory'])) ? $application_rule->lname_mandatory = 1 : $application_rule->lname_mandatory = 0;
+            (isset($_POST['pronouns_mandatory'])) ? $application_rule->pronouns_mandatory = 1 : $application_rule->pronouns_mandatory = 0;
+            (isset($_POST['email_mandatory'])) ? $application_rule->email_mandatory = 1 : $application_rule->email_mandatory = 0;
+            (isset($_POST['work_phone_mandatory'])) ? $application_rule->work_phone_mandatory = 1 : $application_rule->work_phone_mandatory = 0;
+            (isset($_POST['cell_phone_mandatory'])) ? $application_rule->cell_phone_mandatory = 1 : $application_rule->cell_phone_mandatory = 0;
+            (isset($_POST['upload_cv_mandatory'])) ? $application_rule->upload_cv_mandatory = 1 : $application_rule->upload_cv_mandatory = 0;
+            (isset($_POST['custom_question_1'])) ? $application_rule->custom_question_1 = $_POST['custom_question_1'] : $application_rule->custom_question_1 = 0;
+            (isset($_POST['custom_question_1_mandatory'])) ? $application_rule->custom_question_1_mandatory = 1 : $application_rule->custom_question_1_mandatory = 0;
+            (isset($_POST['custom_question_2'])) ? $application_rule->custom_question_2 = $_POST['custom_question_2'] : $application_rule->custom_question_2 = 0;
+            (isset($_POST['custom_question_2_mandatory'])) ? $application_rule->custom_question_2_mandatory = 1 : $application_rule->custom_question_2_mandatory = 0;
+            (isset($_POST['custom_question_3'])) ? $application_rule->custom_question_3 = $_POST['custom_question_3'] : $application_rule->custom_question_3 = 0;
+            (isset($_POST['custom_question_3_mandatory'])) ? $application_rule->custom_question_3_mandatory = 1 : $application_rule->custom_question_3_mandatory = 0;
+            (isset($_POST['custom_question_4'])) ? $application_rule->custom_question_4 = $_POST['custom_question_4'] : $application_rule->custom_question_4 = 0;
+            (isset($_POST['custom_question_4_mandatory'])) ? $application_rule->custom_question_4_mandatory = 1 : $application_rule->custom_question_4_mandatory = 0;
+            (isset($_POST['custom_question_5'])) ? $application_rule->custom_question_5 = $_POST['custom_question_5'] : $application_rule->custom_question_5 = 0;
+            (isset($_POST['custom_question_5_mandatory'])) ? $application_rule->custom_question_5_mandatory = 1 : $application_rule->custom_question_5_mandatory = 0;
 
-            $application->createApplicationRules();
+            $application_rule->createApplicationRules();
 
             $this->notifyAllSeekers('JOB', "New " . $_POST['title'] . " job!");
             header("Location: /Job/JobManage");
@@ -101,29 +107,29 @@ class JobController extends Controller {
 
             $job->editJob();
 
-            $application = $this->model('Application');
-            $application->jid = $jid;
+            $application_rule = $this->model('ApplicationRule');
+            $application_rule->jid = $jid;
 
-            (isset($_POST['prefix_mandatory'])) ? $application->prefix_mandatory = 1 : $application->prefix_mandatory = 0;
-            (isset($_POST['fname_mandatory'])) ? $application->fname_mandatory = 1 : $application->fname_mandatory = 0;
-            (isset($_POST['lname_mandatory'])) ? $application->lname_mandatory = 1 : $application->lname_mandatory = 0;
-            (isset($_POST['pronouns_mandatory'])) ? $application->pronouns_mandatory = 1 : $application->pronouns_mandatory = 0;
-            (isset($_POST['email_mandatory'])) ? $application->email_mandatory = 1 : $application->email_mandatory = 0;
-            (isset($_POST['work_phone_mandatory'])) ? $application->work_phone_mandatory = 1 : $application->work_phone_mandatory = 0;
-            (isset($_POST['cell_phone_mandatory'])) ? $application->cell_phone_mandatory = 1 : $application->cell_phone_mandatory = 0;
-            (isset($_POST['upload_cv_mandatory'])) ? $application->upload_cv_mandatory = 1 : $application->upload_cv_mandatory = 0;
-            (isset($_POST['custom_question_1'])) ? $application->custom_question_1 = $_POST['custom_question_1'] : null;
-            (isset($_POST['custom_question_1_mandatory'])) ? $application->custom_question_1_mandatory = 1 : $application->custom_question_1_mandatory = 0;
-            (isset($_POST['custom_question_2'])) ? $application->custom_question_2 = $_POST['custom_question_2'] : null;
-            (isset($_POST['custom_question_2_mandatory'])) ? $application->custom_question_2_mandatory = 1 : $application->custom_question_2_mandatory = 0;
-            (isset($_POST['custom_question_3'])) ? $application->custom_question_3 = $_POST['custom_question_3'] : null;
-            (isset($_POST['custom_question_3_mandatory'])) ? $application->custom_question_3_mandatory = 1 : $application->custom_question_3_mandatory = 0;
-            (isset($_POST['custom_question_4'])) ? $application->custom_question_4 = $_POST['custom_question_4'] : null;
-            (isset($_POST['custom_question_4_mandatory'])) ? $application->custom_question_4_mandatory = 1 : $application->custom_question_4_mandatory = 0;
-            (isset($_POST['custom_question_5'])) ? $application->custom_question_5 = $_POST['custom_question_5'] : null;
-            (isset($_POST['custom_question_5_mandatory'])) ? $application->custom_question_5_mandatory = 1 : $application->custom_question_5_mandatory = 0;
+            (isset($_POST['prefix_mandatory'])) ? $application_rule->prefix_mandatory = 1 : $application_rule->prefix_mandatory = 0;
+            (isset($_POST['fname_mandatory'])) ? $application_rule->fname_mandatory = 1 : $application_rule->fname_mandatory = 0;
+            (isset($_POST['lname_mandatory'])) ? $application_rule->lname_mandatory = 1 : $application_rule->lname_mandatory = 0;
+            (isset($_POST['pronouns_mandatory'])) ? $application_rule->pronouns_mandatory = 1 : $application_rule->pronouns_mandatory = 0;
+            (isset($_POST['email_mandatory'])) ? $application_rule->email_mandatory = 1 : $application_rule->email_mandatory = 0;
+            (isset($_POST['work_phone_mandatory'])) ? $application_rule->work_phone_mandatory = 1 : $application_rule->work_phone_mandatory = 0;
+            (isset($_POST['cell_phone_mandatory'])) ? $application_rule->cell_phone_mandatory = 1 : $application_rule->cell_phone_mandatory = 0;
+            (isset($_POST['upload_cv_mandatory'])) ? $application_rule->upload_cv_mandatory = 1 : $application_rule->upload_cv_mandatory = 0;
+            (isset($_POST['custom_question_1'])) ? $application_rule->custom_question_1 = $_POST['custom_question_1'] : null;
+            (isset($_POST['custom_question_1_mandatory'])) ? $application_rule->custom_question_1_mandatory = 1 : $application_rule->custom_question_1_mandatory = 0;
+            (isset($_POST['custom_question_2'])) ? $application_rule->custom_question_2 = $_POST['custom_question_2'] : null;
+            (isset($_POST['custom_question_2_mandatory'])) ? $application_rule->custom_question_2_mandatory = 1 : $application_rule->custom_question_2_mandatory = 0;
+            (isset($_POST['custom_question_3'])) ? $application_rule->custom_question_3 = $_POST['custom_question_3'] : null;
+            (isset($_POST['custom_question_3_mandatory'])) ? $application_rule->custom_question_3_mandatory = 1 : $application_rule->custom_question_3_mandatory = 0;
+            (isset($_POST['custom_question_4'])) ? $application_rule->custom_question_4 = $_POST['custom_question_4'] : null;
+            (isset($_POST['custom_question_4_mandatory'])) ? $application_rule->custom_question_4_mandatory = 1 : $application_rule->custom_question_4_mandatory = 0;
+            (isset($_POST['custom_question_5'])) ? $application_rule->custom_question_5 = $_POST['custom_question_5'] : null;
+            (isset($_POST['custom_question_5_mandatory'])) ? $application_rule->custom_question_5_mandatory = 1 : $application_rule->custom_question_5_mandatory = 0;
             
-            $application->editApplicationRules();
+            $application_rule->editApplicationRules();
 
             header("Location: /Job/JobManage");
         }
@@ -131,11 +137,11 @@ class JobController extends Controller {
         $job = $this->model('Job');
         $job->id = $jid;
         $job->creator_uid = $_SESSION["user_id"];
-        $data = $job->getJobByJobId();
+        $data = $job->getJobByJobIdForCreator();
 
-        $application = $this->model('Application');
-        $application->jid = $jid;
-        $data[0]->application_rule = $application->getRulesByJobId();
+        $application_rule = $this->model('ApplicationRule');
+        $application_rule->jid = $jid;
+        $data[0]->application_rule = $application_rule->getRulesByJobId();
 
         $this->view('Job/JobEdit', $data); // load the JobEdit form view
     }
@@ -166,6 +172,70 @@ class JobController extends Controller {
         }
         else {
             header("Location: /Job/JobSearch");
+        }
+    }
+
+    /**
+     * Apply to a job
+     */
+    public function apply($jid) {
+        if (isset($_POST['apply'])) {
+            $id_list = [];
+
+            if (isset($_POST['newresume'])) {
+                if (!empty($_FILES['resume']['name'])) {
+                    if ($_FILES['resume']['error'] == 0) {
+                        $file_tmp = $_FILES['resume']['tmp_name'];
+                        if ($pdf_blob = fopen($file_tmp, 'rb')) {
+                            $upload = $this->model('Upload');
+                            $upload->uid = $_SESSION['user_id'];
+                            $upload->file_name = $_FILES['resume']['name'];
+                            $upload->file = $pdf_blob;
+                            $id_list['resume_id'] = $upload->uploadResume();
+                        }
+                    }
+                }
+            }
+            else if (isset($_POST['prevresume'])) {
+                $id_list['resume_id'] = $_POST['prevresumeid'];
+            }
+
+            if (isset($_POST['newCL'])) {
+                if (!empty($_FILES['cletter']['name'])) {
+                    if ($_FILES['cletter']['error'] == 0) {
+                        $file_tmp = $_FILES['cletter']['tmp_name'];
+                        if ($pdf_blob = fopen($file_tmp, 'rb')) {
+                            $upload = $this->model('Upload');
+                            $upload->uid = $_SESSION['user_id'];
+                            $upload->file_name = $_FILES['cletter']['name'];
+                            $upload->file = $pdf_blob;
+                            $id_list['cletter_id'] = $upload->uploadCLetter();
+                        }
+                    }
+                }
+            }
+            else if (isset($_POST['prevCL'])) {
+                $id_list['cletter_id'] = $_POST['prevCLid'];
+            }
+
+            $application = $this->model('Application');
+            $application->jid = $jid;
+            $application->applier_id = $_SESSION['user_id'];
+            $application->resume_id = $id_list['resume_id'];
+            $application->cletter_id = $id_list['cletter_id'];
+            $application->create();
+
+            header('location: /Job/JobSearch');
+        }
+        else {
+            $data = [];
+
+            $upload = $this->model('Upload');
+            $upload->uid = $_SESSION['user_id'];
+            $data['resume'] = $upload->getUsersResume();
+            $data['cletter'] = $upload->getUsersCLetter();
+
+            $this->view('Job/JobApply', $data);
         }
     }
 }

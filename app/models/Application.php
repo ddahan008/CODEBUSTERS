@@ -2,98 +2,35 @@
 
 class Application extends Model
 {
+    public $id;
     public $jid;
-    public $prefix_mandatory;
-    public $fname_mandatory;
-    public $lname_mandatory;
-    public $pronouns_mandatory;
-    public $email_mandatory;
-    public $work_phone_mandatory;
-    public $cell_phone_mandatory;
-    public $upload_cv_mandatory;
-    public $custom_question_1;
-    public $custom_question_1_mandatory;
-    public $custom_question_2;
-    public $custom_question_2_mandatory;
-    public $custom_question_3;
-    public $custom_question_3_mandatory;
-    public $custom_question_4;
-    public $custom_question_4_mandatory;
-    public $custom_question_5;
-    public $custom_question_5_mandatory;
+    public $applier_id;
+    public $resume_id;
+    public $cletter_id;
 
     /**
-     * Sets the application requirements of a job.
+     * Create a new applciation for a specific user applying to a specific job.
      *
-     * @return int returns the number of rows created in the DB. Expected to be 1.
+     * @return int returns the number of rows affected.
      */
-    public function createApplicationRules()
+    public function create()
     {
-        // prepare the SQL DML Statements
-        $stmt = $this->_connection->prepare(
-            "INSERT INTO application_rule (jid, prefix_mandatory, fname_mandatory, lname_mandatory, pronouns_mandatory, email_mandatory, work_phone_mandatory, 
-            cell_phone_mandatory, upload_cv_mandatory, custom_question_1, custom_question_1_mandatory, custom_question_2, custom_question_2_mandatory, custom_question_3, 
-            custom_question_3_mandatory, custom_question_4, custom_question_4_mandatory, custom_question_5, custom_question_5_mandatory) 
-                  VALUES (:jid, :prefix_mandatory, :fname_mandatory, :lname_mandatory, :pronouns_mandatory, :email_mandatory, :work_phone_mandatory, :cell_phone_mandatory, 
-                  :upload_cv_mandatory, :custom_question_1, :custom_question_1_mandatory, :custom_question_2, :custom_question_2_mandatory, :custom_question_3, 
-                  :custom_question_3_mandatory, :custom_question_4, :custom_question_4_mandatory, :custom_question_5, :custom_question_5_mandatory);"
-        );
-
-        // supply the replacement parameters to the query
-        $stmt->execute([
-            'jid' => $this->jid, 'prefix_mandatory' => $this->prefix_mandatory, 'fname_mandatory' => $this->fname_mandatory, 'lname_mandatory' => $this->lname_mandatory,
-            'pronouns_mandatory' => $this->pronouns_mandatory, 'email_mandatory' => $this->email_mandatory, 'work_phone_mandatory' => $this->work_phone_mandatory,
-            'cell_phone_mandatory' => $this->cell_phone_mandatory, 'upload_cv_mandatory' => $this->upload_cv_mandatory, 'custom_question_1' => $this->custom_question_1,
-            'custom_question_1_mandatory' => $this->custom_question_1_mandatory, 'custom_question_2' => $this->custom_question_2, 'custom_question_2_mandatory' => $this->custom_question_2_mandatory,
-            'custom_question_3' => $this->custom_question_3, 'custom_question_3_mandatory' => $this->custom_question_3_mandatory, 'custom_question_4' => $this->custom_question_4,
-            'custom_question_4_mandatory' => $this->custom_question_4_mandatory, 'custom_question_5' => $this->custom_question_5, 'custom_question_5_mandatory' => $this->custom_question_5_mandatory
-        ]);
+        $stmt = $this->_connection->prepare("INSERT INTO application (jid, applier_id, resume_id, cletter_id) VALUES (:jid, :applier_id, :resume_id, :cletter_id);");
+        $stmt->execute(['jid' => $this->jid, 'applier_id' => $this->applier_id, 'resume_id' => $this->resume_id, 'cletter_id' => $this->cletter_id]);
 
         return $stmt->rowCount();
     }
 
     /**
-     * Retrieves the Job application rules element from the Database that belongs to a specific job.
+     * Gets the job ids of all the jobs that the user applied to.
      *
-     * @return array If given job id matches, return the record. Otherwise return false.
+     * @return array all jids.
      */
-    public function getRulesByJobId()
+    public function getJobIdsUserAppliedTo()
     {
-        $stmt = $this->_connection->prepare("SELECT * FROM application_rule WHERE jid = :jid;");
-        $stmt->execute(['jid' => $this->jid]);
+        $stmt = $this->_connection->prepare("SELECT jid FROM application WHERE applier_id = :applier_id;");
+        $stmt->execute(['applier_id' => $this->applier_id]);
 
-        $stmt->setFetchMode(PDO::FETCH_CLASS, "Application");
-        return $stmt->fetchAll();
-    }
-
-    /**
-     * Edits the application requirements of a job.
-     *
-     * @return int returns the number of rows created in the DB. Expected to be 1.
-     */
-    public function editApplicationRules()
-    {
-        // prepare the SQL DML Statements
-        $stmt = $this->_connection->prepare(
-            "UPDATE application_rule SET jid = :jid, prefix_mandatory = :prefix_mandatory, fname_mandatory = :fname_mandatory, lname_mandatory = :lname_mandatory, 
-            pronouns_mandatory = :pronouns_mandatory, email_mandatory = :email_mandatory, work_phone_mandatory = :work_phone_mandatory, cell_phone_mandatory = :cell_phone_mandatory, 
-                  upload_cv_mandatory = :upload_cv_mandatory, custom_question_1 = :custom_question_1, custom_question_1_mandatory = :custom_question_1_mandatory, 
-                  custom_question_2 = :custom_question_2, custom_question_2_mandatory = :custom_question_2_mandatory, custom_question_3 = :custom_question_3, 
-                  custom_question_3_mandatory = :custom_question_3_mandatory, custom_question_4 = :custom_question_4, custom_question_4_mandatory = :custom_question_4_mandatory, 
-                  custom_question_5 = :custom_question_5, custom_question_5_mandatory = :custom_question_5_mandatory
-            WHERE jid = :jid;"
-        );
-
-        // supply the replacement parameters to the query
-        $stmt->execute([
-            'jid' => $this->jid, 'prefix_mandatory' => $this->prefix_mandatory, 'fname_mandatory' => $this->fname_mandatory, 'lname_mandatory' => $this->lname_mandatory,
-            'pronouns_mandatory' => $this->pronouns_mandatory, 'email_mandatory' => $this->email_mandatory, 'work_phone_mandatory' => $this->work_phone_mandatory,
-            'cell_phone_mandatory' => $this->cell_phone_mandatory, 'upload_cv_mandatory' => $this->upload_cv_mandatory, 'custom_question_1' => $this->custom_question_1,
-            'custom_question_1_mandatory' => $this->custom_question_1_mandatory, 'custom_question_2' => $this->custom_question_2, 'custom_question_2_mandatory' => $this->custom_question_2_mandatory,
-            'custom_question_3' => $this->custom_question_3, 'custom_question_3_mandatory' => $this->custom_question_3_mandatory, 'custom_question_4' => $this->custom_question_4,
-            'custom_question_4_mandatory' => $this->custom_question_4_mandatory, 'custom_question_5' => $this->custom_question_5, 'custom_question_5_mandatory' => $this->custom_question_5_mandatory
-        ]);
-
-        return $stmt->rowCount();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }

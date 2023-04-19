@@ -36,6 +36,49 @@ CREATE TABLE `chat` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `resume`
+--
+
+DROP TABLE IF EXISTS `resume`;
+CREATE TABLE `resume` (
+                             `id` int(11) NOT NULL,
+                             `uid` int(11) NOT NULL,
+							 `file_name` TINYTEXT NOT NULL,
+							 `resume` BLOB NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cletter`
+--
+
+DROP TABLE IF EXISTS `cletter`;
+CREATE TABLE `cletter` (
+                             `id` int(11) NOT NULL,
+                             `uid` int(11) NOT NULL,
+							 `file_name` TINYTEXT NOT NULL,
+							 `cletter` BLOB NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `application`
+--
+
+DROP TABLE IF EXISTS `application`;
+CREATE TABLE `application` (
+                             `id` int(11) NOT NULL,
+                             `jid` int(11) NOT NULL,
+                             `applier_id` int(11) NOT NULL,
+                             `resume_id` int(11) NOT NULL,
+                             `cletter_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `company`
 --
 
@@ -305,6 +348,30 @@ CREATE TABLE `notification` (
 --
 
 --
+-- Indexes for table `resume`
+--
+ALTER TABLE `resume`
+    ADD PRIMARY KEY (`id`),
+    ADD KEY `RESUME_UID_FK_TO_USER_ID` (`uid`);
+	
+--
+-- Indexes for table `cletter`
+--
+ALTER TABLE `cletter`
+    ADD PRIMARY KEY (`id`),
+    ADD KEY `CLETTER_UID_FK_TO_USER_ID` (`uid`);
+
+--
+-- Indexes for table `application`
+--
+ALTER TABLE `application`
+    ADD PRIMARY KEY (`id`),
+    ADD KEY `APLICATION_JID_FK_TO_JOBS_ID` (`jid`),
+    ADD KEY `APLICATION_APPLIER_ID_FK_TO_USER` (`applier_id`),
+    ADD KEY `APLICATION_RESUME_ID_FK_TO_RESUME` (`resume_id`),
+    ADD KEY `APLICATION_CLETTER_ID_FK_TO_CLETTER` (`cletter_id`);
+
+--
 -- Indexes for table notification
 --
 ALTER TABLE `notification`
@@ -424,6 +491,24 @@ ALTER TABLE `jobs`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table cletter
+--
+ALTER TABLE `cletter`
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+	
+--
+-- AUTO_INCREMENT for table resume
+--
+ALTER TABLE `resume`
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table application
+--
+ALTER TABLE `application`
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `chat`
@@ -572,3 +657,24 @@ COMMIT;
 --
 ALTER TABLE `jobs`
     ADD CONSTRAINT `JOBS_CREATOR_UID_FK_TO_USER_ID` FOREIGN KEY (`creator_uid`) REFERENCES `user` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `resume`
+--
+ALTER TABLE `resume`
+    ADD CONSTRAINT `RESUME_UID_FK_TO_USER_ID` FOREIGN KEY (`uid`) REFERENCES `user` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `cletter`
+--
+ALTER TABLE `cletter`
+    ADD CONSTRAINT `CLETTER_UID_FK_TO_USER_ID` FOREIGN KEY (`uid`) REFERENCES `user` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `application`
+--
+ALTER TABLE `application`
+    ADD CONSTRAINT `APLICATION_JID_FK_TO_JOBS_ID` FOREIGN KEY (`jid`) REFERENCES `jobs` (`id`) ON DELETE CASCADE,
+	ADD CONSTRAINT `APLICATION_APPLIER_ID_FK_TO_USER` FOREIGN KEY (`applier_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
+	ADD CONSTRAINT `APLICATION_RESUME_ID_FK_TO_RESUME` FOREIGN KEY (`resume_id`) REFERENCES `resume` (`id`) ON DELETE CASCADE,
+	ADD CONSTRAINT `APLICATION_CLETTER_ID_FK_TO_CLETTER` FOREIGN KEY (`cletter_id`) REFERENCES `cletter` (`id`) ON DELETE CASCADE;
