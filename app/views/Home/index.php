@@ -23,7 +23,7 @@
         </div>
 
     </div>
-    <h3>Home Page Content</h3>
+   
 
     <!-- CONTENT END-->
 

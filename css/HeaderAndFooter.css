@@ -21,7 +21,7 @@ h1{
     }
 
     .content {
-      padding-top: 10%;
+      padding-top: 130px;
       height: 100%;
       background-color: white;
       display: grid;
@@ -269,16 +269,18 @@ nav ul li:hover .dropdown ul li {
 
   }
 
-@media screen and (max-width: 1398px) {
+@media screen and (max-width: 1260px) {
   .logo {
-    width:10%;
-    height:10%;
-    margin-left: 5%;
+    width:100px;
+    height:100px;
+    margin-left: 20px;
   }
 }
 
 
-@media screen and (min-width: 1399px) {
+@media screen and (min-width: 1260px) {
+
+	
   .nav-toggle-label {
     display: none;
   }
@@ -290,7 +292,7 @@ nav ul li:hover .dropdown ul li {
 
   .logo {
     grid-column: 2 / 3;
-    margin-left: 10%;
+    margin-left: 20px;
   }
 
   nav {
@@ -298,7 +300,7 @@ nav ul li:hover .dropdown ul li {
 
     /* the following lines are not from my video, but add Edge support */
     position: relative;
-    text-align: left;
+    text-align: middle;
     transition: none;
     transform: scale(1,1);
     background: none;

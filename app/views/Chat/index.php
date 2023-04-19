@@ -11,7 +11,7 @@
         <h3 class="content-header">Messaging</h3>
         <div class="container">
             <div class="contact-list">
-                <h1>Contact List</h1>
+                <h1 class="heading1">Contacts</h1>
                 <ul>
                     <?php if(is_array($data) && is_array($data['contacts'])) { ?>
                     <?php foreach ($data['contacts'] as $contact) { ?>
@@ -31,12 +31,12 @@
             </div>
             <div class="chat-container">
                 <div class="chat-tile">
-                    <h1 id="chatTitle">Select a contact to start a chat!</h1>
+                    <h1 id="chatTitle" class ="title1">Select a contact to start a chat!</h1>
                 </div>
 
                 <div class="chat" id="chat"></div>
 
-                <form>
+                <form class ="form1">
                     <input type="text" name="message" id="message" class="text_input" placeholder="Type your message here..." />
                     <input type="file" name="file" id="file" class="attachment_input" />
                     <button type="submit" name="submit" id="submit">Send</button>
