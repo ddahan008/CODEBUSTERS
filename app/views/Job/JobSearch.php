@@ -36,9 +36,20 @@
             <div class="Job-main-box">
                 <div class="Job-list-box">
                     <?php
-                    if (is_array($data)) {
-                        foreach ($data as $job) {
+                    if (is_array($data['jobs'])) {
+                        foreach ($data['jobs'] as $job) {
                             $title = $job->title;
+                            $already_applied = false;
+
+                            if (is_array($data['already_applied'])) {
+                                for ($idx = 0; $idx < count($data['already_applied']); $idx++) {
+                                    if ($data['already_applied'][$idx]['jid'] == $job->id) {
+                                        $already_applied = true;
+                                    }
+                                }
+                            }
+
+
                             if ($job->easy_apply == 1) {
                                 $title .= ' <br><span class="Job-list-easy-apply">Easily Apply</span>';
                             }
@@ -46,7 +57,7 @@
                                 $title .= ' <br><span class="Job-list-apply-on-web">Apply On Company Website</span>';
                             }
                             echo '
-                                <div class="Job-list-item" onclick="getDescription(this, \'' . $job->id . '\', \'' . $job->title . '\', \'' . $job->location . '\', \'' . $job->deadline . '\', \'' . $job->descr . '\');">
+                                <div class="Job-list-item" onclick="getDescription(this, \'' . $job->id . '\', \'' . $job->title . '\', \'' . $job->location . '\', \'' . $job->deadline . '\', \'' . $job->descr . '\', '. $already_applied .');">
                                     <div class="Job-list-logo">
                                         <img src="../../../assets/Jobs/temp_company_logo.png" alt="temp_company_logo">
                                     </div>
@@ -64,7 +75,7 @@
                 <div class="Job-misc-box" id="Job-overview-box">
                     <div class="Job-misc-title-box">
                         <h3>Job Overview</h3>
-                        <button type="button" class="Job-edit-btn " name="apply" id="apply"><a class="Job-overview-content" href="#">APPLY</a></button>
+                        <button type="button" class="Job-edit-btn " name="apply" id="apply"><a class="Job-overview-content" href="">APPLY</a></button>
                     </div>
                     <div class="Job-misc-input-box">
                         <h5 class="Job-overview-content"></h5>
@@ -78,16 +89,9 @@
     </div>
 </div>
 
-<script src="../../../js/jquery-3.6.4.min.js"></script>
-
 <script>
 
-    var lastID;
-
-    function updateCookie(id){
-        var cookieContent = document.cookie + "," + id;
-    }
-    function getDescription(thisLmnt, id, title, location, deadline, description) {
+    function getDescription(thisLmnt, id, title, location, deadline, description, already_applied) {
         var lmnts = document.getElementsByClassName("Job-list-item");
 
         for (idx = 0; idx < lmnts.length; idx++) {
@@ -104,16 +108,21 @@
         }
         var overviewContent = document.getElementsByClassName("Job-overview-content");
 
-        overviewContent[0].href = "";
+        if (already_applied) {
+            overviewContent[0].innerHTML = "Applied";
+            document.getElementById("apply").style.backgroundColor = "#e95656";
+        }
+        else {
+            overviewContent[0].innerHTML = "Apply";
+            document.getElementById("apply").style.backgroundColor = "#18A0FB";
+            overviewContent[0].href = "/Job/Apply/" + id;
+        }
+
         overviewContent[1].innerHTML = title;
         overviewContent[2].innerHTML = "Location: " + location;
         overviewContent[3].innerHTML = "Deadline: " + deadline;
         overviewContent[4].innerHTML = "Description: " + description;
-        
-        lastID = id;
     }
-    $("#apply").click(updateCookie(lastID));
-
 
 </script>
 
