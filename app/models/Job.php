@@ -46,7 +46,7 @@ class Job extends Model
      *
      * @return array If both matches, return the record. Otherwise return false.
      */
-    public function getJobByJobId()
+    public function getJobByJobIdForCreator()
     {
         $stmt = $this->_connection->prepare("SELECT * FROM jobs WHERE id = :id AND creator_uid = :creator_uid;");
         $stmt->execute(['id' => $this->id, 'creator_uid' => $this->creator_uid]);
