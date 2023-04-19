@@ -1,6 +1,7 @@
 .profile {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .profile img {
@@ -10,12 +11,6 @@
   object-fit: cover;
 }
 
-.buttons {
-  display: flex;
-  flex-direction: column;
-  padding-left: 50%;
-}
-
 .buttons button {
   padding: 10px;
   margin-bottom: 10px;
@@ -23,7 +18,12 @@
   border-radius: 4px;
   color: #fff;
   cursor: pointer;
-  width: 300%;
+  width: 100%;
+}
+
+.buttons button a {
+  text-decoration: none;
+  color: black;
 }
 
 .edit {
