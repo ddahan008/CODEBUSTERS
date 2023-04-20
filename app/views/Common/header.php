@@ -56,8 +56,6 @@
                 }
                 ?>
             </ul>
-            <a href="HomePage.html"><img class="logo" src="assets/fr.png" alt="french" width="50%" height="auto" style="float:right"></a>
-            <a href="HomePage.html"><img class="logo" src="assets/eng.png" alt="english" width="50%" height="auto" style="float:right"></a>
         </nav>
         <label for="nav-toggle" class="nav-toggle-label">
             <span></span>
