@@ -130,18 +130,6 @@ nav ul li:hover .dropdown ul li {
   padding:10px;
 }
 
-
-
-.aisle-header {
-  background-color: #111A1A;
-    color: white;
-    padding-top: 15px;
-    padding-bottom: 10px;
-    border: 2px solid black;
-    margin-bottom: -5px;
-}
-
-
 /* Here begins the placement of font*/
 .item{
   margin-top: 5px;

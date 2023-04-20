@@ -1,0 +1,46 @@
+.form-format {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-pic{
+    margin-top: 10px;
+  }
+
+.confirm{
+    margin-top: 50px;
+    background: #18b3fb;
+    border-radius: 6px;
+    border: none;
+    color: #ffffff;
+    width: 150px;
+    height: 40px;
+    transition: 0.3s; 
+    font-size: medium;
+}
+#preview {
+    margin-top: 10px;
+    max-width: 200px;
+    max-height: 200px;
+    margin-left: 20px;
+  }
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="file"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+  width: 200px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="file"]:focus {
+  outline: none;
+  border-color: #007bff;
+}

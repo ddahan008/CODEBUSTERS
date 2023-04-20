@@ -2,7 +2,6 @@
 
     <link href="../../../css/MyProfile.css" rel="stylesheet" type="text/css"/>
 
-
     <div class="content">
         <!--CONTENT START-->
 
