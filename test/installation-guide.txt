@@ -31,8 +31,9 @@ Create a file named phpunit.xml in the project directory and paste this:
     </phpunit>
 
 Make test cases inside Tests folder. The test case php file should end with "Test": blablablaTest.php
-Make sure to change database to to the test database
-Make sure to create a user with Username Test and password test beforehand
+Make sure to create test users as shown in Test User Guide.JPG
+Make sure to comment out all headers
+Make sure to have the correct path to the test.pdf file in testApplyWithNewUpload() for JobControllerTest
 
 Run this to test: ./vendor/bin/phpunit --coverage-html test/report --coverage-filter app
 

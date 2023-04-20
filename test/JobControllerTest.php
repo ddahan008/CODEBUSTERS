@@ -13,6 +13,7 @@ CONST _RECRUITERID = 2;
 CONST _RECRUITERYPE = 1;
 CONST _ZERO = 0;
 CONST _ONE = 1;
+CONST _JID = 1;
 $_POST['title'] = "Test";
 $_POST['deadline'] = "2011-11-11";
 $_POST['location'] = "Test";
@@ -87,4 +88,46 @@ class JobControllerTest extends TestCase
         $this->assertTrue(true);
     }
 
+    public function testApply() {
+        $test = new JobController();
+        $test->apply(_JID);
+
+        $this->assertTrue(true);
+    }
+
+    public function testApplyWithNewUpload() {
+        $_POST['apply'] = true;
+        unset($_POST['prevresume']);
+        unset($_POST['prevCL']);
+        $_POST['newresume'] = true;
+        $_POST['newCL'] = true;
+        $_FILES['resume']['name'] = 'test.pdf';
+        $_FILES['resume']['error'] = 0;
+        $_FILES['resume']['tmp_name'] = 'E:\PHP\htdocs\CODEBUSTERS\test\test.pdf';
+        $_FILES['cletter']['name'] = 'test.pdf';
+        $_FILES['cletter']['error'] = 0;
+        $_FILES['cletter']['tmp_name'] = 'E:\PHP\htdocs\CODEBUSTERS\test\test.pdf';
+        $_SESSION["user_id"] = _SEEKERID;
+
+        $test = new JobController();
+        $test->apply(_JID);
+
+        $this->assertTrue(true);
+    }
+
+    public function testApplyWithOldUpload() {
+        $_POST['apply'] = true;
+        unset($_POST['newresume']);
+        unset($_POST['newCL']);
+        $_POST['prevresume'] = true;
+        $_POST['prevCL'] = true;
+        $_POST['prevresumeid'] = 1;
+        $_POST['prevCLid'] = 1;
+        $_SESSION["user_id"] = _SEEKERID;
+
+        $test = new JobController();
+        $test->apply(_JID);
+
+        $this->assertTrue(true);
+    }
 }
