@@ -13,11 +13,11 @@
                     <div class="profile">
                         <img src="../../../assets/Connections/user-01.jpg" alt="Profile Picture">
                         <div class="buttons">
-                            <button class="edit"><a href="/Profile/Edit/">Edit</a></button>
+                        <a href="/Profile/Edit/"><button class="edit">Edit</button></a>
                         <?php if ($data->public == 0) { // my profile is private ?>
-                            <button type="button" id="makePublic" class="btn btn-lg btn-success"><a href="/Profile/UpdateVisibility/1">Make Public</a></button>
+                            <a href="/Profile/UpdateVisibility/1"><button type="button" id="makePublic" class="btn btn-lg btn-success">Make Public</button></a>
                         <?php   } else { ?>
-                            <button type="button" id="makePrivate" class="btn btn-lg btn-danger"><a href="/Profile/UpdateVisibility/0">Make Private</a></button>
+                            <a href="/Profile/UpdateVisibility/0"><button type="button" id="makePrivate" class="btn btn-lg btn-danger">Make Private</button></a>
                         <?php   } ?>
                         </div>
                     </div>

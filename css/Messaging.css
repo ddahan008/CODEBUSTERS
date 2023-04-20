@@ -35,7 +35,7 @@ background-color: #4CAF50;
 
 
 .chat-container {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: white;
     border-radius: 25px;
     box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.7);
     overflow: hidden;
@@ -57,7 +57,7 @@ background-color: #4CAF50;
 }
 
 .message {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: white;
     border-radius: 50px;
     box-shadow: 0px 15px 5px 0px rgba(0, 0, 0, 0.5);
     position: relative;
@@ -208,10 +208,7 @@ body {
   padding: 20px;
   overflow-y: scroll;
 }
-.chat form {
-  display: flex;
-  margin-top: 20px;
-}
+
 .chat form input[type="text"] {
   flex: 1;
   padding: 10px;
@@ -277,7 +274,6 @@ body {
   border-radius: 5px 0 0 5px;
   cursor: pointer;
 }
-
 @media only screen and (max-width: 1360px) {
 	.heading1{
 		 font-size: 20px;
@@ -309,20 +305,6 @@ body {
   box-sizing: 90px;
 }
 
-.chat-container {
-    background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 25px;
-    
-    overflow: hidden;
-    padding: 15px;
-    position: relative;
-    width: 320px;
-    max-width: 100%;
-    margin: 0px ;
-	text-align: left;
-	
-}
-
 .title1{
 	
 	font-size:16px;
@@ -332,7 +314,5 @@ body {
     height: 100%;
 	min-height:500px;
 }
-.form1{
-	margin-bottom:20px;
-}
+
   }
