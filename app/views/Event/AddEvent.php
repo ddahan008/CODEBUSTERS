@@ -1,29 +1,36 @@
 <?php include 'app/views/Common/header.php' ?>
 
+    <link href="../../../css/MyProfile.css" rel="stylesheet" type="text/css"/>
+    <link href="../../../css/edit.css" rel="stylesheet" type="text/css"/>
+
     <div class="content">
-    <form method="post">
-        <h1>Create Event</h1>
-        <br/>
-        <h3 class="mb-4 font-weight-normal">Event Info</h3>
+        <!--CONTENT START-->
 
-        <div class="form-label-event">
-            <input type="text" name="name" class="form-control" id="name" placeholder="Event Name" required/>
-            <label for="name">* Event Name</label>
+        <h3 class="content-header">Create Event</h3>
+        <div class="container">
+        <form class="form-format" method="post">
+        <div class="form-group">
+          <label for="name">Event Name:</label>
+          <br>
+          <input type="text" name="name" class="form-control" id="name" placeholder="Event Name" required/>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="desc">Event Description:</label>
+          <br>
+          <input type="text" name="descr" class="form-control" id="descr" placeholder="Description" required/>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="date">Event (date and time):</label>
+          <br>
+          <input type="datetime-local" name="date" class="form-control" id="date" placeholder="Date and Time" required/>
         </div>
 
-        <div class="form-label-event">
-            <input type="text" name="descr" class="form-control" id="descr" placeholder="Description" required/>
-            <label for="descr">* Event Description</label>
-        </div>
-
-        <div class="form-label-event">
-            <input type="datetime-local" name="date" class="form-control" id="date" placeholder="Date and Time" required/>
-            <label for="date">Event (date and time):</label>
-        </div>
-
-        <button type="submit" name="action">Create Event</button>
-        <a href="/Event/">Cancel</a>
+        <button type="submit" name="action" class="create">Create Event</button>
+        <button class="cancel" onclick="window.location.href='/Event'">Cancel</button>
     </form>
-    </div>
+        </div>
+        <!-- CONTENT END-->
 
 <?php include 'app/views/Common/footer.php' ?>

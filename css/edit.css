@@ -19,6 +19,30 @@
     transition: 0.3s; 
     font-size: medium;
 }
+.create{
+  margin-top: 30px;
+  background: #18b3fb;
+  border-radius: 6px;
+  border: none;
+  color: #ffffff;
+  width: 150px;
+  height: 30px;
+  transition: 0.3s; 
+  font-size: medium;
+}
+
+.cancel{
+  margin-top: 10px;
+  background: #fb1818;
+  border-radius: 6px;
+  border: none;
+  color: #ffffff;
+  width: 150px;
+  height: 30px;
+  transition: 0.3s; 
+  font-size: medium;
+
+}
 #preview {
     margin-top: 10px;
     max-width: 200px;
