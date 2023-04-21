@@ -5,12 +5,14 @@ a {
 
 .Job-mother-box {
     margin-top: 60px;
+
 }
 
 .Job-main-box {
-    display: flex;
+    display:flex ;
     width: 100%;
     margin-top: 40px;
+	
 }
 
 .Job-list-box {
@@ -20,6 +22,7 @@ a {
     border-width: thin;
     border-radius: 39px;
     padding: 15px;
+	
 }
 
 .Job-misc-box {
@@ -29,6 +32,7 @@ a {
     border: solid black;
     border-width: thin;
     border-radius: 39px;
+	
 }
 
 .Job-misc-title-box {
@@ -86,6 +90,7 @@ a {
     border-width: thin;
     border-radius: 33px;
     position: relative;
+	margin-right:-10px;
 }
 
 .Job-list-logo {
