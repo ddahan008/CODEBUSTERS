@@ -392,3 +392,17 @@ a {
     text-align: end;
     justify-content: space-between;
 }
+@media only screen and (max-width: 1000px) {
+	.Job-filter-box {
+    width: 50%;
+    margin-left: 5px;
+    border: solid black;
+    border-width: thin;
+    border-radius: 39px;
+    padding: 15px;
+    padding: 20px ;
+    text-align: center;
+    height: 130px;
+}
+	
+}
