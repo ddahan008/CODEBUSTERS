@@ -75,33 +75,40 @@ header {
 }
 nav {
   position: absolute;
-  text-align: left;
+  text-align: middle;
   top: 100%;
   left: 0;
+
   background: white;
   width: 100%;
   transform: scale(1, 0);
+  
 }
 nav ul {
+	   text-align: middle;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 nav li {
+	   text-align: middle;
   margin-bottom: 1em;
   margin-left: 1em;
 }
 nav a {
+	  
   color: black;
   text-decoration: none;
   font-size: 1.2rem;
 
 }
 nav a:hover {
+	 text-align: right;
   color: #333;
   background: #ddd;
 }
 .nav-toggle:checked ~ nav {
+	
   transform: scale(1,1);
 }
 .nav-toggle:checked ~ nav a {
@@ -109,16 +116,45 @@ nav a:hover {
   transition: opacity 200ms ease-in-out 200ms;
 }
 .dropdown {
+	
     z-index: 2;
   display: none;
+    text-align: right;
+	
 }
 nav ul li:hover .dropdown {
-  display: block;
-  position:absolute;
-  background: white;
-  margin-top: 0px;
-  margin-left: -30px;
+  display: flex;
+  position:fixed;
+  background: #f2f2f2;
+ 
+ 
+  text-align: right;
+
 }
+
+
+
+@media only screen and (max-width: 1259px) {
+	nav ul li:hover .dropdown {
+  display: flex;
+  position:fixed;
+ 
+ 
+  margin-left: 40%;
+  text-align: right;
+}
+
+nav {
+
+    box-shadow: 0px 5px 5px -4px #000000;
+}
+
+
+	
+}
+
+
+
 nav ul li:hover .dropdown ul {
   display: block;
   margin: 10px;
@@ -288,7 +324,7 @@ nav ul li:hover .dropdown ul li {
 
     /* the following lines are not from my video, but add Edge support */
     position: relative;
-    text-align: middle;
+    text-align: right;
     transition: none;
     transform: scale(1,1);
     background: none;
