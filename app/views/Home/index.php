@@ -7,24 +7,59 @@
         <div class="slideshow-container">
             <!--first slide content-->
             <div class="mySlides fade">
-
-                <img src="../../../assets/main.jpg" alt="Jobsters" height="650px" style="width: 100%">
-                <div class="text">Welcome to<h2 class="slide-text">JOBSTERS</h2>Your career in our claws!</div>
+				<div class ="image1" ></div>
+               
+                <div class="text">
+					Welcome to
+					<h2 class="slide-text">JOBSTERS</h2>
+					Your career in our claws!
+				</div>
             </div>
             <!--second slide content-->
             <div class="mySlides fade">
-
-                <img src="../../../assets/main2.jpg" alt="Network" height="650px" style="width: 100%">
-                <div class="text-two"><h2 class="slide-text">NETWORKING</h2></div>
+				<div class ="image2" ></div>
+                
+                <div class="text">
+					
+					<h2 class="slide-text">NETWORKING</h2>
+					<div class="copyright1">
+					When you network effectively, you open up a
+					world of possibilities for your career. 
+					You can learn about new industries, expand your skill set,
+					and even find mentors who can guide you to success. And the best
+					part? Networking can be fun and rewarding, as you meet new people and 
+					build lasting relationships.
+					</div>
+				</div>
             </div>
 
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
+			
+			
+			
+			
         </div>
 
-    </div>
-   
 
+
+    </div>
+   <div class="row1">
+                <div class="section2">
+
+
+				</div>
+				
+                <div class="section3">
+					
+					<h2 class="">CONNECT WITH PROFESSIONALS</h2>
+					<div class="">
+Job networking is a powerful tool for finding job opportunities and building meaningful connections in your industry. By connecting with other professionals, you can tap into their knowledge and experience, learn about job openings before they are advertised, and even get recommendations for positions that match your skills and interests.
+					<div class="hyphen">—</div>
+					
+					</div>
+				</div>	
+	</div>				
     <!-- CONTENT END-->
 
     <script>
