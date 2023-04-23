@@ -5,12 +5,14 @@ a {
 
 .Job-mother-box {
     margin-top: 60px;
+
 }
 
 .Job-main-box {
-    display: flex;
+    display:flex ;
     width: 100%;
     margin-top: 40px;
+	
 }
 
 .Job-list-box {
@@ -20,6 +22,7 @@ a {
     border-width: thin;
     border-radius: 39px;
     padding: 15px;
+	
 }
 
 .Job-misc-box {
@@ -29,6 +32,7 @@ a {
     border: solid black;
     border-width: thin;
     border-radius: 39px;
+	
 }
 
 .Job-misc-title-box {
@@ -86,6 +90,7 @@ a {
     border-width: thin;
     border-radius: 33px;
     position: relative;
+	margin-right:-10px;
 }
 
 .Job-list-logo {
@@ -386,4 +391,18 @@ a {
 .Job-align-end {
     text-align: end;
     justify-content: space-between;
+}
+@media only screen and (max-width: 1000px) {
+	.Job-filter-box {
+    width: 50%;
+    margin-left: 5px;
+    border: solid black;
+    border-width: thin;
+    border-radius: 39px;
+    padding: 15px;
+    padding: 20px ;
+    text-align: center;
+    height: 130px;
+}
+	
 }

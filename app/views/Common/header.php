@@ -17,7 +17,7 @@
         <nav>
             <ul>
                 <li><a href="/Home/">HOME</a></li>
-                <li><a href="/Network/">NETWORK</a>
+                <li><a href="/Network/">NETWORK▾</a>
                     <div class="dropdown">
                         <ul>
                             <li><a href="/People/">People</a></li>
@@ -28,7 +28,7 @@
                 </li>
                 <li><a href="/Job/">JOBS</a></li>
                 <li><a href="/Notification/">NOTIFICATIONS</a></li>
-                <li><a href="/Explore/">EXPLORE</a>
+                <li><a href="/Explore/">EXPLORE▾</a>
                     <div class="dropdown">
                         <ul>
                             <li><a href="/Group/">Groups</a></li>
@@ -38,7 +38,7 @@
                     </div>
                 </li>
                 <li> <a href="/Chat/">MESSAGES</a></li>
-                <li> <a href="/Profile/">USER</a>
+                <li> <a href="/Profile/">USER▾</a>
                     <div class="dropdown">
                         <ul>
                             <li><a href="/Setting/">Settings</a></li>
