@@ -22,14 +22,7 @@
                 <div class="text">
 					
 					<h2 class="slide-text">NETWORKING</h2>
-					<div class="copyright1">
-					When you network effectively, you open up a
-					world of possibilities for your career. 
-					You can learn about new industries, expand your skill set,
-					and even find mentors who can guide you to success. And the best
-					part? Networking can be fun and rewarding, as you meet new people and 
-					build lasting relationships.
-					</div>
+		
 				</div>
             </div>
 
